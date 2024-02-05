@@ -1,0 +1,37 @@
+Kisshan:
+  I had a simple idea for a game which basically scrapes either twitter or some other list of quotes and asks who said the quote, (eg. "who said it, dumbledore or socrates?")
+  could also do something like the sports heads games?(can u add some game photos?)
+
+Quillan: Here are some of my suggestions. I think we can add some obstacles with different effects to the field. They can move in a regular pattern, and different obstacles 
+have different effects, such as some obstacles making the ball drop directly, while others may cause the ball to bounce normally. We can also add some props on the screen 
+that are triggered only when the ball touches them, such as a prop that connects the left and right edges of the screen (the ball will no longer bounce off the edges but 
+will pass through, appearing on the other side), and props that increase the player's strength or movement speed.
+
+challenges:
+1. physics system
+2. two real-players system
+3. where to find game sources? self made or ask chatgpt for help?
+
+Ming:
+I prefer to do a rogue and pixel game. And this is a link(https://yq.chillyroom.com/da) access to a game called soul knight, and there are some interesting game videos. It is a popular and cool game, with magic
+and weapon system. As for me, I wish we can resolve together to make a great game which can be inserted into our resumes.
+
+Quillan: Here are some of my suggestions. We can create a background story as follows: The protagonist is an adventurer who continuously takes on missions from the Adventure Guild to subdue monsters. Within the guild, we can introduce several NPCs:
+Intelligence Merchant: Sells information related to monsters.
+Weapon Merchant: Offers a variety of weapons for sale.
+Guild Administrator: Assigns tasks and distributes bounties.
+Potion Merchant: Sells different potions, and the protagonist can only carry three bottles.
+Weapons and armor can be endowed with various attributes to counter specific monsters or survive their attacks. Potions can provide resistance, attribute attack power, and restore health based on their properties.
+We can structure the game with levels presented in the form of missions, where each completed task represents a level.
+
+challenges:
+1. random map design or fixed map design?
+2. shop system
+3. class design 
+
+Jan:
+1) Fly the copter, but with better aesthetics, and unpredictable storms that affect the helicopter. Here's a video of someone playing the original game https://www.youtube.com/watch?v=jWns11JTUe0
+The storms could get worse as the game progresses, could use a shield to deflect the storm
+
+2) Duck Hunt, but with the twist that sometimes the Ducks shoot back and you need to protect yourself. Here's a video of the original https://www.youtube.com/watch?v=towVUgnoMLQ
+

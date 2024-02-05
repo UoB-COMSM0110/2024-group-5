@@ -1,0 +1,8 @@
+The raw rules of naming(refer to java lesson's slide)
+no _ in variable name.
+1. class name: First letter must be capital, new word must start with a capital eg(class MyClass,class Car)
+2. field name: First letter must not be capital, new word must start with a capital
+3. method name: First letter must not be capital, new word must start with a capital
+
+remember the variable name must be related to its' meaning(eg. Button btnStart = new Button());
+remember to leave comments of ur variables.
