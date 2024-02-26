@@ -48,7 +48,7 @@ class Asteriods extends MoveObject{
       botImagesPos[i][1] = height-range+(int)random(range)-50;
     }  
   }
-  
+ 
   
   @Override
   public void move(){

@@ -85,6 +85,11 @@ class GameLevel1 {
       for(int i=0;i<asteriods.asteriodCount;i++){
         image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],100,100);
         image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],100,100);
+        if(helicopter.intersectWithAsteriods(asteriods)){
+              isGameEnd = true;
+              return;
+         }
+        asteriods.setRange((int)random(150));
         asteriods.move();
         if(asteriods.isOutOfBound(asteriods.topImagesPos[i][0])){
           asteriods.topImagesPos[i][0] = width+100;
