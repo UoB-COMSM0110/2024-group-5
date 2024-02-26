@@ -32,6 +32,24 @@ class GameLevel1 {
     public boolean isSetSpeedPlus = false;
     
     
+class GameLevel1 {
+    public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
+    public final Map map1 = new Map("map1.png",0,0,2);
+    public final GoldCoin[] coins = new GoldCoin[10];
+    public final Ufo[] ufos = new Ufo[5];
+    public Lazor lazor = new Lazor();
+    public final Asteriods asteriods = new Asteriods(1);
+    
+    public int maxMissileCount = 5;
+    public final Missile[] missiles = new Missile[maxMissileCount];
+    public int missileCount = 5;
+    
+    
+    private ScorePanel scorePanel = new ScorePanel();
+    private AbilityBox[] boxs = new AbilityBox[3];
+    private boolean isGameEnd = false;
+    private final FastCard[] cards = new FastCard[2];
+    
     public GameLevel1(){
        //init coins
        initCoins();
@@ -54,6 +72,7 @@ class GameLevel1 {
           imageMode(CORNER);
           //draw map
           drawNewMaps();
+          image(map1.getImage(),map1.curX,map1.curY,width,height);
           //draw coins
           for(GoldCoin coin:coins){
             if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
@@ -285,6 +304,10 @@ class GameLevel1 {
               helicopter.hitBeginTime = millis();
             }
             
+            if(helicopter.intersectWithUfo(ufo)){
+              isGameEnd = true;
+              return;
+            }
             if(ufo.isVisiable){
               image(ufo.getImage(),ufo.curX,ufo.curY,100,100);
               ufo.move();
