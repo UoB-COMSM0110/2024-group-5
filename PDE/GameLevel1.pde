@@ -1,3 +1,4 @@
+import java.util.*;
 class GameLevel1 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public final Map map1 = new Map("map1.png",0,0,2);
@@ -5,7 +6,7 @@ class GameLevel1 {
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
-    
+    public int score = 0;
     public int maxMissileCount = 5;
     public final Missile[] missiles = new Missile[maxMissileCount];
     public int missileCount = 5;
@@ -69,7 +70,9 @@ class GameLevel1 {
           helicopter.move(mousePressed);
         }else{
           gameStatus.curLevel = Level.LEVEL_BEGIN;
-          println("You lose!Your Score is "+(scorePanel.score+scorePanel.goldCount*10));
+          score = scorePanel.score+scorePanel.goldCount*10;
+          println("You lose!Your Score is "+score);
+          writeScoreToTxt();
         }
     }
     private void initBoxs(){
@@ -279,4 +282,40 @@ class GameLevel1 {
       }
     }
     
+    public void writeScoreToTxt(){
+      var scores = readHighestScoreFromTxt("score.txt");
+      int[] rank = new int[3];
+      var pq = new PriorityQueue<Integer>(new Comparator<Integer>(){
+        public int compare(Integer a,Integer b){
+          return a<=b?1:-1;
+        }
+      });
+      for(int i=0;i<rank.length;i++){
+        if(i>=scores.size()){
+          rank[i] = 0;
+        }else{
+          rank[i] = scores.get(i);
+        }
+        pq.offer(rank[i]);
+      }
+      pq.offer(score);
+      println(pq);
+      for(int i=1;i<=3;i++){
+        rank[i-1] = pq.remove();
+      }
+      String []finalScore = new String[3];
+      for(int i=0;i<3;i++){
+        finalScore[i] = str(rank[i]);
+      }
+      saveStrings("data/score.txt",finalScore);
+    }
+    
+    public ArrayList<Integer> readHighestScoreFromTxt(String filename){
+      var scores = new ArrayList<Integer>();
+      String[] grades = loadStrings(filename);
+      for(String s:grades){
+        scores.add(int(s));
+      }
+      return scores;
+    }
 }
