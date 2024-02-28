@@ -4,6 +4,7 @@ class GameLevel1 {
     public final GoldCoin[] coins = new GoldCoin[10];
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
+    public final Asteriods asteriods = new Asteriods(1);
     
     public int maxMissileCount = 5;
     public final Missile[] missiles = new Missile[maxMissileCount];
@@ -48,13 +49,6 @@ class GameLevel1 {
           }
           //draw ufo
           drawUfos();
-          //draw helicopter
-          //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
-          drawSpaceship();
-          //draw gamePanel
-          drawGamePanel();
-          //draw abilityBox
-          drawAbilityBoxs();
           //draw fasrCard
           drawFastCards();
           //draw bullet
@@ -63,6 +57,15 @@ class GameLevel1 {
           drawLazor();
           //draw missile;
           drawMissiles();
+          //draw Asteriods
+          drawAsteriods();
+          //draw abilityBox
+          drawAbilityBoxs();
+          //draw gamePanel
+          drawGamePanel();
+          //draw helicopter
+          //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
+          drawSpaceship();
           helicopter.move(mousePressed);
         }else{
           gameStatus.curLevel = Level.LEVEL_BEGIN;
@@ -75,6 +78,28 @@ class GameLevel1 {
         boxs[i] = new AbilityBox();
         boxs[i].curY = 0;
         boxs[i].curX = 100+path+i*75;
+      }
+    }
+    
+    private void drawAsteriods(){
+      for(int i=0;i<asteriods.asteriodCount;i++){
+        image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],100,100);
+        image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],100,100);
+        if(helicopter.intersectWithAsteriods(asteriods)){
+              isGameEnd = true;
+              return;
+         }
+        asteriods.setRange((int)random(150));
+        asteriods.move();
+        if(asteriods.isOutOfBound(asteriods.topImagesPos[i][0])){
+          asteriods.topImagesPos[i][0] = width+100;
+          asteriods.topImagesPos[i][1] = (int)random(asteriods.range)-100;
+        }
+        if(asteriods.isOutOfBound(asteriods.botImagesPos[i][0])){
+          //asteriods.botImagesPos[i][0] = (int)random(width)+50;
+          asteriods.botImagesPos[i][0] = width+100;
+          asteriods.botImagesPos[i][1] = height-asteriods.range+(int)random(asteriods.range)-50;
+        }
       }
     }
     
