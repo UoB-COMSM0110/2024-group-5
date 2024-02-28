@@ -77,6 +77,20 @@ class Helicopter extends MoveObject implements Serializable{
     return false;
   }
   
+  public boolean intersectWithAsteriods(Asteriods asteriods){
+    for(int i=0;i<asteriods.asteriodCount;i++){
+       if(asteriods.topImagesPos[i][0]+50>=curX&&asteriods.topImagesPos[i][0]+50<=curX+100&&asteriods.topImagesPos[i][1]+50>=curY&&asteriods.topImagesPos[i][1]+50<=curY+100){
+          return true;
+        }
+    }
+     for(int i=0;i<asteriods.asteriodCount;i++){
+       if(asteriods.botImagesPos[i][0]+50>=curX&&asteriods.botImagesPos[i][0]+50<=curX+100&&asteriods.botImagesPos[i][1]+50>=curY&&asteriods.botImagesPos[i][1]+50<=curY+100){
+          return true;
+       }
+    }
+    return false;
+  }
+  
   public boolean intersectWithFastCard(FastCard card){
     if(card.curX+50>=curX&&card.curX+50<=curX+100&&card.curY+50>=curY&&card.curY+50<=curY+100){
       return true;
