@@ -1,7 +1,7 @@
 import java.util.*;
 class GameLevel1 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
-    public final Map map1 = new Map("map1.png",0,0,2);
+    public Map map1 = new Map("map1.png",0,0,2);
     public final GoldCoin[] coins = new GoldCoin[10];
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
@@ -11,6 +11,12 @@ class GameLevel1 {
     public final Missile[] missiles = new Missile[maxMissileCount];
     public int missileCount = 5;
     
+    public LightDecrease lightDecrease = new LightDecrease();
+    public boolean isSet = false;
+    public int isLightDecrease = 1;
+    public boolean isTimeUpdate = false;
+    public int time = 0;
+    public boolean isTrigger = false;
     
     private ScorePanel scorePanel = new ScorePanel();
     private AbilityBox[] boxs = new AbilityBox[3];
@@ -48,6 +54,11 @@ class GameLevel1 {
             }
              coin.move();
           }
+          letLightDecrease(1);
+          //update time
+          setLightDecrease();
+          updateTime();
+          setIsLightDecrease();
           //draw ufo
           drawUfos();
           //draw fasrCard
@@ -69,7 +80,7 @@ class GameLevel1 {
           drawSpaceship();
           helicopter.move(mousePressed);
         }else{
-          gameStatus.curLevel = Level.LEVEL_BEGIN;
+          gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
           println("You lose!Your Score is "+score);
           writeScoreToTxt();
@@ -158,8 +169,8 @@ class GameLevel1 {
        textSize(30);
        text("Score:",0,50);
        text(scorePanel.score,90,50);
-       text("Gold:",0,100);
-       text(scorePanel.goldCount,90,100);
+       text("Mineral:",0,100);
+       text(scorePanel.goldCount,120,100);
        scorePanel.updateScore();
     }
     
@@ -317,5 +328,47 @@ class GameLevel1 {
         scores.add(int(s));
       }
       return scores;
+    }
+    
+    public void setLightDecrease(){
+      map1.image.loadPixels();
+      lightDecrease.change(isLightDecrease,map1.image);
+      map1.image.updatePixels();
+    }
+    
+    public void setIsLightDecrease(){
+      if(isTrigger||isLightDecrease == 2&&isTimeUpdate){
+        if(isTrigger){
+          isLightDecrease = 1;
+        }
+        if(millis()-time>=5000){
+          isLightDecrease = 0;
+          setLightDecrease();
+          isLightDecrease = 1;
+          setLightDecrease();
+          isTimeUpdate = false;
+          isTrigger = false;
+          time = 0;
+          isSet = false;
+          println("execute");
+        }
+      }
+    }
+    
+    public void updateTime(){
+      if(isLightDecrease==2&&!isTimeUpdate){
+        isTrigger = true;
+        time = millis();
+        isTimeUpdate = true;
+      }
+    }
+    
+    public void letLightDecrease(int rate){
+      int random = (int)random(101);
+      if(random<=rate&&isSet==false){
+          isLightDecrease = 2;
+          isTrigger = true;
+          isSet=true;
+      }
     }
 }

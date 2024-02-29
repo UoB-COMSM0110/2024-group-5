@@ -1,6 +1,6 @@
 public class GoldCoin extends MoveObject{
   public GoldCoin(){
-    PImage image = loadImage("goldCoin.png");
+    PImage image = loadImage("mineral.png");
     this.setImage(image);
     speed = 10;
   }

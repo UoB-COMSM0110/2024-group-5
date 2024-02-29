@@ -21,6 +21,12 @@ void mousePressed(){
     }
   }
   
+  if(gameStatus.curLevel==Level.LEVEL_END){
+     if(mouseX>=458&&mouseX<=700&&mouseY>=521&&mouseY<=566){
+       gameStatus.curLevel = Level.LEVEL_BEGIN;
+     }
+  }
+  
   if(gameStatus.curLevel==Level.LEVEL_MAP1){
     
   }

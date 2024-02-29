@@ -114,6 +114,7 @@ void setup(){
 }
 
 void draw(){
+  frameRate(120);
   // show background with level
   //init cursor
   cursor(buttonImage.cursor);
@@ -182,5 +183,9 @@ void draw(){
     if(client!=null){
       client.send();
     }
+  }
+  if(gameStatus.curLevel == Level.LEVEL_END){
+    GameResultPanel gameResultPanel = new GameResultPanel();
+    gameResultPanel.createPanel();
   }
 }
