@@ -188,4 +188,8 @@ void draw(){
     GameResultPanel gameResultPanel = new GameResultPanel();
     gameResultPanel.createPanel();
   }
+  if(gameStatus.curLevel == Level.LEVEL_TOTURIAL){
+    ToturialPanel toturialPanel = new  ToturialPanel();
+     toturialPanel.createPanel();
+  }
 }

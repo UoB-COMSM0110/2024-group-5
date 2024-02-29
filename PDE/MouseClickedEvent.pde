@@ -35,6 +35,10 @@ void mousePressed(){
       
   }
   
+  if(gameStatus.curLevel==Level.LEVEL_BEGIN&&isMouseInButtonToturial()){
+    gameStatus.curLevel = Level.LEVEL_TOTURIAL;
+       System.out.println("tutorial button is clicked");
+  }
   
   if(gameStatus.curLevel==Level.LEVEL_SET){
     if(mouseX>=476&&mouseX<=677&&mouseY>=490&&mouseY<=590){
@@ -56,4 +60,8 @@ boolean isMouseInButtonStart(){
 
 boolean isMouseInButtonSet(){
   return mouseX>=width/2-150 && mouseX<=width/2+200 && mouseY>=height/1.4+75 && mouseY<=height/1.4+150;
+}
+
+boolean isMouseInButtonToturial(){
+  return mouseX>=width/2-150 && mouseX<=width/2+200 && mouseY>=height/1.4 && mouseY<=height/1.4+75;
 }

@@ -338,9 +338,7 @@ class GameLevel1 {
     
     public void setIsLightDecrease(){
       if(isTrigger||isLightDecrease == 2&&isTimeUpdate){
-        if(isTrigger){
-          isLightDecrease = 1;
-        }
+        isLightDecrease = 1;
         if(millis()-time>=5000){
           isLightDecrease = 0;
           setLightDecrease();

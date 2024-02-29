@@ -16,7 +16,7 @@ class Asteriods extends MoveObject{
     for(int i=0;i<imageCount;i++){
       images[i] = loadImage(imageUrls[i]);
     }
-    setRange(150);
+    setRange(200);
     setAsteriodCount(20);
     topImagesPos = new int[asteriodCount][2];
     botImagesPos = new int[asteriodCount][2]; 
