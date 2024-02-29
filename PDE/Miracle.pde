@@ -188,7 +188,7 @@ void draw(){
     GameResultPanel gameResultPanel = new GameResultPanel();
     gameResultPanel.createPanel();
   }
-  if(gameStatus.curLevel == Level.LEVEL_TOTURIAL){
+  if(gameStatus.curLevel == Level.LEVEL_RANK){
     ToturialPanel toturialPanel = new  ToturialPanel();
      toturialPanel.createPanel();
   }

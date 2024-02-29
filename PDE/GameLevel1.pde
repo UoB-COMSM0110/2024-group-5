@@ -295,7 +295,7 @@ class GameLevel1 {
     
     public void writeScoreToTxt(){
       var scores = readHighestScoreFromTxt("score.txt");
-      int[] rank = new int[3];
+      int[] rank = new int[5];
       var pq = new PriorityQueue<Integer>(new Comparator<Integer>(){
         public int compare(Integer a,Integer b){
           return a<=b?1:-1;
@@ -311,11 +311,11 @@ class GameLevel1 {
       }
       pq.offer(score);
       println(pq);
-      for(int i=1;i<=3;i++){
+      for(int i=1;i<=5;i++){
         rank[i-1] = pq.remove();
       }
-      String []finalScore = new String[3];
-      for(int i=0;i<3;i++){
+      String []finalScore = new String[5];
+      for(int i=0;i<5;i++){
         finalScore[i] = str(rank[i]);
       }
       saveStrings("data/score.txt",finalScore);
