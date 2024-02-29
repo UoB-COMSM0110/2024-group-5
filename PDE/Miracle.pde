@@ -114,12 +114,14 @@ void setup(){
 }
 
 void draw(){
-  frameRate(120);
+  frameRate(180);
   // show background with level
   //init cursor
   cursor(buttonImage.cursor);
   if(gameStatus.curLevel == Level.LEVEL_BEGIN){
-    gameLevel1 = new GameLevel1();
+    if(gameLevel1.isGameEnd == true||gameLevel1.isGameEnd()){
+      gameLevel1 = new GameLevel1();
+    }
     // play music
     bgmStart(gameStatus.curLevel);
     imageMode(CORNER);

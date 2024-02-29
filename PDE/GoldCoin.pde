@@ -9,7 +9,8 @@ public class GoldCoin extends MoveObject{
   public void move(){
     if(isOutOfBound()){
       isVisiable = true;
-      curX = width;
+      curX = width+(int)random(500);
+      curY = (int)random(height);
     }
     curX-=speed;
   }

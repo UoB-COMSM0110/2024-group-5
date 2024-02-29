@@ -1,10 +1,18 @@
 
 class Ufo extends MoveObject{
    private int speedY = 5;
+   public Explode explode = new Explode();
+   public boolean isDestoryed = false;
    public Ufo(){
-     PImage image = loadImage("ufo.png");
+     //old ui
+     //PImage image = loadImage("ufo.png");
+     images = new PImage[3];
+     for(int i=0;i<images.length;i++){
+       images[i] = loadImage("ufo"+(i+1)+".png");
+     }
+     curImageIndex = (int)random(images.length);
      speed = 15;
-     setImage(image);
+     setImage(images[curImageIndex]);
    }
    @Override
     public void move(){
@@ -27,4 +35,6 @@ class Ufo extends MoveObject{
     }
     return false;
   }
+  
+  
 }

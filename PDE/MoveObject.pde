@@ -2,6 +2,7 @@ import java.io.*;
 abstract class MoveObject implements Serializable{
   public PImage image; 
   public PImage[] images;
+  public int curImageIndex;
   public int curX;
   public int curY;
   public int prevX;

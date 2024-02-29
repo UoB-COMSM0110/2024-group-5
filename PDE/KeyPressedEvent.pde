@@ -42,4 +42,11 @@ void keyPressed(){
    if(key=='q'||key=='Q'){
      gameStatus.curLevel = Level.LEVEL_BEGIN;
    }
+   if(key=='Z'||key=='z'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+     gameLevel1.shield.showShield();
+   }
+   if(key=='D'||key=='d'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+     gameLevel1.shield.closeShield();
+   }
+   
 }

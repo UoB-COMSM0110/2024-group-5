@@ -1,8 +1,15 @@
 import java.util.*;
 class GameLevel1 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
-    public Map map1 = new Map("map1.png",0,0,2);
+    public Map[] maps = new Map[5];
+    public Map map1 = new Map("map2.png",0,0,2);
+    public Map map2 = new Map("map3.png",0,0,2);
+    public Map map3 = new Map("map4.png",0,0,2);
+    public Map map4 = new Map("map5.png",0,0,2);
+    public Map map5 = new Map("map1.png",0,0,2);
+    public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
+    public final Shield shield = new Shield();
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
@@ -23,6 +30,10 @@ class GameLevel1 {
     private boolean isGameEnd = false;
     private final FastCard[] cards = new FastCard[2];
     
+    public int gameTime = millis();
+    public boolean isSetSpeedPlus = false;
+    
+    
     public GameLevel1(){
        //init coins
        initCoins();
@@ -34,6 +45,8 @@ class GameLevel1 {
        initFastCards();
        //init missiles
        initMissiles();
+       //init maps;
+       initMaps();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
     }
@@ -42,7 +55,7 @@ class GameLevel1 {
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           //draw map
-          image(map1.getImage(),map1.curX,map1.curY,width,height);
+          image(maps[randomMap].getImage(),map1.curX,map1.curY,width,height);
           //draw coins
           for(GoldCoin coin:coins){
             if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
@@ -54,6 +67,18 @@ class GameLevel1 {
             }
              coin.move();
           }
+          
+          //change speed with time passing
+          if(millis()-gameTime>=30000){
+            println("speed up!");
+            for(Ufo ufo:ufos){
+              ufo.speed += 5;
+            }
+            asteriods.speed +=1;
+            randomMap = (int)random(5);
+            gameTime = millis();
+          }
+          
           letLightDecrease(1);
           //update time
           setLightDecrease();
@@ -75,6 +100,8 @@ class GameLevel1 {
           drawAbilityBoxs();
           //draw gamePanel
           drawGamePanel();
+          //draw Shield
+          drawShield();
           //draw helicopter
           //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
@@ -95,11 +122,19 @@ class GameLevel1 {
       }
     }
     
+    private void initMaps(){
+      maps[0] = map1;
+      maps[1] = map2;
+      maps[2] = map3;
+      maps[3] = map4;
+      maps[4] = map5;
+    }
+    
     private void drawAsteriods(){
       for(int i=0;i<asteriods.asteriodCount;i++){
         image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],100,100);
         image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],100,100);
-        if(helicopter.intersectWithAsteriods(asteriods)){
+        if(helicopter.intersectWithAsteriods(asteriods)&&shield.isVisible==false){
               isGameEnd = true;
               return;
          }
@@ -185,10 +220,18 @@ class GameLevel1 {
     public void drawUfos(){
        for(Ufo ufo:ufos){
             for(Bullet bullet:helicopter.bullets){
-               if(bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable){
+               if((bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
                  ufo.isVisiable = false;
-                 ufo.move();
-                 ufo.isVisiable = true;
+                 ufo.isDestoryed = true;
+                 ufo.explode.drawExplode(7,ufo.curX+40,ufo.curY+20);
+                 if(ufo.explode.isEnd==true){
+                   ufo.move();
+                   ufo.isVisiable = true;
+                   ufo.explode.isEnd = false;
+                   ufo.explode.isVisible = true;
+                   ufo.explode.curIndx = 0;
+                   ufo.isDestoryed = false;
+                 }
                } 
             }
             if(lazor.isVisiable==true&&lazor.intersectWithUfo(ufo)){
@@ -196,7 +239,7 @@ class GameLevel1 {
                 ufo.move();
                 ufo.isVisiable = true;
             }
-            if(helicopter.intersectWithUfo(ufo)){
+            if(helicopter.intersectWithUfo(ufo)&&shield.isVisible==false&&ufo.isVisiable){
               isGameEnd = true;
               return;
             }
@@ -241,6 +284,12 @@ class GameLevel1 {
     public void updateLazor(){
       lazor.curX = helicopter.curX;
       lazor.curY = helicopter.curY;
+    }
+    
+    public void drawShield(){
+      if(shield.isVisible){
+        image(shield.image,helicopter.curX-15,helicopter.curY-25,150,150);
+      }
     }
     
     public void drawMissiles(){
@@ -331,9 +380,9 @@ class GameLevel1 {
     }
     
     public void setLightDecrease(){
-      map1.image.loadPixels();
-      lightDecrease.change(isLightDecrease,map1.image);
-      map1.image.updatePixels();
+      maps[randomMap].image.loadPixels();
+      lightDecrease.change(isLightDecrease,maps[randomMap].image);
+      maps[randomMap].image.updatePixels();
     }
     
     public void setIsLightDecrease(){
