@@ -209,6 +209,7 @@ class GameLevel1 {
     public void drawGamePanel(){
        fill(255);
        textSize(30);
+       textAlign(LEFT);
        text("Score:",0,50);
        text(scorePanel.score,160,50);
        text("Mineral:",0,100);

@@ -15,7 +15,7 @@ class ToturialPanel{
     //read highest score from txt
     var list = gameLevel1.readHighestScoreFromTxt("score.txt");
     for(int i=0;i<list.size();i++){
-      text(list.get(i),506,195+i*75);
+      text(list.get(i),519,191+i*75);
     }
   //  textSize(32);
   //  textAlign(LEFT, TOP);

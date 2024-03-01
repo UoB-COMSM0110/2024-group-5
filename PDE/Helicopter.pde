@@ -41,6 +41,19 @@ class Helicopter extends MoveObject implements Serializable{
       curY += speed;
     }
   }
+  
+  public void move(){
+    curX += speed;
+    if (curX > width + 50) { 
+      curX = -100;
+      speed = 0;
+    }
+  }
+  
+  public void display(){
+    imageMode(CORNER);
+    image(images[1], curX -20, curY + 40, 100, 100);
+  }
 
   @Override
   public boolean isOutOfBound(){

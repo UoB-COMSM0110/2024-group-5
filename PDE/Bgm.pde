@@ -2,9 +2,21 @@ public class Bgm{
   public static final String bgmLevelBegin = "mainMenu.wav";
   public static final String bgmLevelMap1 = "bgmLevelMap1.mp3";
   public static final String bgmBullet1 = "bullet1.mp3";
+  public static final String bgmStart = "start.wav";
+  public static final String bgmClick = "click.wav";
 }
 
 void bgmStart(Level level){
+  if(level == Level.LEVEL_START){
+    if(gameStarted){
+      if(!playerStart.isPlaying()){
+          playerStart.play();
+      }
+    }
+  }else{
+    playerStart.pause();
+  }
+  
   if(level == Level.LEVEL_BEGIN){
     if(!playerLevelBegin.isPlaying()){
         playerLevelBegin.rewind();

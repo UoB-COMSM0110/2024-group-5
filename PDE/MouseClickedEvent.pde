@@ -1,7 +1,13 @@
 void mousePressed(){
+  if (!gameStarted && textFullyExpanded()&&gameStatus.curLevel == Level.LEVEL_START) {
+    gameStarted = true;
+    textVisible = false; // 点击鼠标后隐藏文本
+    starsFormingMiracle = true; // 开始星星形成 miracle 文本的动画
+  }
+  
   if(isMouseInButtonStart()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
     System.out.println("start button is clicked");
-    gameStatus.curLevel = level.LEVEL_MAP1;
+    gameStatus.curLevel = Level.LEVEL_MAP1;
   }
   
   if(isMouseInButtonSet()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
