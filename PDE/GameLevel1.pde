@@ -27,7 +27,9 @@ class GameLevel1 {
     
     private ScorePanel scorePanel = new ScorePanel();
     private AbilityBox[] boxs = new AbilityBox[3];
-    private PImage box = loadImage("abilityBox1.png");
+    private Icon icon = new Icon();
+    private Health health = new Health();
+    //private PImage box = loadImage("abilityBox1.png");
     private boolean isGameEnd = false;
     private final FastCard[] cards = new FastCard[2];
     
@@ -103,6 +105,10 @@ class GameLevel1 {
           drawGamePanel();
           //draw Shield
           drawShield();
+          //draw icon
+          drawIcon();
+          //draw health
+          drawHealth();
           //draw helicopter
           //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
@@ -291,6 +297,20 @@ class GameLevel1 {
        }
        //imageMode(CORNER);
        //image(box,250,20,300,100);
+    }
+    
+    public void drawIcon(){
+      for(int i=0;i<icon.iconCount;i++){
+        image(icon.images[i],boxs[i].curX+50,boxs[i].curY+50,50,50);
+      }
+    }
+    
+    public void drawHealth(){
+      switch(helicopter.health){
+        case 1: image(health.images[0],0,120,200,40); break;
+        case 2: image(health.images[1],0,120,200,40); break;
+        case 3: image(health.images[2],0,120,200,40); break;
+      }
     }
     
     public void drawLazor(){

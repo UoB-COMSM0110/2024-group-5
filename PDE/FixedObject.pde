@@ -1,5 +1,6 @@
 abstract class FixedObject implements Serializable{
   public PImage image;
+  public PImage[] images;
   public int curX;
   public int curY;
   public boolean isVisiable = false;
