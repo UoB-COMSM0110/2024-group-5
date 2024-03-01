@@ -12,6 +12,9 @@ PApplet sketch = this;
 String ip;
 String msgFromServer;
 
+//font
+PFont pfont;
+
 //time
 int now;
 
@@ -110,6 +113,9 @@ void setup(){
      e.printStackTrace();
   }
   
+  //font
+  pfont = createFont("Boxy-Bold.ttf",50);
+  textFont(pfont);
   size(1125,630);
 }
 

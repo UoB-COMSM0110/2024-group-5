@@ -1,15 +1,15 @@
 public class FastCard extends MoveObject{
   
     public FastCard(){
-      image = loadImage("fastCard.png");
+      image = loadImage("unknownBox.png");
       speed = 5;
     }
     
     @Override
     public void move(){
-      if(isOutOfBound()){
+      if(isOutOfBound()||!isVisiable){
         isVisiable = true;
-        curX = width+1500;
+        curX = width+(int)random(1000);
       }
       curX-=speed;
     }

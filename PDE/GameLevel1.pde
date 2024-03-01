@@ -14,9 +14,9 @@ class GameLevel1 {
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
     public int score = 0;
-    public int maxMissileCount = 5;
+    public int maxMissileCount = 50;
     public final Missile[] missiles = new Missile[maxMissileCount];
-    public int missileCount = 5;
+    public int missileCount = 50;
     
     public LightDecrease lightDecrease = new LightDecrease();
     public boolean isSet = false;
@@ -27,6 +27,7 @@ class GameLevel1 {
     
     private ScorePanel scorePanel = new ScorePanel();
     private AbilityBox[] boxs = new AbilityBox[3];
+    private PImage box = loadImage("abilityBox1.png");
     private boolean isGameEnd = false;
     private final FastCard[] cards = new FastCard[2];
     
@@ -118,7 +119,7 @@ class GameLevel1 {
       for(int i=0;i<boxs.length;i++){
         boxs[i] = new AbilityBox();
         boxs[i].curY = 0;
-        boxs[i].curX = 100+path+i*75;
+        boxs[i].curX = 210+path+i*75;
       }
     }
     
@@ -203,9 +204,9 @@ class GameLevel1 {
        fill(255);
        textSize(30);
        text("Score:",0,50);
-       text(scorePanel.score,90,50);
+       text(scorePanel.score,160,50);
        text("Mineral:",0,100);
-       text(scorePanel.goldCount,120,100);
+       text(scorePanel.goldCount,210,100);
        scorePanel.updateScore();
     }
     
@@ -221,6 +222,22 @@ class GameLevel1 {
        for(Ufo ufo:ufos){
             for(Bullet bullet:helicopter.bullets){
                if((bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
+                 ufo.isVisiable = false;
+                 ufo.isDestoryed = true;
+                 ufo.explode.drawExplode(20,ufo.curX+40,ufo.curY+20);
+                 if(ufo.explode.isEnd==true){
+                   ufo.move();
+                   ufo.isVisiable = true;
+                   ufo.explode.isEnd = false;
+                   ufo.explode.isVisible = true;
+                   ufo.explode.curIndx = 0;
+                   ufo.isDestoryed = false;
+                 }
+               } 
+            }
+            
+            for(Missile missile:missiles){
+               if((missile.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
                  ufo.isVisiable = false;
                  ufo.isDestoryed = true;
                  ufo.explode.drawExplode(7,ufo.curX+40,ufo.curY+20);
@@ -255,6 +272,7 @@ class GameLevel1 {
     public void drawFastCards(){
        for(FastCard card:cards){
             if(helicopter.intersectWithFastCard(card)){
+              card.isVisiable = false;
               for(Ufo ufo:ufos){
                 ufo.speed+=5;
               } 
@@ -267,9 +285,12 @@ class GameLevel1 {
     }
     
     public void drawAbilityBoxs(){
+      //old ui
        for(AbilityBox box:boxs){
          image(box.image,box.curX,box.curY,150,150);
        }
+       //imageMode(CORNER);
+       //image(box,250,20,300,100);
     }
     
     public void drawLazor(){
@@ -295,14 +316,8 @@ class GameLevel1 {
     public void drawMissiles(){
       updateMissiles();
       for(Missile missile:missiles){
-         for(Ufo ufo:ufos){
-          if(missile.isIntersectWithUfo(ufo)){
-            missile.isVisiable = false; 
-            missile.move();
-          }
-        }
         if(missile.isVisiable){
-          missile.drawAnimation(missile.curX,missile.curY,100,100,1000);
+          missile.drawMissile(50,missile.curX+90,missile.curY+50);
           missile.move();
         }
       }

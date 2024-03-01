@@ -31,6 +31,7 @@ abstract class MoveObject implements Serializable{
     //int now = millis();
     for(int i=0;i<images.length;){
       image(images[i],x,y,imageWidth,imageHeight);
+      
       //while(millis()-now<50){
       //}
       i++;

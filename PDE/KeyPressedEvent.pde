@@ -36,6 +36,7 @@ void keyPressed(){
         }
       }
    }
+
    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1){
      gameLevel1.lazor.isVisiable = true;
    }
@@ -45,7 +46,7 @@ void keyPressed(){
    if(key=='Z'||key=='z'&&gameStatus.curLevel==Level.LEVEL_MAP1){
      gameLevel1.shield.showShield();
    }
-   if(key=='D'||key=='d'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+   if(key=='S'||key=='s'&&gameStatus.curLevel==Level.LEVEL_MAP1){
      gameLevel1.shield.closeShield();
    }
    
