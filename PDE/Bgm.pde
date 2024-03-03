@@ -16,33 +16,33 @@ void bgmStart(Level level){
   }else{
     playerStart.pause();
   }
-  
-  if(level == Level.LEVEL_BEGIN){
-    if(!playerLevelBegin.isPlaying()){
-        playerLevelBegin.rewind();
-        playerLevelBegin.play();
+  if(isAllDone){
+    if(level == Level.LEVEL_BEGIN){
+      if(!playerLevelBegin.isPlaying()){
+          playerLevelBegin.rewind();
+          playerLevelBegin.play();
+      }
+    }else{
+      playerLevelBegin.pause();
     }
-  }else{
-    playerLevelBegin.pause();
-  }
-  
-  if(level == Level.LEVEL_SET){
-    if(!playerLevelSet.isPlaying()){
-        playerLevelSet.rewind();
-        playerLevelSet.play();
+    
+    if(level == Level.LEVEL_SET){
+      if(!playerLevelSet.isPlaying()){
+          playerLevelSet.rewind();
+          playerLevelSet.play();
+      }
+    }else{
+      playerLevelSet.pause();
     }
-  }else{
-    playerLevelSet.pause();
-  }
-  
-  if(level == Level.LEVEL_MAP1){
-    if(!playerLevelMap1.isPlaying()){
-        playerLevelMap1.rewind();
-        playerLevelMap1.play();
+    
+    if(level == Level.LEVEL_MAP1){
+      if(!playerLevelMap1.isPlaying()){
+          playerLevelMap1.rewind();
+          playerLevelMap1.play();
+      }
+    }else{
+      playerLevelMap1.pause();
     }
-  }else{
-    playerLevelMap1.pause();
   }
-   
   //to do
 }

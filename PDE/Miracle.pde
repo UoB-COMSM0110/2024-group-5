@@ -1,6 +1,9 @@
 import gifAnimation.*;
 import ddf.minim.*;
 
+//thread(to reduce objects loading time)
+Thread thread;
+boolean isAllDone = false;
 
 //startAnimation
 int numStars = 500; 
@@ -77,52 +80,15 @@ static GameLevel1 gameLevel1;
 static GameLevelLAN gameLevelLAN;
 
 void setup(){  
-  //start record time
-  now = millis();
-  
-  //init GameConstant
-  gameConstant = new GameConstant(); 
-  
-  //init ButtonImage
-  buttonImage = new ButtonImage();
-  
-  //init BackgroundImage
-  backgroundImage = new BackgroundImage();
-  
-  //init gameName
-  gameName = loadImage("miracle.png");
-  
-  //init gif 
-  gif = new Gif(this,"background_start2.gif");
-  //backgroundStart = loadImage("background_start.gif");
-  
-  //init bgm
+  thread = new Thread(new MyRunnable());
+  thread.start();
+
+  ////init bgm
   minim = new Minim(this);
-  playerLevelBegin = minim.loadFile(Bgm.bgmLevelBegin);
-  playerLevelSet = minim.loadFile(Bgm.bgmLevelBegin);
-  playerLevelMap1 = minim.loadFile(Bgm.bgmLevelMap1);
-  playerBullet1 = minim.loadFile(Bgm.bgmBullet1);
   playerStart = minim.loadFile(Bgm.bgmStart);
-  playerClick = minim.loadFile(Bgm.bgmClick);
   
   //init GameStatus
   gameStatus = new GameStatus();
-  
-  //init setPanel
-  setPanel = new SetPanel();
-  
-  //init gameLevel1
-  gameLevel1 = new GameLevel1();
-  gameLevelLAN = new GameLevelLAN();
-  
-  //client
-  client = new Client();
-  try{
-     InetAddress localhost = InetAddress.getLocalHost();
-     ip = localhost.getHostAddress();
-  }catch (UnknownHostException e) {
-     e.printStackTrace();
-  }
   
   //init stars
   stars = new Star[numStars];
@@ -138,21 +104,28 @@ void setup(){
   pfont = createFont("Boxy-Bold.ttf",50);
   textFont(pfont);
   size(1125,630);
+  
   //init spaceship
   spaceship = new Spaceship();
 }
 
 void draw(){
   frameRate(120);
+  isAllDone = !thread.isAlive();
   // show background with level
-  //init cursor
-  cursor(buttonImage.cursor);
+  // if all objects have been loaded
+  if(isAllDone){
+    //init cursor
+    cursor(buttonImage.cursor);
+  }
+  
   if(gameStatus.curLevel == Level.LEVEL_START){
     background(0);
     bgmStart(gameStatus.curLevel);
     drawStartAni();
   }
-  if(gameStatus.curLevel == Level.LEVEL_BEGIN){
+  
+  if(gameStatus.curLevel == Level.LEVEL_BEGIN&&isAllDone){
     if(gameLevel1.isGameEnd == true||gameLevel1.isGameEnd()){
       gameLevel1 = new GameLevel1();
     }
@@ -168,7 +141,8 @@ void draw(){
     // need to be confirmed(design a function matched with level)
     image(gameName,width/2,height/5,gameName.width,gameName.height);
   }
-  if(gameStatus.curLevel == Level.LEVEL_SET){
+  
+  if(gameStatus.curLevel == Level.LEVEL_SET&&isAllDone){
     //// play music
     //bgmStart(gameStatus.curLevel);
     setPanel.createPanel();
@@ -200,18 +174,18 @@ void draw(){
     
   println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
   }
-  if(gameStatus.curLevel == Level.LEVEL_MAP1){
+  if(gameStatus.curLevel == Level.LEVEL_MAP1&&isAllDone){
     // play music
     bgmStart(gameStatus.curLevel);
     gameLevel1.startLevel1();
   }
-  if(isLogin&&gameStatus.curLevel == Level.LEVEL_LOGIN){
+  if(isLogin&&gameStatus.curLevel == Level.LEVEL_LOGIN&&isAllDone){
     // play music
     bgmStart(Level.LEVEL_BEGIN);
     //init loginUi
     loginUnit = new LoginUnit(this);
   }
-  if(gameStatus.curLevel == Level.LEVEL_LANBATTLE){
+  if(gameStatus.curLevel == Level.LEVEL_LANBATTLE&&isAllDone){
      if(player2!=null){
       gameLevelLAN.setPlayer2(player2);
       gameLevelLAN.startLevelLanBattle();
@@ -221,11 +195,11 @@ void draw(){
       client.send();
     }
   }
-  if(gameStatus.curLevel == Level.LEVEL_END){
+  if(gameStatus.curLevel == Level.LEVEL_END&&isAllDone){
     GameResultPanel gameResultPanel = new GameResultPanel();
     gameResultPanel.createPanel();
   }
-  if(gameStatus.curLevel == Level.LEVEL_RANK){
+  if(gameStatus.curLevel == Level.LEVEL_RANK&&isAllDone){
     ToturialPanel toturialPanel = new  ToturialPanel();
      toturialPanel.createPanel();
   }
