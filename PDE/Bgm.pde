@@ -1,5 +1,5 @@
 public class Bgm{
-  public static final String bgmLevelBegin = "mainMenu.wav";
+  public static final String bgmLevelBegin = "space1.mp3";
   public static final String bgmLevelMap1 = "bgmLevelMap1.mp3";
   public static final String bgmBullet1 = "bullet1.mp3";
   public static final String bgmStart = "start.wav";

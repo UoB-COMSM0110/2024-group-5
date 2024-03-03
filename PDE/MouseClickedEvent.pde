@@ -1,8 +1,14 @@
 void mousePressed(){
   if (!gameStarted && textFullyExpanded()&&gameStatus.curLevel == Level.LEVEL_START) {
     gameStarted = true;
-    textVisible = false; // 点击鼠标后隐藏文本
-    starsFormingMiracle = true; // 开始星星形成 miracle 文本的动画
+    textVisible = false;
+    starsFormingMiracle = true; 
+  }
+  
+  if(gameStarted){
+     if(!playerStart.isPlaying()){
+       playerStart.rewind();
+     }
   }
   
   if(isMouseInButtonStart()&&gameStatus.curLevel==Level.LEVEL_BEGIN){

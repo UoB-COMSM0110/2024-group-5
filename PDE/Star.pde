@@ -3,12 +3,17 @@ class Star {
   float y;
   float speed;
   boolean visible; 
-  
+  int rColour;
+  int gColour;
+  int bColour;
   Star() {
     x = random(width);
     y = random(height);
     speed = random(0.1, 0.5);
     visible = true; 
+    rColour = (int)random(256);
+    gColour = (int)random(256);
+    bColour = (int)random(256);
   }
   
   void update() {
@@ -23,8 +28,8 @@ class Star {
   void display() {
     if (visible) { 
       noStroke();
-      fill(255);
-      ellipse(x, y, 2, 2);
+      fill(rColour,gColour,bColour);
+      ellipse(x, y, 5, 5);
     }
   }
   

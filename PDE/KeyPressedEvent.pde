@@ -49,5 +49,13 @@ void keyPressed(){
    if(key=='S'||key=='s'&&gameStatus.curLevel==Level.LEVEL_MAP1){
      gameLevel1.shield.closeShield();
    }
-   
+   if(key=='r'||key=='R'){
+     gameStatus.curLevel = Level.LEVEL_START;
+     gameStarted = false;
+    textVisible = true;
+    starsFormingMiracle = false;
+    isAnimationEnd = false;
+    Arrays.fill(usedStars,false);
+    spaceship.speed = 8;
+   }
 }
