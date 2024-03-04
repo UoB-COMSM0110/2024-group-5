@@ -143,10 +143,8 @@ void draw(){
   }
   
   if(gameStatus.curLevel == Level.LEVEL_SET&&isAllDone){
-    //// play music
-    //bgmStart(gameStatus.curLevel);
     setPanel.createPanel();
-    if(mousePressed&&mouseX>=setPanel.volumePointerX-20&&mouseX-10<=setPanel.volumePointerX+80&&mouseY>=setPanel.volumePointerY-20&&mouseY<=setPanel.volumePointerY+40){
+      if(mousePressed&&mouseX>=setPanel.volumePointerX-20&&mouseX-10<=setPanel.volumePointerX+80&&mouseY>=setPanel.volumePointerY-20&&mouseY<=setPanel.volumePointerY+40){
       if(mouseX<400){
         setPanel.volumePointerX = 400;
       }
@@ -171,8 +169,7 @@ void draw(){
       }
       println("yes!");
     }
-    
-  println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
+    println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
   }
   if(gameStatus.curLevel == Level.LEVEL_MAP1&&isAllDone){
     // play music

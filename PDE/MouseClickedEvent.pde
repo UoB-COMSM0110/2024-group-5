@@ -14,11 +14,13 @@ void mousePressed(){
   if(isMouseInButtonStart()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
     System.out.println("start button is clicked");
     gameStatus.curLevel = Level.LEVEL_MAP1;
+    return;
   }
   
   if(isMouseInButtonSet()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
     System.out.println("set button is clicked");
     gameStatus.curLevel = Level.LEVEL_SET;
+    return;
   }
   
   //bug 
@@ -26,16 +28,19 @@ void mousePressed(){
     if(mouseX>=1020&&mouseX<=1150&&mouseY>=20&&mouseY<=80){
       System.out.println("settag button is clicked");
       gameStatus.curLevel = Level.LEVEL_SET;
+      return;
     }
     if(isMouseInButtonLAN()){
       gameStatus.curLevel = Level.LEVEL_LOGIN;
       isLogin = true;
+      return;
     }
   }
   
   if(gameStatus.curLevel==Level.LEVEL_END){
      if(mouseX>=458&&mouseX<=700&&mouseY>=521&&mouseY<=566){
        gameStatus.curLevel = Level.LEVEL_BEGIN;
+       return;
      }
   }
   
@@ -54,17 +59,16 @@ void mousePressed(){
   if(gameStatus.curLevel==Level.LEVEL_RANK){
     if(mouseX>=425&&mouseX<=732&&mouseY>=525&&mouseY<=578){
       gameStatus.curLevel = Level.LEVEL_BEGIN;
+      return;
     }
   }
   
   if(gameStatus.curLevel==Level.LEVEL_SET){
     if(mouseX>=476&&mouseX<=677&&mouseY>=490&&mouseY<=590){
       gameStatus.curLevel = Level.LEVEL_BEGIN;
+      return;
     }
-    if(mouseX>=setPanel.volumePointerX&&mouseX<=setPanel.volumePointerX+40&&mouseY>=setPanel.volumePointerY&&mouseY<=setPanel.volumePointerY+40){
-
-    }
-  }
+   }
 }
 
 boolean isMouseInButtonLAN(){
