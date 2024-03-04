@@ -37,14 +37,14 @@ class Asteriods extends MoveObject{
   
   public void setTopImagesPos(){
     for(int i=0;i<asteriodCount;i++){
-      topImagesPos[i][0] = (int)random(width)-100;
+      topImagesPos[i][0] = width+(int)random(width)-100;
       topImagesPos[i][1] = (int)random(range)-100;
     }  
   }
   
   public void setBotImagesPos(){
     for(int i=0;i<asteriodCount;i++){
-      botImagesPos[i][0] = (int)random(width)-100;
+      botImagesPos[i][0] = width+(int)random(width)-100;
       botImagesPos[i][1] = height-range+(int)random(range)-50;
     }  
   }

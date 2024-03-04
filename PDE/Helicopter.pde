@@ -2,7 +2,8 @@ class Helicopter extends MoveObject implements Serializable{
   public int health;
   public ArrayList<Bullet>bullets;
   public int curBulletCount = 1000; //to do
-  
+  public int invincibleTimeWhenLoseHp = 3000; //3s
+  public int hitBeginTime = 0;
   public Helicopter(){
 
   }

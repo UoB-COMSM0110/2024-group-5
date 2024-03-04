@@ -17,7 +17,9 @@ class Ufo extends MoveObject{
    @Override
     public void move(){
       if((curX<0&&isOutOfBound())||isVisiable==false){
-        curX = width+(int)(500*Math.random());
+        curImageIndex = (int)random(images.length);
+        setImage(images[curImageIndex]);
+        curX = width+(int)(random(500)*random(2));
       }else if(isOutOfBound()){
         speedY = -speedY;
         curX -= speed;

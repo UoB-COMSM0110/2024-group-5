@@ -82,6 +82,8 @@ class GameLevel1 {
             gameTime = millis();
           }
           
+          updateSpaceshipHitTime();
+         
           letLightDecrease(1);
           //update time
           setLightDecrease();
@@ -141,9 +143,9 @@ class GameLevel1 {
       for(int i=0;i<asteriods.asteriodCount;i++){
         image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],100,100);
         image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],100,100);
-        if(helicopter.intersectWithAsteriods(asteriods)&&shield.isVisible==false){
-              isGameEnd = true;
-              return;
+        if(helicopter.hitBeginTime==0&&helicopter.intersectWithAsteriods(asteriods)&&shield.isVisible==false){
+              helicopter.lostHealth();
+              helicopter.hitBeginTime = millis();
          }
         asteriods.setRange((int)random(150));
         asteriods.move();
@@ -181,7 +183,7 @@ class GameLevel1 {
         coins[i] = new GoldCoin();
         coins[i].isVisiable = true;
         int posY = (int)((height-100)*Math.random());
-        int posX =  width-100+i*300;
+        int posX =  width-100+i*(int)random(300);
         coins[i].curX = posX;
         coins[i].curY = posY;
       }
@@ -191,8 +193,8 @@ class GameLevel1 {
       for(int i=0;i<ufos.length;i++){
         ufos[i] = new Ufo();
         ufos[i].isVisiable = true;
-        int posY = (int)((height-100)*Math.random());
-        int posX =  width-100+i*300;
+        int posY = (int)random(height);
+        int posX =  width+(int)random(2000)+(int)(i*random(100));
         ufos[i].curX = posX;
         ufos[i].curY = posY;
       }
@@ -200,7 +202,7 @@ class GameLevel1 {
 
     
     public boolean isGameEnd(){
-      if(helicopter.isOutOfBound()){
+      if(helicopter.isOutOfBound()||helicopter.health==0){
         return true;
       }
       return false;
@@ -218,10 +220,20 @@ class GameLevel1 {
     }
     
     public void drawSpaceship(){
+      if(helicopter.hitBeginTime!=0){
+         tint(150,100); 
+      }
       if(mousePressed){
         image(helicopter.images[1],helicopter.curX,helicopter.curY,100,100);
       }else{
         image(helicopter.images[0],helicopter.curX,helicopter.curY,100,100);
+      }
+      noTint();
+    }
+    
+    public void updateSpaceshipHitTime(){
+      if(millis()-helicopter.hitBeginTime>=helicopter.invincibleTimeWhenLoseHp){
+        helicopter.hitBeginTime = 0;
       }
     }
     
@@ -263,10 +275,12 @@ class GameLevel1 {
                 ufo.move();
                 ufo.isVisiable = true;
             }
-            if(helicopter.intersectWithUfo(ufo)&&shield.isVisible==false&&ufo.isVisiable){
-              isGameEnd = true;
-              return;
+            
+            if(helicopter.hitBeginTime==0&&helicopter.intersectWithUfo(ufo)&&shield.isVisible==false&&ufo.isVisiable){
+              helicopter.lostHealth();
+              helicopter.hitBeginTime = millis();
             }
+            
             if(ufo.isVisiable){
               image(ufo.getImage(),ufo.curX,ufo.curY,100,100);
               ufo.move();
