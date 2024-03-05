@@ -4,7 +4,8 @@ class Missile extends MoveObject{
   int lastChangeTime = millis();
   boolean isVisible = true;
   boolean isEnd = false;
-  int accelerate = 1;
+  int accelerate = 2;
+  PGraphics buffer = createGraphics(width, height);
   public Missile(){
      images = new PImage[3];
     for(int i=0;i<3;i++){
@@ -15,12 +16,12 @@ class Missile extends MoveObject{
   
   public void drawMissile(int frame,int posX,int posY){
      if(isVisible){
-        PGraphics buffer = createGraphics(width, height);
         buffer.beginDraw();        
         buffer.imageMode(CENTER);
         buffer.image(images[curIndx],posX,posY,150,150);
         buffer.endDraw();
         image(buffer,0,0);
+        buffer.clear();
      }
      if(millis()-lastChangeTime>=frame){
        if(isEnd){

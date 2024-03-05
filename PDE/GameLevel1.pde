@@ -243,7 +243,7 @@ class GameLevel1 {
                if((bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
                  ufo.isVisiable = false;
                  ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(20,ufo.curX+40,ufo.curY+20);
+                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
                  if(ufo.explode.isEnd==true){
                    ufo.move();
                    ufo.isVisiable = true;
@@ -259,7 +259,7 @@ class GameLevel1 {
                if((missile.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
                  ufo.isVisiable = false;
                  ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(7,ufo.curX+40,ufo.curY+20);
+                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
                  if(ufo.explode.isEnd==true){
                    ufo.move();
                    ufo.isVisiable = true;
@@ -352,7 +352,7 @@ class GameLevel1 {
       updateMissiles();
       for(Missile missile:missiles){
         if(missile.isVisiable){
-          missile.drawMissile(50,missile.curX+90,missile.curY+50);
+          missile.drawMissile(100,missile.curX+90,missile.curY+50);
           missile.move();
         }
       }
