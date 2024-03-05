@@ -20,6 +20,7 @@ class Ufo extends MoveObject{
         curImageIndex = (int)random(images.length);
         setImage(images[curImageIndex]);
         curX = width+(int)(random(500)*random(2));
+        curY = (int)random(height-100);
       }else if(isOutOfBound()){
         speedY = -speedY;
         curX -= speed;
@@ -32,7 +33,7 @@ class Ufo extends MoveObject{
 
   @Override
   public boolean isOutOfBound(){
-    if(curX<0||curY<0||curY+100>height){
+    if(curX<=0||curY<=0||curY+100>=height){
       return true;
     }
     return false;

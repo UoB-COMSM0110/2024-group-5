@@ -128,8 +128,9 @@ class GameLevel1 {
     }
     
     private void initNewMaps(){
+      int random = (int)random(34);
       for(int i=0;i<newMaps.length;i++){
-        newMaps[i] = new Map("map.png",i*width,0,5);
+        newMaps[i] = new Map("/gameMap/map-"+random+".png",i*width,0,5);
       }
     }
     
@@ -195,7 +196,7 @@ class GameLevel1 {
       for(int i=0;i<ufos.length;i++){
         ufos[i] = new Ufo();
         ufos[i].isVisiable = true;
-        int posY = (int)random(height);
+        int posY = (int)random(height-100);
         int posX =  width+(int)random(2000)+(int)(i*random(100));
         ufos[i].curX = posX;
         ufos[i].curY = posY;
