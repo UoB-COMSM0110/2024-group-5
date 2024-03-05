@@ -7,7 +7,10 @@ class Map extends MoveObject{
   }
   @Override
   public void move(){
-    //to do
+    if(curX+width<=0){
+      curX = 2*width;
+    }
+    curX -= speed;
   }
 
 }

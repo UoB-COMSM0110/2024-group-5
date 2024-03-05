@@ -93,12 +93,12 @@ class Helicopter extends MoveObject implements Serializable{
   
   public boolean intersectWithAsteriods(Asteriods asteriods){
     for(int i=0;i<asteriods.asteriodCount;i++){
-       if(asteriods.topImagesPos[i][0]+50>=curX&&asteriods.topImagesPos[i][0]+50<=curX+100&&asteriods.topImagesPos[i][1]+50>=curY&&asteriods.topImagesPos[i][1]+50<=curY+100){
+       if(asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2>=curX&&asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2<=curX+100&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2>=curY&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2<=curY+100){
           return true;
         }
     }
      for(int i=0;i<asteriods.asteriodCount;i++){
-       if(asteriods.botImagesPos[i][0]+50>=curX&&asteriods.botImagesPos[i][0]+50<=curX+100&&asteriods.botImagesPos[i][1]+50>=curY&&asteriods.botImagesPos[i][1]+50<=curY+100){
+       if(asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2>=curX&&asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2<=curX+100&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2>=curY&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2<=curY+100){
           return true;
        }
     }

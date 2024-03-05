@@ -5,6 +5,8 @@ class Asteriods extends MoveObject{
   public int asteriodCount;
   public int[][] topImagesPos;
   public int[][] botImagesPos;
+  public int[][] topImageSize;
+  public int[][] botImageSize;
   public int range;
   
   public Asteriods(int imageCount){
@@ -22,6 +24,7 @@ class Asteriods extends MoveObject{
     botImagesPos = new int[asteriodCount][2]; 
     setTopImagesPos();
     setBotImagesPos();
+    setImageSize();
     speed = 1;
   }
   
@@ -30,6 +33,16 @@ class Asteriods extends MoveObject{
     this.asteriodCount = asteriodCount;
   }
   
+  public void setImageSize(){
+    topImageSize = new int[asteriodCount][2];
+    botImageSize = new int[asteriodCount][2];
+    for(int i=0;i<asteriodCount;i++){
+      topImageSize[i][0] = (int)random(50,100);
+      topImageSize[i][1] = (int)random(50,100);
+      botImageSize[i][0] = (int)random(50,100);
+      botImageSize[i][1] = (int)random(50,100);
+    }
+  }
   
   public void setRange(int range){
     this.range = range;

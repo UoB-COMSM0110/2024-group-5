@@ -1,12 +1,7 @@
 import java.util.*;
 class GameLevel1 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
-    public Map[] maps = new Map[5];
-    public Map map1 = new Map("map2.png",0,0,2);
-    public Map map2 = new Map("map3.png",0,0,2);
-    public Map map3 = new Map("map4.png",0,0,2);
-    public Map map4 = new Map("map5.png",0,0,2);
-    public Map map5 = new Map("map1.png",0,0,2);
+    public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
     public final Shield shield = new Shield();
@@ -48,8 +43,8 @@ class GameLevel1 {
        initFastCards();
        //init missiles
        initMissiles();
-       //init maps;
-       initMaps();
+       //init new maps;
+       initNewMaps();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
     }
@@ -58,7 +53,7 @@ class GameLevel1 {
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           //draw map
-          image(maps[randomMap].getImage(),map1.curX,map1.curY,width,height);
+          drawNewMaps();
           //draw coins
           for(GoldCoin coin:coins){
             if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
@@ -78,17 +73,18 @@ class GameLevel1 {
               ufo.speed += 5;
             }
             asteriods.speed +=1;
-            randomMap = (int)random(5);
+            //randomMap = (int)random(5);
             gameTime = millis();
           }
           
           updateSpaceshipHitTime();
          
-          letLightDecrease(1);
-          //update time
-          setLightDecrease();
-          updateTime();
-          setIsLightDecrease();
+          //letLightDecrease(1);
+          ////update time
+          //setLightDecrease();
+          //updateTime();
+          //setIsLightDecrease();
+          
           //draw ufo
           drawUfos();
           //draw fasrCard
@@ -131,18 +127,24 @@ class GameLevel1 {
       }
     }
     
-    private void initMaps(){
-      maps[0] = map1;
-      maps[1] = map2;
-      maps[2] = map3;
-      maps[3] = map4;
-      maps[4] = map5;
+    private void initNewMaps(){
+      for(int i=0;i<newMaps.length;i++){
+        newMaps[i] = new Map("map.png",i*width,0,5);
+      }
+    }
+    
+    private void drawNewMaps(){
+      for(Map map:newMaps){
+        imageMode(CORNER);
+        image(map.image,map.curX,map.curY,width,height);
+        map.move();
+      }
     }
     
     private void drawAsteriods(){
       for(int i=0;i<asteriods.asteriodCount;i++){
-        image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],100,100);
-        image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],100,100);
+        image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],asteriods.topImageSize[i][0],asteriods.topImageSize[i][1]);
+        image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],asteriods.botImageSize[i][0],asteriods.botImageSize[i][0]);
         if(helicopter.hitBeginTime==0&&helicopter.intersectWithAsteriods(asteriods)&&shield.isVisible==false){
               helicopter.lostHealth();
               helicopter.hitBeginTime = millis();
@@ -430,9 +432,11 @@ class GameLevel1 {
     }
     
     public void setLightDecrease(){
-      maps[randomMap].image.loadPixels();
-      lightDecrease.change(isLightDecrease,maps[randomMap].image);
-      maps[randomMap].image.updatePixels();
+      for(Map map:newMaps){
+        map.image.loadPixels();
+        lightDecrease.change(isLightDecrease,map.image);
+        map.image.updatePixels();
+      }
     }
     
     public void setIsLightDecrease(){
