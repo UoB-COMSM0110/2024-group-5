@@ -101,7 +101,7 @@ void setup(){
   Arrays.fill(usedStars,false);
   
   //font
-  pfont = createFont("Boxy-Bold.ttf",50);
+  pfont = createFont("font/Boxy-Bold.ttf",50);
   textFont(pfont);
   size(1125,630);
   

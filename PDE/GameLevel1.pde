@@ -98,13 +98,13 @@ class GameLevel1 {
           //draw Asteriods
           drawAsteriods();
           //draw abilityBox
-          drawAbilityBoxs();
+          //drawAbilityBoxs();
           //draw gamePanel
           drawGamePanel();
           //draw Shield
           drawShield();
           //draw icon
-          drawIcon();
+          //drawIcon();
           //draw health
           drawHealth();
           //draw helicopter
@@ -150,15 +150,15 @@ class GameLevel1 {
               helicopter.lostHealth();
               helicopter.hitBeginTime = millis();
          }
-        asteriods.setRange((int)random(150));
+        asteriods.setRange((int)random(300));
         asteriods.move();
         if(asteriods.isOutOfBound(asteriods.topImagesPos[i][0])){
-          asteriods.topImagesPos[i][0] = width+100;
+          asteriods.topImagesPos[i][0] = width+(int)random(300);
           asteriods.topImagesPos[i][1] = (int)random(asteriods.range)-100;
         }
         if(asteriods.isOutOfBound(asteriods.botImagesPos[i][0])){
           //asteriods.botImagesPos[i][0] = (int)random(width)+50;
-          asteriods.botImagesPos[i][0] = width+100;
+          asteriods.botImagesPos[i][0] = width+(int)random(300);
           asteriods.botImagesPos[i][1] = height-asteriods.range+(int)random(asteriods.range)-50;
         }
       }

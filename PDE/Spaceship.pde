@@ -3,7 +3,7 @@ class Spaceship extends MoveObject{
   int time = millis();
   public Spaceship(){
     image = loadImage("spaceship1.png");
-    speed = 8;
+    speed = 3;
     curX = -50;
     curY = height/2;
   }
