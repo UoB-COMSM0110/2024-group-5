@@ -69,7 +69,11 @@ class Helicopter extends MoveObject implements Serializable{
   }
 
   public void setHealth(int health) {
-    this.health = health;
+    if(health>=3){
+      this.health = 3;
+    }else{
+      this.health = health;
+    }
   }
 
 

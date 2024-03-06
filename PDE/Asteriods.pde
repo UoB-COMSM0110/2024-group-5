@@ -13,7 +13,7 @@ class Asteriods extends MoveObject{
     imageUrls = new String[imageCount];
     images = new PImage[imageCount];
     for(int i=0;i<imageCount;i++){
-      imageUrls[i] = "asteriodMiddle.png";
+      imageUrls[i] = "Asteroid-Base .png";
     }
     for(int i=0;i<imageCount;i++){
       images[i] = loadImage(imageUrls[i]);
@@ -37,10 +37,10 @@ class Asteriods extends MoveObject{
     topImageSize = new int[asteriodCount][2];
     botImageSize = new int[asteriodCount][2];
     for(int i=0;i<asteriodCount;i++){
-      topImageSize[i][0] = (int)random(50,100);
-      topImageSize[i][1] = (int)random(50,100);
-      botImageSize[i][0] = (int)random(50,100);
-      botImageSize[i][1] = (int)random(50,100);
+      topImageSize[i][0] = 100;
+      topImageSize[i][1] = 100;
+      botImageSize[i][0] = 100;
+      botImageSize[i][1] = 100;
     }
   }
   

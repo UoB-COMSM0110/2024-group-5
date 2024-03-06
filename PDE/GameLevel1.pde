@@ -297,6 +297,7 @@ class GameLevel1 {
        for(FastCard card:cards){
             if(helicopter.intersectWithFastCard(card)){
               card.isVisiable = false;
+              helicopter.setHealth(helicopter.getHealth()+1);
               for(Ufo ufo:ufos){
                 ufo.speed+=5;
               } 
