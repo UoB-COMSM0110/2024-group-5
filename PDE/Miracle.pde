@@ -110,7 +110,7 @@ void setup(){
 }
 
 void draw(){
-  frameRate(120);
+  frameRate(180);
   isAllDone = !thread.isAlive();
   // show background with level
   // if all objects have been loaded
@@ -123,6 +123,7 @@ void draw(){
     background(0);
     bgmStart(gameStatus.curLevel);
     drawStartAni();
+    return;
   }
   
   if(gameStatus.curLevel == Level.LEVEL_BEGIN&&isAllDone){
@@ -140,6 +141,7 @@ void draw(){
     imageMode(CENTER);
     // need to be confirmed(design a function matched with level)
     image(gameName,width/2,height/5,gameName.width,gameName.height);
+    return;
   }
   
   if(gameStatus.curLevel == Level.LEVEL_SET&&isAllDone){
@@ -154,7 +156,6 @@ void draw(){
       else{
          setPanel.volumePointerX = mouseX-40;
       }
-      println("yes!");
     }
     
     if(mousePressed&&mouseX>=setPanel.diffPointerX-20&&mouseX-10<=setPanel.diffPointerX+80&&mouseY>=setPanel.diffPointerY-20&&mouseY<=setPanel.diffPointerY+40){
@@ -167,20 +168,25 @@ void draw(){
       else{
          setPanel.diffPointerX = mouseX-40;
       }
-      println("yes!");
     }
     println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
+    return;
   }
   if(gameStatus.curLevel == Level.LEVEL_MAP1&&isAllDone){
     // play music
     bgmStart(gameStatus.curLevel);
     gameLevel1.startLevel1();
+    if(gameLevel1.isGameEnd||gameLevel1.isGameEnd){
+      gameLevel1 = null;
+    }
+    return;
   }
   if(isLogin&&gameStatus.curLevel == Level.LEVEL_LOGIN&&isAllDone){
     // play music
     bgmStart(Level.LEVEL_BEGIN);
     //init loginUi
     loginUnit = new LoginUnit(this);
+    return;
   }
   if(gameStatus.curLevel == Level.LEVEL_LANBATTLE&&isAllDone){
      if(player2!=null){
@@ -191,13 +197,16 @@ void draw(){
     if(client!=null){
       client.send();
     }
+    return;
   }
   if(gameStatus.curLevel == Level.LEVEL_END&&isAllDone){
     GameResultPanel gameResultPanel = new GameResultPanel();
     gameResultPanel.createPanel();
+    return;
   }
   if(gameStatus.curLevel == Level.LEVEL_RANK&&isAllDone){
     ToturialPanel toturialPanel = new  ToturialPanel();
      toturialPanel.createPanel();
+     return;
   }
 }
