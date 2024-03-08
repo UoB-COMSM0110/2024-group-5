@@ -1,0 +1,4 @@
+class Ability extends MoveObject{
+  
+
+}
