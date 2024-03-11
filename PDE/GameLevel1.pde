@@ -130,7 +130,7 @@ class GameLevel1 {
     private void initNewMaps(){
       int random = (int)random(34);
       for(int i=0;i<newMaps.length;i++){
-        newMaps[i] = new Map("/data/gameMap/map-"+random+".png",i*width,0,5);
+        newMaps[i] = new Map("./gameMap/map-"+random+".png",i*width,0,5);
       }
     }
     
