@@ -79,16 +79,15 @@ class GameLevel1 {
           
           updateSpaceshipHitTime();
          
-          //letLightDecrease(1);
+          letLightDecrease(1);
           ////update time
-          //setLightDecrease();
+          setLightDecrease();
           //updateTime();
-          //setIsLightDecrease();
+          setIsLightDecrease();
           
           //draw ufo
           drawUfos();
-          //draw fasrCard
-          drawFastCards();
+
           //draw bullet
           drawBullets();
           //draw lazor;
@@ -99,6 +98,8 @@ class GameLevel1 {
           drawAsteriods();
           //draw abilityBox
           //drawAbilityBoxs();
+          //draw fasrCard
+          drawFastCards();
           //draw gamePanel
           drawGamePanel();
           //draw Shield
