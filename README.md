@@ -3,9 +3,13 @@
 
 # Contents
 [1. Team](#team)
+
 [2. Introduction](#intro)
+
 [3. Requirements](#requirements)
+
 [4. Design](#design)
+
 [5. Implementation](#imp)
 
 
@@ -17,7 +21,6 @@
 
 | Name         | E-mail           | Github  |
 | ------------- |:-------------:| :----:|
-
 Ming Liu | yi23835@bristol.uk | VegetableBirdB
 Quillan Liu | zp23409@bristol.ac.uk | Quiilan-Liu
 Jan Phillips | ls23767@bristol.ac.uk | ZathrasXI
