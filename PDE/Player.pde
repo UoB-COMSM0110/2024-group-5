@@ -1,5 +1,7 @@
 class Player implements Serializable{
     public Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
+    
+    public void destroyCopter(){ }
     //public Lazor lazor = new Lazor();
     //public ScorePanel scorePanel = new ScorePanel();
     //public AbilityBox[] boxs = new AbilityBox[3];
