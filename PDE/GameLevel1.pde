@@ -79,11 +79,11 @@ class GameLevel1 {
           
           updateSpaceshipHitTime();
          
-          letLightDecrease(1);
+          //letLightDecrease(1);
           ////update time
-          setLightDecrease();
+          //setLightDecrease();
           //updateTime();
-          setIsLightDecrease();
+          //setIsLightDecrease();
           
           //draw ufo
           drawUfos();
