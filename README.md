@@ -9,7 +9,7 @@ Kisshan Sridhar, bg23463@bristol.ac.uk, kisshan-s
 # Contents
 [4. Design](Design)
 
-## Design (#design)
+## Design {#design}
 This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.
 
 ### System Architecture
