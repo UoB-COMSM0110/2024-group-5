@@ -1,3 +1,5 @@
+#Feedback from people playing our game and thinking aloud
+
 ##Alex:
 - Died quickly, first instinct was to use the keyboard to move
 - Confused why spaceship shades out
