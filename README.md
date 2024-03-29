@@ -47,7 +47,7 @@ Furthermore, its synergy with the agile development style is of great benefit, a
 
 ### Class Diagram
 
-![class-diagram](https://github.com/UoB-COMSM0110/2024-group-5/docs/class-diagram.png)
+![alt text](https://github.com/UoB-COMSM0110/2024-group-5/docs/class-diagram.png)
 
 
 
