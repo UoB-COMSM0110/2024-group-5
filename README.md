@@ -49,9 +49,28 @@ Furthermore, its synergy with the agile development style is of great benefit, a
 
 ![alt text](https://github.com/UoB-COMSM0110/2024-group-5/blob/develop/docs/class-diagram.png?raw=true)
 
+The figure above illustrates the high-level class diagram for the game system. The main classes are FixedObject, MoveObject, and Map, each encapsulating specific functionalities and attributes. Relationships between classes, such as associations and dependencies, are depicted to illustrate the interactions between objects.
 
+#### Major Classes
 
++ *Spaceship*: represents the players spaceship, which will be equipped with health points and weapons. It has a central role in gameplay, as evidenced by the 1..1 relationship with the Player. It is also part of a composition relationship with an array of weapon objects.
++ *Enemy*: Abstracts various enemy types in the game, which can be extended into specialist enemy types.
++ *Map*, *Panel*, and *Obstacle*: Concerned with the game’s environment, UI, and difficulty, respectively.
+  - `Map` creates moveable map objects.
+  - `Panel` displays scores and statistics.
+  - `Obstacle` checks for player collisions.
++ *MoveObject* and *FixedObject* - these are two main base classes for all objects within the game, and allows for the
+  distinction to be made between moveable and static entities.
 
+Importantly, the creation of the class diagram itself provided clarity on the architecture. Creating the diagram involved thinking about multiplicity in class relationships, as well as inheritance and polymorphism, which allowed us to streamline our ideas. In addition to this, the diagram served as an effective communication tool amongst our team, and facilitated a shared understanding of the game’s overall design and structure, so everyone knew how the system worked.
+
+Using the class diagram provided a clear and organised visual representation of the game’s architecture, making very complex relationships between classes more understandable. This proved invaluable when it came to development. Most notably, the diagram acted as a blueprint for the development process, guiding how we implemented our classes, their methods, and cross-class interactions.
+
+The structure lended itself easily to modification, by identifying the core classes like `MovedObject` and `FixedObject` early, we were able to build upon and extend those classes into more specialised ones with specific responsibilities. The addition and removal of elements such as  weapons became easy to do without significant overhaul of the system due to the way each class was designed.
+
+An example of the flexibility of the architecture lies in the `Enemy` system. When we first played the game, we found there was a lot of screen clutter because of the number of different enemies. The use of an Enemy subclass, where special enemy types can inherit from, allowed us to remove unnecessary classes without affecting the other enemy types.
+
+A big challenge design was to balance the need for a comprehensive design (capturing all the necessary details of the game’s classes) with simplicity. Desigining our classes in a way where we specifiy a broad subclass (like MoveObject), and extend it further from there, we were able to create something that was interpretable by all members.
 
 
 
