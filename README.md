@@ -9,6 +9,9 @@ Kisshan Sridhar, bg23463@bristol.ac.uk, kisshan-s
 # Contents
 [4. Design](#design)
 
+
+
+//use html tags to make links work (markdown not interpreting normlal links properly)
 <h2 id="design">Design</h2>
 This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.
 
