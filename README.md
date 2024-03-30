@@ -49,28 +49,28 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 
 > I want to be able to start the game by clicking Start Game.
 
-> I want to be able to save my score
-> 
-> I want to move the spaceship using mouse left click
->
-> I want to be able to unlock new maps
->
-> I want to be able to view the controls
->
-> I want to be able to adjust volume
->
-> I want to be able to set the difficulty before I start the game
-> 
-> I want to be able to enter my name, see my score, and save my details when the game ends
+> I want to be able to save my score.
+
+> I want to move the spaceship using mouse left click.
+
+> I want to be able to unlock new maps.
+
+> I want to be able to view the controls.
+
+> I want to be able to adjust volume.
+
+> I want to be able to set the difficulty before I start the game.
+
+> I want to be able to enter my name, see my score, and save my details when the game ends.
 
 ##### As an Experienced Player:
-> I want to be able to view my previous high scores
->
-> I want to receive a ‘congratulations’ message for setting a new high score
->
-> I want to be able to unlock new enemies
->
-> I want to be able to unlock new weapons
+> I want to be able to view my previous high scores.
+
+> I want to receive a ‘congratulations’ message for setting a new high score.
+
+> I want to be able to unlock new enemies.
+
+> I want to be able to unlock new weapons.
 
 By delineating user actions, we gained insight into how our game mechanics should function in practice, enabling us to make more informed decisions on which of our ideas we should pursue and develop further. For example, it became clear that we should focus our efforts on core gameplay mechanics first, such as responsive controls. This allowed us to work efficiently and avoid wasting time on features that weren’t necessary. 
 
@@ -113,9 +113,9 @@ Using the class diagram provided a clear and organised visual representation of 
 
 The structure lended itself easily to modification, by identifying the core classes like `MovedObject` and `FixedObject` early, we were able to build upon and extend those classes into more specialised ones with specific responsibilities. The addition and removal of elements such as  weapons became easy to do without significant overhaul of the system due to the way each class was designed.
 
-An example of the flexibility of the architecture lies in the `Enemy` system. When we first played the game, we found there was a lot of screen clutter because of the number of different enemies. The use of an Enemy subclass, where special enemy types can inherit from, allowed us to remove unnecessary classes without affecting the other enemy types.
+An example of the flexibility of the architecture lies in the `Enemy` system. When we first played the game, we found there was a lot of screen clutter because of the number of different enemies. The use of an `Enemy` subclass, where special enemy types can inherit from, allowed us to remove unnecessary classes without affecting the other enemy types.
 
-A big challenge design was to balance the need for a comprehensive design (capturing all the necessary details of the game’s classes) with simplicity. Desigining our classes in a way where we specifiy a broad subclass (like MoveObject), and extend it further from there, we were able to create something that was interpretable by all members.
+A big challenge design was to balance the need for a comprehensive design (capturing all the necessary details of the game’s classes) with simplicity. Desigining our classes in a way where we specifiy a broad subclass (like `MoveObject`), and extend it further from there, we were able to create something that was interpretable by all members.
 
 
 
