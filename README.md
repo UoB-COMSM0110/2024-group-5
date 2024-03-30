@@ -14,6 +14,7 @@
 
 
 
+//*use html tags to make links work* (markdown not interpreting normal links properly)
 
 
 <h2 id="team">Team</h2>
@@ -64,6 +65,7 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 > I want to be able to enter my name, see my score, and save my details when the game ends.
 
 ##### As an Experienced Player:
+
 > I want to be able to view my previous high scores.
 
 > I want to receive a ‘congratulations’ message for setting a new high score.
@@ -78,7 +80,6 @@ We were also able to gain a better understanding of the scope of the project. Ag
 
 Overall, looking at the game through the lens of different types of users allowed us to uncover new features that were required, as well as ascertain which of our ideas would provide the most improvement to the experience of a certain user without hindering the experiences of other users, and therefore, has been crucial in the development of our game.
 
-//use html tags to make links work (markdown not interpreting normlal links properly)
 
 
 
