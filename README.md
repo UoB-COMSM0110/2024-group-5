@@ -46,19 +46,30 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 
 ##### As a Player:
 > I want to be able to open the game just by clicking on it
+> 
 > I want to be able to start the game by clicking Start Game
+> 
 > I want to be able to save my score
+> 
 > I want to move the spaceship using mouse left click
+>
 > I want to be able to unlock new maps
+>
 > I want to be able to view the controls
+>
 > I want to be able to adjust volume
+>
 > I want to be able to set the difficulty before I start the game
+> 
 > I want to be able to enter my name, see my score, and save my details when the game ends
 
 ##### As an Experienced Player:
 > I want to be able to view my previous high scores
+>
 > I want to receive a ‘congratulations’ message for setting a new high score
+>
 > I want to be able to unlock new enemies
+>
 > I want to be able to unlock new weapons
 
 By delineating user actions, we gained insight into how our game mechanics should function in practice, enabling us to make more informed decisions on which of our ideas we should pursue and develop further. For example, it became clear that we should focus our efforts on core gameplay mechanics first, such as responsive controls. This allowed us to work efficiently and avoid wasting time on features that weren’t necessary. 
