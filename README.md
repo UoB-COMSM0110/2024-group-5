@@ -45,10 +45,10 @@ From desigining a use-case diagram, we were able to distinguish between two type
 The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
 
 ##### As a Player:
-> I want to be able to open the game just by clicking on it
-> 
-> I want to be able to start the game by clicking Start Game
-> 
+> I want to be able to open the game just by clicking on it.
+
+> I want to be able to start the game by clicking Start Game.
+
 > I want to be able to save my score
 > 
 > I want to move the spaceship using mouse left click
