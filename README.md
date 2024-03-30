@@ -37,10 +37,33 @@ This section relates to the requirements of our game, where we explore the essen
 
 ![alt text](https://github.com/UoB-COMSM0110/2024-group-5/blob/develop/docs/use-case-diagram.png)
 
+The figure above shows our use-case diagram. We already had many ideas about what we could add into the game and what we would like to do, but we were unsure which ones to go ahead with. By pausing and thinking about the use cases in relation to the ideas we already had for the game, we were able to obtain a much clearer understanding of what features that we had thought of would be most suitable for the game. Not only did this help us organise our ideas and have a much more focused approach to building our game, but it also helped us to prioritise our workload, as we could see from understanding the use cases which features would be most important to the users. For example, when writing the use case for a player navigating the spaceship around the map to avoid obstacles, we had questions about how to implement certain mechanics of the game. “How are we going to cause the spaceship to fall?”, “How are we going to procedurally generate the map?”. Asking these questions and looking at the game from the perspective of the player brought the most pressing matters into focus and allowed us to tailor the gameplay experience specifically for the player.
 
+From desigining a use-case diagram, we were able to distinguish between two types of player, a regular player and an experienced player. Fortunately, the simple nature of our game means that there is little difference in the two players, bar the experienced player being able to see their previous high score from the high score menu. With this in mind, we were able to go forward with the design process and similarly ensure the game catered to any type of player. For example, we originally had a tutorial level which would play every time the game was run. While this was great for new players as it would teach them the controls in a consequence-free setting, for experienced players it would be very tiring and possibly deter them from starting a new game if they had to go through the tutorial each time. Based on that, we implemented a simple panel which explained the controls that would show at the start of each game. The player could simply click to begin the game from then on. This was a non-intrusive way to showcase the controls and could be shown to both player types.
 
+### User Stories
+The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
 
+##### As a Player:
+> I want to be able to open the game just by clicking on it
+> I want to be able to start the game by clicking Start Game
+> I want to be able to save my score
+> I want to move the spaceship using mouse left click
+> I want to be able to unlock new maps
+> I want to be able to view the controls
+> I want to be able to adjust volume
+> I want to be able to set the difficulty before I start the game
+> I want to be able to enter my name, see my score, and save my details when the game ends
 
+##### As an Experienced Player:
+> I want to be able to view my previous high scores
+> I want to receive a ‘congratulations’ message for setting a new high score
+> I want to be able to unlock new enemies
+> I want to be able to unlock new weapons
+
+By delineating user actions, we gained insight into how our game mechanics should function in practice, enabling us to make more informed decisions on which of our ideas we should pursue and develop further. For example, it became clear that we should focus our efforts on core gameplay mechanics first, such as responsive controls. This allowed us to work efficiently and avoid wasting time on features that weren’t necessary. 
+
+We were also able to gain a better understanding of the scope of the project. Again, helping us to avoid wasting time on ideas that weren’t feasible, the fact that we weren’t overcommitting to any one feature meant that we had streamlined ideas, and a project that could be completed within the time we had.
 
 Overall, looking at the game through the lens of different types of users allowed us to uncover new features that were required, as well as ascertain which of our ideas would provide the most improvement to the experience of a certain user without hindering the experiences of other users, and therefore, has been crucial in the development of our game.
 
