@@ -352,6 +352,41 @@ Ciritcism:
 
 Good points:
 - The game is simple enough that it shouldn't need documentation. All of necessary information about the game could be covered in a tutorial.
+<br>
+
+### Addressing Feedback
+#Things we could do to address the criticisms raised in the user feedback
+
+#### Adding a tutorial panel
+This would resolve the following issues with users:
+- Dying immediately when the game begins
+- Not knowing why they are dying
+- Not understanding the aim of the game
+- Not knowing what each element in the game is
+- Not knowing how to play
+- Not knowing that you have missiles and lazers
+- Knowing which obstacles are good/bad
+
+#### Increased testing to fix bugs
+- The continue button (at the end of a game) takes too long to respond
+- Sliders are difficult to use
+- The image for the cursor is slightly too big, which means that sometimes the user thinks they are clicking on something, but they aren't the cursor is too big.
+- Shooting as many missiles as possible can cause the computer to crash.
+- Pressing 'z', perhaps other keys too, during the loading screen to crash because a NullPointerException is raised and not caught
+- It's not possible to turn of the shield
+
+#### Changing Features to Enhance Gameplay
+- Weapons have limited ammo (currently there is no limit)
+- One weapon can destroy an alien, and the other can destroy an asteroid (must be made clear in tutorial panel which does what)
+- The shield must have limited time use
+- Shooting an asteroid could reveal minerals/gems/aliens
+- Can use the keyboard instead of the mouse to move the spaceship
+
+#### UI improvements
+- Change the background on the main menu, the text, labels and animations are misleading
+- A cleaner look for the settings menu, a couple of people said that is ugly
+- The spaceship has a thruster on it's underside, which fires everytime it moves upwards/replace the spaceship with an astronaut that has a booster pack.
+- Make the minerals look less like asteroids, more like gems/something attractive
 
 
 
