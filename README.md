@@ -185,7 +185,7 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 
 #### Think Aloud Feedback
 
->Alex:
+> Alex C.:
 - Died quickly, first instinct was to use the keyboard to move
 - Confused why spaceship shades out
 - Confused about what damages health, e.g. crashing
@@ -195,11 +195,10 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 - Need the boundaries need to be more clearly defined
 - I don't know why I am dying
 - I feel like I shouldn't die when I get to the edge of the screen
-- It would be helpful if I could shoot
-- I have to say I think it is too hard, more than a few seconds
+- I have to say I think it is too hard
 
 
->TA Alex:
+> Alex E.:
 - Sliders are an issue
 - Continue button to a while to respond
 - Aesthetics are pleasing
@@ -211,22 +210,20 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 - Looking at the UI and seeing if any of the elements do anything/or if they are just graphics. e.g. is the "System Map" a button
 - The UI for the setting menu is ugly
 - "Continue" button when you die  doesn't do anything
-- How do I move?? Oh when I click I go up, it's like flappy birds
+- Unclear how to move
 - The physics don't feel realistic, shouldn't fall in space
-- Fewer harder to dodge obstacles would be good
+- Fewer hard to dodge obstacles would be good
 - It needs to be clearer which obstacles are good/bad
 - We need a tutorial
-- Force field needs a battery/life line, it is OP atm
-- Thruster needs to be on the bottom
+- Force field needs a battery/life line, it makes the game too easy if left unchecked
+- Thruster needs to be on the bottom of the ship
 - It's need to be more obvious what happens when crashes happen, e.g. a shake/path of spaceship changes
 - Too many obstacles, the screen is too crowded
-- One weapon can destroy the asteroid
-- Other weapon can destroy opponent
 
 
 >Kelvin:
 - The accuracy of the cursor is off
-- Shooting too many missiles can break the computer
+- Shooting too many missiles can break the computer 
 - Pressing 'z' during the loading screen causes a NullPointerException
 
 
