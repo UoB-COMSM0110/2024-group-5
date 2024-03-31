@@ -12,6 +12,9 @@
 
 [5. Implementation](#imp)
 
+[6. Evaluation](#eval)
+
+
 
 
 //*use html tags to make links work* (markdown not interpreting normal links properly)
@@ -129,3 +132,6 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 
 <h2 id="imp">Implementation</h2>
+
+<h2 id="eval">Evaluation</h2>
+
