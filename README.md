@@ -158,7 +158,7 @@ User | Lvl 1 | Lvl 2
 
 
 User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort | Frustration | Score 
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+:---|:---:|:---|:---:|:---:|:---:|:---:|:---:
 1 | 4 | 2 | 15 | 7 | 4 | 10 | 180
 2 | 2 | 8 | 8 | 1 | 14 | 4 | 155
 3 | 6 | 1 | 3 | 17 | 10 | 2 | 165
@@ -170,7 +170,7 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 9 | 15 | 6 | 12 | 21 | 2 | 18 | 340
 10 | 2 | 5 | 4 | 3 | 6 | 2 | 80
 
-<br>
+<br>The NASA Task Load Index (TLX) scores provide valuable insights into users' subjective experiences and perceived workload when interacting with the system. Each user's mental , physical, and temporal demand, as well as their performance, effort, and frustration levels are assessed and quantified. These scores offer a nuanced understanding of the challenges users face and the aspects of the system that contribute to perceived workload. What is immediately obvious is that the game is not as accessible to everyone as we initially thought, as evidenced by a score range of 265, and an average score of 187. We observed that the mental and physical demand the game exerts on players is low, which are positive aspects of the evaluation. However, there were high scores in the frustration and temporal demand categories. Fortunately, we have identified potential improvements to alleviate the percieved workload in these areas, and enhance the overall game experience <br>
 
 ### Code Testing
 
@@ -186,33 +186,36 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 #### Think Aloud Feedback
 
 > Alex C.:
+- I really like how there are different backgrounds each time
+- Fun
+- Has potential
 - Died quickly, first instinct was to use the keyboard to move
 - Confused why spaceship shades out
 - Confused about what damages health, e.g. crashing
-- I really like how there are different backgrounds each time
 - Not sure what these white things are (the minerals)
 - I need instructions on what the aim of the game is,
 - Need the boundaries need to be more clearly defined
 - I don't know why I am dying
 - I feel like I shouldn't die when I get to the edge of the screen
-- I have to say I think it is too hard
+- Too hard
 
 
 > Alex E.:
-- Sliders are an issue
-- Continue button to a while to respond
 - Aesthetics are pleasing
-- It's not clear how to play the game, what is an obstacle, what is helpful
+- Sliders not working properly
+- Continue button takes a while to respond
+- Unclear how to play the game:
+    - what is an obstacle? what is helpful?
 - It's not obvious that you can fire weapons
 
 
 >Freya:
 - Looking at the UI and seeing if any of the elements do anything/or if they are just graphics. e.g. is the "System Map" a button
-- The UI for the setting menu is ugly
+- The UI for the setting menu clashes/unaesthetic
 - "Continue" button when you die  doesn't do anything
 - Unclear how to move
 - The physics don't feel realistic, shouldn't fall in space
-- Fewer hard to dodge obstacles would be good
+- Too many obstacles, which are too hard to avoid
 - It needs to be clearer which obstacles are good/bad
 - We need a tutorial
 - Force field needs a battery/life line, it makes the game too easy if left unchecked
@@ -235,17 +238,15 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 - Opening and starting the game was fine.
 - There are bugs, but no helful ways to recover
 - Really cool design, nice vibe :) Nice music
-- Weapons are fun, lasercould be limited
+- Weapons are fun, laser could be limited
 - Felt like there were a few situations where there wasn't a safe route at all,
 - Fun to play
 - Should be an explosion when you die/crash
 
 
 >Sophie:
-- "I have no idea what I'm doing"
-- I don't know what any of the things are
-- Why there is the cursor a sword
-- The aeasthetic is mis-matched, and confusing
+- Unclear direction
+- Mismatched aesthetic
 
 >Pete:
 - Too hard to start with 
@@ -253,7 +254,7 @@ User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort 
 - The spaceship should have a thrust on it's underside that fires when you click to move
 the ship upwards
 - pressing a key during the loading screen causes the game to crash
-- I think I'd prefer to use only the keyboard, e.g. spacebar to move the spaceship upwards
+- game works better with keyboard, not mouse
 
 
 
@@ -359,18 +360,18 @@ Good points:
 
 #### Adding a tutorial panel
 This would resolve the following issues with users:
-- Dying immediately when the game begins
-- Not knowing why they are dying
-- Not understanding the aim of the game
-- Not knowing what each element in the game is
-- Not knowing how to play
-- Not knowing that you have missiles and lazers
-- Knowing which obstacles are good/bad
+- Dying immediately when the game begins.
+- Not knowing why they are dying.
+- Not understanding the aim of the game.
+- Not knowing what each element in the game is.
+- Not knowing how to play.
+- Not knowing that you have missiles and lasers.
+- Knowing which obstacles are good/bad.
 
 #### Increased testing to fix bugs
 - The continue button (at the end of a game) takes too long to respond
 - Sliders are difficult to use
-- The image for the cursor is slightly too big, which means that sometimes the user thinks they are clicking on something, but they aren't the cursor is too big.
+- The image for the cursor is slightly too big, which means that sometimes the user thinks they are clicking on something, but they aren't.
 - Shooting as many missiles as possible can cause the computer to crash.
 - Pressing 'z', perhaps other keys too, during the loading screen to crash because a NullPointerException is raised and not caught
 - It's not possible to turn of the shield
