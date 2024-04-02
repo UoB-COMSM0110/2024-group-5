@@ -82,6 +82,9 @@ static GameLevelLAN gameLevelLAN;
 void setup(){  
   thread = new Thread(new MyRunnable());
   thread.start();
+      
+    //hide default cursor
+    noCursor();
 
   ////init bgm
   minim = new Minim(this);
@@ -116,7 +119,11 @@ void draw(){
   // if all objects have been loaded
   if(isAllDone){
     //init cursor
+    
+    //draw custom cursor
     cursor(buttonImage.cursor);
+        buttonImage.drawCursor(mouseX, mouseY);
+
   }
   
   if(gameStatus.curLevel == Level.LEVEL_START){
