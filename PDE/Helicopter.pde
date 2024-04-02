@@ -36,11 +36,17 @@ class Helicopter extends MoveObject implements Serializable{
   }
 
   public void move(boolean isClicked){
+    keepInBounds();
     if(isClicked) {
       curY -= speed;
     }else{
       curY += speed;
     }
+  }
+  
+  public void keepInBounds(){
+    if(curY < 0) { curY = 0; }
+    if(curY+100 > height) { curY = (height - 100); }
   }
   
   public void move(){

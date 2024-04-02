@@ -19,6 +19,7 @@ class GameLevel1 {
     public boolean isTimeUpdate = false;
     public int time = 0;
     public boolean isTrigger = false;
+    public boolean spaceCheck = false;
     
     private ScorePanel scorePanel = new ScorePanel();
     private AbilityBox[] boxs = new AbilityBox[3];
@@ -115,7 +116,7 @@ class GameLevel1 {
         }else{
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
-          println("You lose!Your Score is "+score);
+          println("You lose! Your Score is "+ score);
           writeScoreToTxt();
         }
     }
@@ -126,6 +127,12 @@ class GameLevel1 {
         boxs[i].curY = 0;
         boxs[i].curX = 210+path+i*75;
       }
+    }
+    
+    private boolean keyPressed(){
+      if (key == ' ') {
+        return true;
+      } else return false;
     }
     
     private void initNewMaps(){
@@ -206,7 +213,7 @@ class GameLevel1 {
 
     
     public boolean isGameEnd(){
-      if(helicopter.isOutOfBound()||helicopter.health==0){
+      if(helicopter.health==0){
         return true;
       }
       return false;
