@@ -8,6 +8,7 @@ class GameLevel1 {
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
+    public AsteroidBelts asteroidBelts = new AsteroidBelts(1);
     public int score = 0;
     public int maxMissileCount = 50;
     public final Missile[] missiles = new Missile[maxMissileCount];
@@ -95,7 +96,7 @@ class GameLevel1 {
           //draw missile;
           drawMissiles();
           //draw Asteriods
-          drawAsteriods();
+          //drawAsteriods();
           //draw abilityBox
           //drawAbilityBoxs();
           //draw fasrCard
@@ -111,6 +112,7 @@ class GameLevel1 {
           //draw helicopter
           //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
+          drawAsteroidBelts();
           helicopter.move(mousePressed);
         }else{
           gameStatus.curLevel = Level.LEVEL_END;
@@ -239,6 +241,28 @@ class GameLevel1 {
       if(millis()-helicopter.hitBeginTime>=helicopter.invincibleTimeWhenLoseHp){
         helicopter.hitBeginTime = 0;
       }
+    }
+    
+    private void drawAsteroidBelts() {
+            for(int i=0;i<asteroidBelts.asteriodCount;i++){
+        image(asteroidBelts.images[0],asteroidBelts.topImagesPos[i][0],asteroidBelts.topImagesPos[i][1],50,50);
+        image(asteroidBelts.images[0],asteroidBelts.botImagesPos[i][0],asteroidBelts.botImagesPos[i][1],50,50);
+        if(helicopter.intersectWithAsteriods(asteriods)){
+              isGameEnd = true;
+              return;
+         }
+        asteroidBelts.setRange((int)random(75));
+        asteroidBelts.move();
+        if(asteroidBelts.isOutOfBound(asteroidBelts.topImagesPos[i][0])){
+          asteroidBelts.topImagesPos[i][0] = width;
+          asteroidBelts.topImagesPos[i][1] = (int)random(asteroidBelts.range);
+        }
+        if(asteroidBelts.isOutOfBound(asteroidBelts.botImagesPos[i][0])){
+          asteroidBelts.botImagesPos[i][0] = width+50;
+          asteroidBelts.botImagesPos[i][1] = height-asteroidBelts.range+(int)random(asteriods.range)-50;
+        }
+      }
+      
     }
     
     public void drawUfos(){
