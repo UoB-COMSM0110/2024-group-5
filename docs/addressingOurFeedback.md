@@ -17,6 +17,7 @@ This would resolve the following issues with users:
 - Shooting as many missiles as possible can cause the computer to crash.
 - Pressing 'z', perhaps other keys too, during the loading screen to crash because a NullPointerException is raised and not caught
 - It's not possible to turn of the shield
+- Pressing 'c' during gameplay creates nullPointerException error
 
 ##Possible new features
 - Weapons have limited ammo
