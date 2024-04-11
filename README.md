@@ -278,7 +278,7 @@ Criticisms:
 <br>
 
 ##### (2) Match Between the System and the Real World: 
-The design should speak the users' language. Use words, phrases, and concepts familiar to the user, rather than internal jargon. Follow-real world conventions, making information appear in a natural and logical order.
+>The design should speak the users' language. Use words, phrases, and concepts familiar to the user, rather than internal jargon. Follow-real world conventions, making information appear in a natural and logical order.
 
 Good points:
 - It is obvious that the goal is to navigate the spaceship through an asteroid belt. 
