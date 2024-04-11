@@ -252,7 +252,7 @@ class GameLevel1 {
               return;
          }
         asteroidBelts.setRange((int)random(75));
-        asteroidBelts.move();
+        asteroidBelts.moveAsteroid(i);
         if(asteroidBelts.isOutOfBound(asteroidBelts.topImagesPos[i][0])){
           asteroidBelts.topImagesPos[i][0] = width;
           asteroidBelts.topImagesPos[i][1] = (int)random(asteroidBelts.range);
