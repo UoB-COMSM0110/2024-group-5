@@ -20,7 +20,7 @@
       setAsteriodCount(40);
       topImagesPos = new int[asteriodCount][2];
       botImagesPos = new int[asteriodCount][2]; 
-      createBelt();
+      createBelts();
       speed = 10;
     }
     
@@ -34,38 +34,14 @@
       this.range = range;
     }
     
-    //public void setTopImagesPos(){
-    //  for(int i=0;i<asteriodCount;i++){
-    //    topImagesPos[i][0] = (int)random(width);
-    //    topImagesPos[i][1] = (int)random(range)-50;
-    //  }  
-    //}
-    
-    //public void setBotImagesPos(){
-    //  for(int i=0;i<asteriodCount;i++){
-    //    botImagesPos[i][0] = (int)random(width);
-    //    botImagesPos[i][1] = height-range+(int)random(range)-50;
-    //  }  
-    //}
-    
-    public void createBelt() {
-       for(int i=0;i<asteriodCount;i++){
+    public void createBelts() {
+       for(int i = 0; i < asteriodCount; i++){
         topImagesPos[i][0] = (int)random(width);
-        topImagesPos[i][1] = (int)random(range)-50;
-        
+        topImagesPos[i][1] = (int)random(range);
         botImagesPos[i][0] = (int)random(width);
-        botImagesPos[i][1] = height-range+(int)random(range)-50;
+        botImagesPos[i][1] = (height - (int)random(range)) - 50;
       } 
     }
-   
-    
-    //@Override
-    //public void move(){
-    //  for(int i=0;i<asteriodCount;i++){
-    //    topImagesPos[i][0] -= speed; 
-    //    botImagesPos[i][0] -= speed;
-    //  } 
-    //}
      
      public void moveAsteroid(int i ){
        topImagesPos[i][0] -= speed;
