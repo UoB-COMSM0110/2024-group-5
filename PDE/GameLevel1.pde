@@ -8,7 +8,7 @@ class GameLevel1 {
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
-    public AsteroidBelts asteroidBelts = new AsteroidBelts(1);
+    public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
     public int score = 0;
     public int maxMissileCount = 50;
     public final Missile[] missiles = new Missile[maxMissileCount];
@@ -251,7 +251,7 @@ class GameLevel1 {
         //      isGameEnd = true;
         //      return;
         // }
-        asteroidBelts.setRange((int)random(75));
+        
         asteroidBelts.moveAsteroid(i);
         if(asteroidBelts.isOutOfBound(asteroidBelts.topImagesPos[i][0])){
           asteroidBelts.topImagesPos[i][0] = width;

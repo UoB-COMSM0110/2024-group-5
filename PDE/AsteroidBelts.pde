@@ -7,7 +7,7 @@
     public int[][] botImagesPos;
     public int range;
     
-    public AsteroidBelts(int imageCount){
+    public AsteroidBelts(int imageCount, int range){
       imageUrls = new String[imageCount];
       images = new PImage[imageCount];
       for(int i=0;i<imageCount;i++){
@@ -16,7 +16,7 @@
       for(int i=0;i<imageCount;i++){
         images[i] = loadImage(imageUrls[i]);
       }
-      
+      setRange(range);
       setAsteriodCount(40);
       topImagesPos = new int[asteriodCount][2];
       botImagesPos = new int[asteriodCount][2]; 
