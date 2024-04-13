@@ -34,17 +34,11 @@ class GameLevel1 {
     
     
     public GameLevel1(){
-       //init coins
        initCoins();
-       //init boxs;
        initBoxs();
-       //init ufos;
        initUfos();
-       //init fastCards;
        initFastCards();
-       //init missiles
        initMissiles();
-       //init new maps;
        initNewMaps();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
@@ -53,20 +47,8 @@ class GameLevel1 {
     public void startLevel1(){
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
-          //draw map
           drawNewMaps();
-          //draw coins
           drawCoins();
-          //for(GoldCoin coin:coins){
-          //  if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
-          //    coin.isVisiable = false;
-          //    scorePanel.goldCount++; 
-          //  }
-          //  if(coin.isVisiable){
-          //    image(coin.getImage(),coin.curX,coin.curY,100,100);
-          //  }
-          //   coin.move();
-          //}
           
           //change speed with time passing
           if(millis()-gameTime>=30000){
@@ -91,14 +73,15 @@ class GameLevel1 {
           drawMissiles();
           //drawAbilityBoxs();
           drawFastCards();
-          drawGamePanel();
-          drawShield();
-          //drawIcon();
-          drawHealth();
+
           //draw helicopter
           //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
           drawAsteroidBelts();
+          drawGamePanel();
+          drawShield();
+          //drawIcon();
+          drawHealth();
           helicopter.move(mousePressed);
         }else{
           
@@ -153,8 +136,7 @@ class GameLevel1 {
       for(int i=0;i<coins.length;i++){
         coins[i] = new GoldCoin(asteroidBelts.getRange());
         coins[i].isVisiable = true;
-        //int posY = (int)((height-100)*Math.random());
-        int posY = (int)random(asteroidBelts.getRange() + 50, height - asteroidBelts.getRange());
+        int posY = (int)random(asteroidBelts.getRange() + 50, height - asteroidBelts.getRange()-50);
         int posX =  width-100+i*(int)random(300);
         coins[i].curX = posX;
         coins[i].curY = posY;
