@@ -194,6 +194,8 @@ class GameLevel1 {
       }
       if(mousePressed){
         image(helicopter.images[1],helicopter.curX,helicopter.curY,100,100);
+      } else if (helicopter.intersectsWithAsteroidBelt(asteroidBelts) != null ){
+        image(helicopter.images[2], helicopter.curX, helicopter.curY,100,100);
       }else{
         image(helicopter.images[0],helicopter.curX,helicopter.curY,100,100);
       }
