@@ -2,10 +2,13 @@
     public int imageCount;
     public String[] imageUrls;
     public PImage[] images;
-    public int asteriodCount;
+    public int asteroidCount;
     public int[][] topImagesPos;
     public int[][] botImagesPos;
     public int range;
+    public final int imgWidth;
+    public final int imgHeight;
+    
     
     public AsteroidBelts(int imageCount, int range){
       imageUrls = new String[imageCount];
@@ -16,17 +19,19 @@
       for(int i=0;i<imageCount;i++){
         images[i] = loadImage(imageUrls[i]);
       }
+      imgWidth = 50;
+      imgHeight = 50;
       setRange(range);
-      setAsteriodCount(40);
-      topImagesPos = new int[asteriodCount][2];
-      botImagesPos = new int[asteriodCount][2]; 
+      setAsteroidCount(40);
+      topImagesPos = new int[asteroidCount][2];
+      botImagesPos = new int[asteroidCount][2]; 
       createBelts();
       speed = 10;
     }
     
     
-    public void setAsteriodCount(int asteriodCount){
-      this.asteriodCount = asteriodCount;
+    public void setAsteroidCount(int asteroidCount){
+      this.asteroidCount = asteroidCount;
     }
     
     
@@ -35,7 +40,7 @@
     }
     
     public void createBelts() {
-       for(int i = 0; i < asteriodCount; i++){
+       for(int i = 0; i < asteroidCount; i++){
         topImagesPos[i][0] = (int)random(width);
         topImagesPos[i][1] = (int)random(range);
         botImagesPos[i][0] = (int)random(width);
