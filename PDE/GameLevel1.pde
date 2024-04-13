@@ -100,6 +100,7 @@ class GameLevel1 {
           drawAsteroidBelts();
           helicopter.move(mousePressed);
         }else{
+          
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
           println("You lose!Your Score is "+score);
@@ -160,9 +161,9 @@ class GameLevel1 {
     
     private void initUfos(){
       for(int i=0;i<ufos.length;i++){
-        ufos[i] = new Ufo();
+        ufos[i] = new Ufo(asteroidBelts.getRange());
         ufos[i].isVisiable = true;
-        int posY = (int)random(height-100);
+        int posY = ufos[i].getYAxisWithinAsteroidBelts();
         int posX =  width+(int)random(2000)+(int)(i*random(100));
         ufos[i].curX = posX;
         ufos[i].curY = posY;
@@ -190,12 +191,11 @@ class GameLevel1 {
     
     public void drawSpaceship(){
       if(helicopter.hitBeginTime!=0){
+        image(helicopter.images[2], helicopter.curX, helicopter.curY,100,100);
          tint(150,100); 
       }
       if(mousePressed){
         image(helicopter.images[1],helicopter.curX,helicopter.curY,100,100);
-      } else if (helicopter.intersectsWithAsteroidBelt(asteroidBelts) != null ){
-        image(helicopter.images[2], helicopter.curX, helicopter.curY,100,100);
       }else{
         image(helicopter.images[0],helicopter.curX,helicopter.curY,100,100);
       }
@@ -214,9 +214,11 @@ class GameLevel1 {
         image(asteroidBelts.images[0],asteroidBelts.botImagesPos[i][0],asteroidBelts.botImagesPos[i][1],50,50);
         String intersect = helicopter.intersectsWithAsteroidBelt(asteroidBelts);
         if( intersect != null){
+              image(helicopter.images[2], helicopter.getCurX(), helicopter.getCurY(), 100,100);
+              helicopter.hitBeginTime = millis();
               helicopter.lostHealth();
-              if (intersect == "TOP") helicopter.setCurY(helicopter.getCurY() + 75);
-              if (intersect == "BOTTOM") helicopter.setCurY(helicopter.getCurY() - 75);
+              if (intersect == "TOP") helicopter.setCurY(helicopter.getCurY() + 50);
+              if (intersect == "BOTTOM") helicopter.setCurY(helicopter.getCurY() - 100 );
          }
         
         asteroidBelts.moveAsteroid(i);
@@ -226,7 +228,7 @@ class GameLevel1 {
         }
         if(asteroidBelts.isOutOfBound(asteroidBelts.botImagesPos[i][0])){
           asteroidBelts.botImagesPos[i][0] = width;
-          asteroidBelts.botImagesPos[i][1] = (height - (int)random(asteroidBelts.range)) - 100;
+          asteroidBelts.botImagesPos[i][1] = (height - (int)random(asteroidBelts.range)) - 50;
       }
       
     }

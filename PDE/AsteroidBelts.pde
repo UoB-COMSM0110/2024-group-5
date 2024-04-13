@@ -5,7 +5,7 @@
     public int asteroidCount;
     public int[][] topImagesPos;
     public int[][] botImagesPos;
-    public int range;
+    private int range;
     public final int imgWidth;
     public final int imgHeight;
     
@@ -56,5 +56,9 @@
     
     public boolean isOutOfBound(int x){
        return x < -50;
+    }
+    
+    public int getRange() {
+      return this.range;
     }
   }
