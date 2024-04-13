@@ -56,16 +56,17 @@ class GameLevel1 {
           //draw map
           drawNewMaps();
           //draw coins
-          for(GoldCoin coin:coins){
-            if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
-              coin.isVisiable = false;
-              scorePanel.goldCount++; 
-            }
-            if(coin.isVisiable){
-              image(coin.getImage(),coin.curX,coin.curY,100,100);
-            }
-             coin.move();
-          }
+          drawCoins();
+          //for(GoldCoin coin:coins){
+          //  if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
+          //    coin.isVisiable = false;
+          //    scorePanel.goldCount++; 
+          //  }
+          //  if(coin.isVisiable){
+          //    image(coin.getImage(),coin.curX,coin.curY,100,100);
+          //  }
+          //   coin.move();
+          //}
           
           //change speed with time passing
           if(millis()-gameTime>=30000){
@@ -150,9 +151,10 @@ class GameLevel1 {
     
     private void initCoins(){
       for(int i=0;i<coins.length;i++){
-        coins[i] = new GoldCoin();
+        coins[i] = new GoldCoin(asteroidBelts.getRange());
         coins[i].isVisiable = true;
-        int posY = (int)((height-100)*Math.random());
+        //int posY = (int)((height-100)*Math.random());
+        int posY = (int)random(asteroidBelts.getRange() + 50, height - asteroidBelts.getRange());
         int posX =  width-100+i*(int)random(300);
         coins[i].curX = posX;
         coins[i].curY = posY;
@@ -232,6 +234,19 @@ class GameLevel1 {
       }
       
     }
+    }
+    
+    private void drawCoins() {
+        for(GoldCoin coin:coins){
+            if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
+              coin.isVisiable = false;
+              scorePanel.goldCount++; 
+            }
+            if(coin.isVisiable){
+              image(coin.getImage(),coin.curX,coin.curY,100,100);
+            }
+             coin.move();
+          }
     }
     
     public void drawUfos(){

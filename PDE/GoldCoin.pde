@@ -1,5 +1,7 @@
 public class GoldCoin extends MoveObject{
-  public GoldCoin(){
+  private int asteroidRange;
+  public GoldCoin(int asteroids){
+    asteroidRange = asteroids;
     PImage image = loadImage("mineral.png");
     this.setImage(image);
     speed = 10;
@@ -10,7 +12,7 @@ public class GoldCoin extends MoveObject{
     if(isOutOfBound()){
       isVisiable = true;
       curX = width+(int)random(500);
-      curY = (int)random(height);
+      curY = (int)random(asteroidRange + 60, height - asteroidRange - 150);
     }
     curX-=speed;
   }
