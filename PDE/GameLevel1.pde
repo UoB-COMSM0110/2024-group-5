@@ -8,6 +8,7 @@ class GameLevel1 {
     public final Ufo[] ufos = new Ufo[5];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
+    public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
     public int score = 0;
     public int maxMissileCount = 50;
     public final Missile[] missiles = new Missile[maxMissileCount];
@@ -33,17 +34,11 @@ class GameLevel1 {
     
     
     public GameLevel1(){
-       //init coins
        initCoins();
-       //init boxs;
        initBoxs();
-       //init ufos;
        initUfos();
-       //init fastCards;
        initFastCards();
-       //init missiles
        initMissiles();
-       //init new maps;
        initNewMaps();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
@@ -52,19 +47,8 @@ class GameLevel1 {
     public void startLevel1(){
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
-          //draw map
           drawNewMaps();
-          //draw coins
-          for(GoldCoin coin:coins){
-            if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
-              coin.isVisiable = false;
-              scorePanel.goldCount++; 
-            }
-            if(coin.isVisiable){
-              image(coin.getImage(),coin.curX,coin.curY,100,100);
-            }
-             coin.move();
-          }
+          drawCoins();
           
           //change speed with time passing
           if(millis()-gameTime>=30000){
@@ -78,41 +62,29 @@ class GameLevel1 {
           }
           
           updateSpaceshipHitTime();
-         
           //letLightDecrease(1);
           ////update time
           //setLightDecrease();
           //updateTime();
           //setIsLightDecrease();
-          
-          //draw ufo
           drawUfos();
-
-          //draw bullet
           drawBullets();
-          //draw lazor;
           drawLazor();
-          //draw missile;
           drawMissiles();
-          //draw Asteriods
-          drawAsteriods();
-          //draw abilityBox
           //drawAbilityBoxs();
-          //draw fasrCard
           drawFastCards();
-          //draw gamePanel
-          drawGamePanel();
-          //draw Shield
-          drawShield();
-          //draw icon
-          //drawIcon();
-          //draw health
-          drawHealth();
+
           //draw helicopter
           //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
+          drawAsteroidBelts();
+          drawGamePanel();
+          drawShield();
+          //drawIcon();
+          drawHealth();
           helicopter.move(mousePressed);
         }else{
+          
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
           println("You lose!Your Score is "+score);
@@ -143,28 +115,6 @@ class GameLevel1 {
       }
     }
     
-    private void drawAsteriods(){
-      for(int i=0;i<asteriods.asteriodCount;i++){
-        image(asteriods.images[0],asteriods.topImagesPos[i][0],asteriods.topImagesPos[i][1],asteriods.topImageSize[i][0],asteriods.topImageSize[i][1]);
-        image(asteriods.images[0],asteriods.botImagesPos[i][0],asteriods.botImagesPos[i][1],asteriods.botImageSize[i][0],asteriods.botImageSize[i][0]);
-        if(helicopter.hitBeginTime==0&&helicopter.intersectWithAsteriods(asteriods)&&shield.isVisible==false){
-              helicopter.lostHealth();
-              helicopter.hitBeginTime = millis();
-         }
-        asteriods.setRange((int)random(300));
-        asteriods.move();
-        if(asteriods.isOutOfBound(asteriods.topImagesPos[i][0])){
-          asteriods.topImagesPos[i][0] = width+(int)random(300);
-          asteriods.topImagesPos[i][1] = (int)random(asteriods.range)-100;
-        }
-        if(asteriods.isOutOfBound(asteriods.botImagesPos[i][0])){
-          //asteriods.botImagesPos[i][0] = (int)random(width)+50;
-          asteriods.botImagesPos[i][0] = width+(int)random(300);
-          asteriods.botImagesPos[i][1] = height-asteriods.range+(int)random(asteriods.range)-50;
-        }
-      }
-    }
-    
     private void initFastCards(){
       for(int i=0;i<cards.length;i++){
         cards[i] = new FastCard();
@@ -184,9 +134,9 @@ class GameLevel1 {
     
     private void initCoins(){
       for(int i=0;i<coins.length;i++){
-        coins[i] = new GoldCoin();
+        coins[i] = new GoldCoin(asteroidBelts.getRange());
         coins[i].isVisiable = true;
-        int posY = (int)((height-100)*Math.random());
+        int posY = (int)random(asteroidBelts.getRange() + 50, height - asteroidBelts.getRange()-50);
         int posX =  width-100+i*(int)random(300);
         coins[i].curX = posX;
         coins[i].curY = posY;
@@ -195,9 +145,9 @@ class GameLevel1 {
     
     private void initUfos(){
       for(int i=0;i<ufos.length;i++){
-        ufos[i] = new Ufo();
+        ufos[i] = new Ufo(asteroidBelts.getRange());
         ufos[i].isVisiable = true;
-        int posY = (int)random(height-100);
+        int posY = ufos[i].getYAxisWithinAsteroidBelts();
         int posX =  width+(int)random(2000)+(int)(i*random(100));
         ufos[i].curX = posX;
         ufos[i].curY = posY;
@@ -225,6 +175,7 @@ class GameLevel1 {
     
     public void drawSpaceship(){
       if(helicopter.hitBeginTime!=0){
+        image(helicopter.images[2], helicopter.curX, helicopter.curY,100,100);
          tint(150,100); 
       }
       if(mousePressed){
@@ -239,6 +190,45 @@ class GameLevel1 {
       if(millis()-helicopter.hitBeginTime>=helicopter.invincibleTimeWhenLoseHp){
         helicopter.hitBeginTime = 0;
       }
+    }
+    
+    private void drawAsteroidBelts() {
+      for(int i=0;i<asteroidBelts.asteroidCount;i++){
+        image(asteroidBelts.images[0],asteroidBelts.topImagesPos[i][0],asteroidBelts.topImagesPos[i][1],50,50);
+        image(asteroidBelts.images[0],asteroidBelts.botImagesPos[i][0],asteroidBelts.botImagesPos[i][1],50,50);
+        String intersect = helicopter.intersectsWithAsteroidBelt(asteroidBelts);
+        if( intersect != null){
+              image(helicopter.images[2], helicopter.getCurX(), helicopter.getCurY(), 100,100);
+              helicopter.hitBeginTime = millis();
+              helicopter.lostHealth();
+              if (intersect == "TOP") helicopter.setCurY(helicopter.getCurY() + 50);
+              if (intersect == "BOTTOM") helicopter.setCurY(helicopter.getCurY() - 100 );
+         }
+        
+        asteroidBelts.moveAsteroid(i);
+        if(asteroidBelts.isOutOfBound(asteroidBelts.topImagesPos[i][0])){
+          asteroidBelts.topImagesPos[i][0] = width;
+          asteroidBelts.topImagesPos[i][1] = (int)random(asteroidBelts.range);
+        }
+        if(asteroidBelts.isOutOfBound(asteroidBelts.botImagesPos[i][0])){
+          asteroidBelts.botImagesPos[i][0] = width;
+          asteroidBelts.botImagesPos[i][1] = (height - (int)random(asteroidBelts.range)) - 50;
+      }
+      
+    }
+    }
+    
+    private void drawCoins() {
+        for(GoldCoin coin:coins){
+            if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
+              coin.isVisiable = false;
+              scorePanel.goldCount++; 
+            }
+            if(coin.isVisiable){
+              image(coin.getImage(),coin.curX,coin.curY,100,100);
+            }
+             coin.move();
+          }
     }
     
     public void drawUfos(){

@@ -14,8 +14,8 @@ class Helicopter extends MoveObject implements Serializable{
     this.health = health;
     this.speed = speed;
     this.bullets = new ArrayList<Bullet>(); 
-    images = new PImage[2];
-    String[] urls = {"spaceship.png","spaceship1.png"};
+    String[] urls = {"spaceship.png","spaceship1.png","spaceshipDamaged.png"};
+    images = new PImage[urls.length];
     setImages(urls);
     image = loadImage(imagePath);
   }
@@ -95,19 +95,34 @@ class Helicopter extends MoveObject implements Serializable{
     return false;
   }
   
-  public boolean intersectWithAsteriods(Asteriods asteriods){
-    for(int i=0;i<asteriods.asteriodCount;i++){
-       if(asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2>=curX&&asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2<=curX+100&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2>=curY&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2<=curY+100){
-          return true;
-        }
+  //public boolean intersectWithAsteriods(Asteriods asteriods){
+  //  for(int i=0;i<asteriods.asteriodCount;i++){
+  //     if(asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2>=curX&&asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2<=curX+100&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2>=curY&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2<=curY+100){
+  //        return true;
+  //      }
+  //  }
+  //   for(int i=0;i<asteriods.asteriodCount;i++){
+  //     if(asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2>=curX&&asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2<=curX+100&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2>=curY&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2<=curY+100){
+  //        return true;
+  //     }
+  //  }
+  //  return false;
+  //}
+  
+  public String intersectsWithAsteroidBelt(AsteroidBelts asteroids){
+    for(int i=0;i<asteroids.asteroidCount;i++){
+      if ((curX >= asteroids.topImagesPos[i][0] && curX <= asteroids.topImagesPos[i][0] + asteroids.imgWidth) &&
+      (curY >= asteroids.topImagesPos[i][1] && curY <= asteroids.topImagesPos[i][1] + asteroids.imgHeight)){
+        return "TOP";
+      }
+      if ((curX >= asteroids.botImagesPos[i][0] && curX <= asteroids.botImagesPos[i][0] + asteroids.imgWidth) &&
+      (curY + 100 >= asteroids.botImagesPos[i][1] && curY + 100 <= asteroids.botImagesPos[i][1] + asteroids.imgHeight)){
+        return "BOTTOM";
+      }
     }
-     for(int i=0;i<asteriods.asteriodCount;i++){
-       if(asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2>=curX&&asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2<=curX+100&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2>=curY&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2<=curY+100){
-          return true;
-       }
-    }
-    return false;
+    return null;
   }
+  
   
   public boolean intersectWithFastCard(FastCard card){
     if(card.curX+50>=curX&&card.curX+50<=curX+100&&card.curY+50>=curY&&card.curY+50<=curY+100){
