@@ -40,6 +40,7 @@ class GameLevel1 {
        initFastCards();
        initMissiles();
        initNewMaps();
+       initByDifficulty();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
     }
@@ -91,6 +92,9 @@ class GameLevel1 {
           writeScoreToTxt();
         }
     }
+    private void initByDifficulty(){
+    }
+    
     private void initBoxs(){
       int path = 20;
       for(int i=0;i<boxs.length;i++){
@@ -101,9 +105,9 @@ class GameLevel1 {
     }
     
     private void initNewMaps(){
-      int random = (int)random(34);
+      int random = (int)random(33)+1;
       for(int i=0;i<newMaps.length;i++){
-        newMaps[i] = new Map("./gameMap/map-"+random+".png",i*width,0,5);
+        newMaps[i] = new Map("data/gameMap/map-"+random+".png",i*width,0,5);
       }
     }
     
@@ -170,6 +174,8 @@ class GameLevel1 {
        text(scorePanel.score,160,50);
        text("Mineral:",0,100);
        text(scorePanel.goldCount,210,100);
+       text("Kill:",0,150);
+       text(scorePanel.killCount,120,150);
        scorePanel.updateScore();
     }
     
@@ -238,6 +244,7 @@ class GameLevel1 {
                  ufo.isVisiable = false;
                  ufo.isDestoryed = true;
                  ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
+                 scorePanel.killCount++;
                  if(ufo.explode.isEnd==true){
                    ufo.move();
                    ufo.isVisiable = true;
@@ -254,6 +261,7 @@ class GameLevel1 {
                  ufo.isVisiable = false;
                  ufo.isDestoryed = true;
                  ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
+                 scorePanel.killCount++;
                  if(ufo.explode.isEnd==true){
                    ufo.move();
                    ufo.isVisiable = true;
@@ -266,6 +274,7 @@ class GameLevel1 {
             }
             if(lazor.isVisiable==true&&lazor.intersectWithUfo(ufo)){
                 ufo.isVisiable = false;
+                scorePanel.killCount++;
                 ufo.move();
                 ufo.isVisiable = true;
             }
@@ -317,9 +326,9 @@ class GameLevel1 {
     
     public void drawHealth(){
       switch(helicopter.health){
-        case 1: image(health.images[0],0,120,200,40); break;
-        case 2: image(health.images[1],0,120,200,40); break;
-        case 3: image(health.images[2],0,120,200,40); break;
+        case 1: image(health.images[0],0,170,200,40); break;
+        case 2: image(health.images[1],0,170,200,40); break;
+        case 3: image(health.images[2],0,170,200,40); break;
       }
     }
     

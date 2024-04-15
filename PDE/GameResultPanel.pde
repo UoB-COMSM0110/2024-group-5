@@ -14,5 +14,6 @@ class GameResultPanel extends FixedObject{
       
       text(gameLevel1.score,437,460);
       text(gameLevel1.scorePanel.goldCount,618,220);
+      text(gameLevel1.scorePanel.killCount,618,310);
    }
 }

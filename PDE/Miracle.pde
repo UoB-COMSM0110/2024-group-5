@@ -158,18 +158,23 @@ void draw(){
       }
     }
     
-    if(mousePressed&&mouseX>=setPanel.diffPointerX-20&&mouseX-10<=setPanel.diffPointerX+80&&mouseY>=setPanel.diffPointerY-20&&mouseY<=setPanel.diffPointerY+40){
-      if(mouseX<400){
-        setPanel.diffPointerX = 400;
+    //set difficulty
+    if(mousePressed&&mouseY>=setPanel.diffPointerY-20&&mouseY<=setPanel.diffPointerY+40){
+      if(mouseX<=500){
+        setPanel.diffPointerX = 360;
+        gameStatus.curDifficulty = Difficulty.EASY;
       }
-      else if(mouseX>695){
-        setPanel.diffPointerX = 695;
+      else if(mouseX>=600){
+        setPanel.diffPointerX = 730;
+         gameStatus.curDifficulty = Difficulty.HARD;
       }
       else{
-         setPanel.diffPointerX = mouseX-40;
+         setPanel.diffPointerX = 550;
+         gameStatus.curDifficulty = Difficulty.NORMAL;
       }
     }
-    println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
+    //println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
+    println(gameStatus.curDifficulty);
     return;
   }
   if(gameStatus.curLevel == Level.LEVEL_MAP1&&isAllDone){
