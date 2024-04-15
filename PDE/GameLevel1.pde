@@ -10,9 +10,10 @@ class GameLevel1 {
     public final Asteriods asteriods = new Asteriods(1);
     public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
     public int score = 0;
-    public int maxMissileCount = 50;
+    public int maxMissileCount = 70;
     public final Missile[] missiles = new Missile[maxMissileCount];
-    public int missileCount = 50;
+    public int missileCount = 70;
+    public int bulletCount = 70;
     
     public LightDecrease lightDecrease = new LightDecrease();
     public boolean isSet = false;
@@ -40,7 +41,6 @@ class GameLevel1 {
        initFastCards();
        initMissiles();
        initNewMaps();
-       initByDifficulty();
        //init bullets , need to be motified (when pick up bullet then init it)
        helicopter.initBullets(100);
     }
@@ -50,6 +50,7 @@ class GameLevel1 {
           imageMode(CORNER);
           drawNewMaps();
           drawCoins();
+     
           
           //change speed with time passing
           if(millis()-gameTime>=30000){
@@ -85,14 +86,64 @@ class GameLevel1 {
           drawHealth();
           helicopter.move(mousePressed);
         }else{
-          
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
           println("You lose!Your Score is "+score);
           writeScoreToTxt();
         }
     }
-    private void initByDifficulty(){
+    public void initByDifficulty(){
+      switch(gameStatus.curDifficulty){
+        case EASY:
+        setEasy();
+        break;
+        case NORMAL:
+        setNormal();
+        break;
+        case HARD:
+        setHard();
+        break;
+        default:
+      }
+    }
+    
+    private void setEasy(){
+      helicopter.health = 3;
+      helicopter.speed = 15;
+      for(int i=0;i<ufos.length;i++){
+        ufos[i].speed = 15;
+      }
+      helicopter.sizeX = 100;
+      helicopter.sizeY = 100;
+      missileCount = 70;
+      maxMissileCount = 70;
+      bulletCount = 70;
+    }
+    
+    private void setNormal(){
+      helicopter.health = 2;
+      helicopter.speed = 18;
+      for(int i=0;i<ufos.length;i++){
+        ufos[i].speed = 17;
+      }
+      helicopter.sizeX = 110;
+      helicopter.sizeY = 110;
+      missileCount = 40;
+      maxMissileCount = 40;
+      bulletCount = 60;
+    }
+    
+    private void setHard(){
+      helicopter.health = 1;
+      helicopter.speed = 21;
+      for(int i=0;i<ufos.length;i++){
+        ufos[i].speed = 20;
+      }
+      helicopter.sizeX = 120;
+      helicopter.sizeY = 120;
+      missileCount = 10;
+      maxMissileCount = 10;
+      bulletCount = 50;
     }
     
     private void initBoxs(){
@@ -181,13 +232,13 @@ class GameLevel1 {
     
     public void drawSpaceship(){
       if(helicopter.hitBeginTime!=0){
-        image(helicopter.images[2], helicopter.curX, helicopter.curY,100,100);
+        image(helicopter.images[2], helicopter.curX, helicopter.curY,helicopter.sizeX,helicopter.sizeY);
          tint(150,100); 
       }
       if(mousePressed){
-        image(helicopter.images[1],helicopter.curX,helicopter.curY,100,100);
+        image(helicopter.images[1],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
       }else{
-        image(helicopter.images[0],helicopter.curX,helicopter.curY,100,100);
+        image(helicopter.images[0],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
       }
       noTint();
     }

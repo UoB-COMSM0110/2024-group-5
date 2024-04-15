@@ -129,6 +129,7 @@ void draw(){
   if(gameStatus.curLevel == Level.LEVEL_BEGIN&&isAllDone){
     if(gameLevel1.isGameEnd == true||gameLevel1.isGameEnd()){
       gameLevel1 = new GameLevel1();
+      gameLevel1.initByDifficulty();
     }
     // play music
     bgmStart(gameStatus.curLevel);
@@ -175,6 +176,7 @@ void draw(){
     }
     //println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
     println(gameStatus.curDifficulty);
+     gameLevel1.initByDifficulty();
     return;
   }
   if(gameStatus.curLevel == Level.LEVEL_MAP1&&isAllDone){

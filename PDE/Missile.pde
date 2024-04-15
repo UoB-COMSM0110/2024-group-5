@@ -45,6 +45,7 @@ class Missile extends MoveObject{
     }else{
       //curX = gameLevel1.helicopter.curX-1000;
       //curY = gameLevel1.helicopter.curY;
+      gameLevel1.missileCount--;
       isVisiable = false;
       speed = 1;
       curIndx = 0;

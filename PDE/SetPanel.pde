@@ -4,7 +4,7 @@ public class SetPanel{
   private final PImage volumePointer = loadImage("volumePointer.png");
   public int volumePointerX = 551;
   public int volumePointerY = 230;
-  public int diffPointerX = 545;
+  public int diffPointerX = 360;
   public int diffPointerY = 365;
   public void createPanel(){
     imageMode(CENTER);

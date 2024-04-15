@@ -14,6 +14,8 @@ class Helicopter extends MoveObject implements Serializable{
     this.health = health;
     this.speed = speed;
     this.bullets = new ArrayList<Bullet>(); 
+    this.sizeX = 100;
+    this.sizeY = 100;
     String[] urls = {"spaceship.png","spaceship1.png","spaceshipDamaged.png"};
     images = new PImage[urls.length];
     setImages(urls);

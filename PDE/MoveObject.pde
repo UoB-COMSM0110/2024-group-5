@@ -8,6 +8,8 @@ abstract class MoveObject implements Serializable{
   public int prevX;
   public int prevY;
   public int speed;
+  public int sizeX;
+  public int sizeY;
   public boolean isVisiable = false;
   
   
