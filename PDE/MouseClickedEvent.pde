@@ -30,9 +30,13 @@ void mousePressed(){
       gameStatus.curLevel = Level.LEVEL_SET;
       return;
     }
-    if(isMouseInButtonLAN()){
-      gameStatus.curLevel = Level.LEVEL_LOGIN;
-      isLogin = true;
+    //if(isMouseInButtonLAN()){
+    //  gameStatus.curLevel = Level.LEVEL_LOGIN;
+    //  isLogin = true;
+    //  return;
+    //}
+     if(isMouseInButtonStory()){
+      gameStatus.curLevel = Level.LEVEL_STORY;
       return;
     }
   }
@@ -46,6 +50,20 @@ void mousePressed(){
   
   if(gameStatus.curLevel==Level.LEVEL_MAP1){
     
+  }
+  
+  if(gameStatus.curLevel==Level.LEVEL_STORY){
+    if(mouseX>=445&&mouseX<=600&&mouseY>=580&&mouseY<=630){
+       gameStatus.curLevel = Level.LEVEL_TOTURIAL;
+       return;
+     }
+  }
+  
+   if(gameStatus.curLevel==Level.LEVEL_TOTURIAL){
+    if(mouseX>=464&&mouseX<=700&&mouseY>=540&&mouseY<=600){
+       gameStatus.curLevel = Level.LEVEL_BEGIN;
+       return;
+     }
   }
   
   if(gameStatus.curLevel==Level.LEVEL_LANBATTLE){
@@ -72,6 +90,10 @@ void mousePressed(){
 }
 
 boolean isMouseInButtonLAN(){
+  return mouseX>=width/2-150 && mouseX<=width/2+150 && mouseY>=height/1.4-75 && mouseY<=height/1.4;
+}
+
+boolean isMouseInButtonStory(){
   return mouseX>=width/2-150 && mouseX<=width/2+150 && mouseY>=height/1.4-75 && mouseY<=height/1.4;
 }
 

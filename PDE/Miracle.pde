@@ -82,7 +82,7 @@ static GameLevelLAN gameLevelLAN;
 void setup(){  
   thread = new Thread(new MyRunnable());
   thread.start();
-
+ 
   ////init bgm
   minim = new Minim(this);
   playerStart = minim.loadFile(Bgm.bgmStart);
@@ -107,6 +107,7 @@ void setup(){
   
   //init spaceship
   spaceship = new Spaceship();
+
 }
 
 void draw(){
@@ -116,7 +117,7 @@ void draw(){
   // if all objects have been loaded
   if(isAllDone){
     //init cursor
-    cursor(buttonImage.cursor);
+     //cursor(buttonImage.cursor);
   }
   
   if(gameStatus.curLevel == Level.LEVEL_START){
@@ -157,6 +158,8 @@ void draw(){
       else{
          setPanel.volumePointerX = mouseX-40;
       }
+      float diff = (setPanel.volumePointerX-400.0)/3.0-50;
+      setVolume(diff);
     }
     
     //set difficulty
@@ -206,6 +209,19 @@ void draw(){
     }
     return;
   }
+  
+   if(gameStatus.curLevel == Level.LEVEL_STORY){
+     Story story = new Story();
+     story.createPanel();
+     return;
+  }
+  
+  if(gameStatus.curLevel == Level.LEVEL_TOTURIAL){
+     Story story = new Story();
+     story.createPanel();
+     return;
+  }
+  
   if(gameStatus.curLevel == Level.LEVEL_END&&isAllDone){
     GameResultPanel gameResultPanel = new GameResultPanel();
     gameResultPanel.createPanel();
