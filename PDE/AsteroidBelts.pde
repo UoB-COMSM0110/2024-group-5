@@ -21,7 +21,7 @@
       }
       imgWidth = 50;
       imgHeight = 50;
-      setRange(range);
+      setRange(50);
       setAsteroidCount(40);
       topImagesPos = new int[asteroidCount][2];
       botImagesPos = new int[asteroidCount][2]; 

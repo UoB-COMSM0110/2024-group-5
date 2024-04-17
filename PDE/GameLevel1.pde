@@ -5,7 +5,7 @@ class GameLevel1 {
     public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
     public final Shield shield = new Shield();
-    public final Ufo[] ufos = new Ufo[5];
+    public final Ufo[] ufos = new Ufo[4];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
     public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
@@ -43,14 +43,10 @@ class GameLevel1 {
           imageMode(CORNER);
           drawNewMaps();
           drawCoins();       
-          //change speed with time passing
+          //change difficulty with time passing
           if(millis()-gameTime>=30000){
-            println("speed up!");
-            for(Ufo ufo:ufos){
-              ufo.speed += 5;
-            }
-            asteriods.speed +=1;
-
+            println("LEVEL UP");
+            increaseDifficulty();
             gameTime = millis();
           }
           
@@ -412,5 +408,26 @@ class GameLevel1 {
           isTrigger = true;
           isSet=true;
       }
+    }
+    
+    public void increaseDifficulty() {
+      int randomSelect = (int)random(4);
+      switch (randomSelect) {
+        //speed of asteroid belts
+         case 1:
+           asteroidBelts.setSpeed(asteroidBelts.getSpeed() + 5);
+           break;
+        //speed of aliens
+         case 2:
+           for (Ufo ufo: ufos){
+             ufo.setSpeed(ufo.getSpeed() + 3);
+           }
+           break;
+         //TODO frequency that aliens fire
+         //case 3:  
+      }
+     //always change the distance between asteroid belts
+     int randomRange = (int)random(110);
+     asteroidBelts.setRange(randomRange);
     }
 }
