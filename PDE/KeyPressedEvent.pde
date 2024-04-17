@@ -42,7 +42,11 @@ void keyPressed(){
 
 //lasor
    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1){
-     gameLevel1.lazor.isVisiable = true;
+     if (gameLevel1.scorePanel.goldCount > 0) {
+       gameLevel1.scorePanel.goldCount--;
+       gameLevel1.lazor.isVisiable = true;
+     }
+     
    }
    
    //quit and save game
