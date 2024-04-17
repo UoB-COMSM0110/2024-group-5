@@ -278,7 +278,6 @@ class GameLevel1 {
     private void drawCoins() {
         for(GoldCoin coin:coins){
             if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
-              println("COIN");
               coin.isVisiable = false;
               scorePanel.goldCount++; 
             }

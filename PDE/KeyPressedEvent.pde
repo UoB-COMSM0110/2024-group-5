@@ -41,12 +41,9 @@ void keyPressed(){
    }
 
 //lasor
-   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1){
-     if (gameLevel1.scorePanel.goldCount > 0) {
+   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
        gameLevel1.scorePanel.goldCount--;
        gameLevel1.lazor.isVisiable = true;
-     }
-     //gameLevel1.lazor.isVisiable = true;
    }
    
    //quit and save game
@@ -55,13 +52,12 @@ void keyPressed(){
    }
    
    //shield
-   if(key=='Z'||key=='z'&&gameStatus.curLevel==Level.LEVEL_MAP1){
-     gameLevel1.shield.showShield();
-   }
-   
-   //close shield
-   if(key=='S'||key=='s'&&gameStatus.curLevel==Level.LEVEL_MAP1){
-     gameLevel1.shield.closeShield();
+   if(key=='Z'||key=='z'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+     gameLevel1.scorePanel.goldCount--;
+     gameLevel1.shield.showShield(); 
+     if (gameLevel1.scorePanel.goldCount == 0) {
+       gameLevel1.shield.closeShield();
+     }
    }
    
    //show start animation
@@ -73,5 +69,11 @@ void keyPressed(){
     isAnimationEnd = false;
     Arrays.fill(usedStars,false);
     spaceship.speed = 8;
+   }
+}
+
+void keyReleased() {
+   if (key == 'Z' || key == 'z') {
+     gameLevel1.shield.closeShield(); 
    }
 }
