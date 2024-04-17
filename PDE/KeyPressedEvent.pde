@@ -46,7 +46,7 @@ void keyPressed(){
        gameLevel1.scorePanel.goldCount--;
        gameLevel1.lazor.isVisiable = true;
      }
-     
+     //gameLevel1.lazor.isVisiable = true;
    }
    
    //quit and save game

@@ -278,6 +278,7 @@ class GameLevel1 {
     private void drawCoins() {
         for(GoldCoin coin:coins){
             if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
+              println("COIN");
               coin.isVisiable = false;
               scorePanel.goldCount++; 
             }
@@ -290,39 +291,7 @@ class GameLevel1 {
     
     public void drawUfos(){
        for(Ufo ufo:ufos){
-            for(Bullet bullet:helicopter.bullets){
-               if((bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
-                 ufo.isVisiable = false;
-                 ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
-                 scorePanel.killCount++;
-                 if(ufo.explode.isEnd==true){
-                   ufo.move();
-                   ufo.isVisiable = true;
-                   ufo.explode.isEnd = false;
-                   ufo.explode.isVisible = true;
-                   ufo.explode.curIndx = 0;
-                   ufo.isDestoryed = false;
-                 }
-               } 
-            }
-            
-            for(Missile missile:missiles){
-               if((missile.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
-                 ufo.isVisiable = false;
-                 ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
-                 scorePanel.killCount++;
-                 if(ufo.explode.isEnd==true){
-                   ufo.move();
-                   ufo.isVisiable = true;
-                   ufo.explode.isEnd = false;
-                   ufo.explode.isVisible = true;
-                   ufo.explode.curIndx = 0;
-                   ufo.isDestoryed = false;
-                 }
-               } 
-            }
+
             if(lazor.isVisiable==true&&lazor.intersectWithUfo(ufo)){
                 ufo.isVisiable = false;
                 scorePanel.killCount++;

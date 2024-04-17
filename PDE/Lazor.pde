@@ -10,7 +10,9 @@ class Lazor extends Ability implements Serializable{
   }
   
   public boolean intersectWithUfo(Ufo ufo){
-    if(ufo.curX+50>=curX+40&&ufo.curX<=curX+1540&&ufo.curY>=curY-45&&ufo.curY<=curY+105){
+      if (ufo.curX > 0 && ufo.curX < width && 
+      ((ufo.curY >= curY && ufo.curY <= curY + 105) ||
+      (ufo.curY + 100 >= curY && ufo.curY <= curY + 105))) {
       return true;
     }
     return false;
