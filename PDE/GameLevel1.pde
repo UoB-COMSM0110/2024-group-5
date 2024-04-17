@@ -10,10 +10,6 @@ class GameLevel1 {
     public final Asteriods asteriods = new Asteriods(1);
     public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
     public int score = 0;
-    public int maxMissileCount = 70;
-    public final Missile[] missiles = new Missile[maxMissileCount];
-    public int missileCount = 70;
-    public int bulletCount = 70;
     
     public LightDecrease lightDecrease = new LightDecrease();
     public boolean isSet = false;
@@ -39,19 +35,14 @@ class GameLevel1 {
        initBoxs();
        initUfos();
        initFastCards();
-       initMissiles();
        initNewMaps();
-       //init bullets , need to be motified (when pick up bullet then init it)
-       helicopter.initBullets(100);
     }
     
     public void startLevel1(){
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
-          drawCoins();
-     
-          
+          drawCoins();       
           //change speed with time passing
           if(millis()-gameTime>=30000){
             println("speed up!");
@@ -59,30 +50,18 @@ class GameLevel1 {
               ufo.speed += 5;
             }
             asteriods.speed +=1;
-            //randomMap = (int)random(5);
+
             gameTime = millis();
           }
           
           updateSpaceshipHitTime();
-          //letLightDecrease(1);
-          ////update time
-          //setLightDecrease();
-          //updateTime();
-          //setIsLightDecrease();
           drawUfos();
-          drawBullets();
           drawLazor();
-          drawMissiles();
-          //drawAbilityBoxs();
           drawFastCards();
-
-          //draw helicopter
-          //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
           drawAsteroidBelts();
           drawGamePanel();
           drawShield();
-          //drawIcon();
           drawHealth();
           helicopter.move(mousePressed);
         }else{
@@ -115,9 +94,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 100;
       helicopter.sizeY = 100;
-      missileCount = 70;
-      maxMissileCount = 70;
-      bulletCount = 70;
     }
     
     private void setNormal(){
@@ -128,9 +104,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 110;
       helicopter.sizeY = 110;
-      missileCount = 40;
-      maxMissileCount = 40;
-      bulletCount = 60;
     }
     
     private void setHard(){
@@ -141,9 +114,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 120;
       helicopter.sizeY = 120;
-      missileCount = 10;
-      maxMissileCount = 10;
-      bulletCount = 50;
     }
     
     private void initBoxs(){
@@ -178,12 +148,6 @@ class GameLevel1 {
         int posX =  width-100+(i+1)*1500;
         cards[i].curY = posY;
         cards[i].curX = posX;
-      }
-    }
-    
-    private void initMissiles(){
-      for(int i=0;i<maxMissileCount;i++){
-        missiles[i] = new Missile();
       }
     }
     
@@ -368,50 +332,6 @@ class GameLevel1 {
     public void drawShield(){
       if(shield.isVisible){
         image(shield.image,helicopter.curX-15,helicopter.curY-25,150,150);
-      }
-    }
-    
-    public void drawMissiles(){
-      updateMissiles();
-      for(Missile missile:missiles){
-        if(missile.isVisiable){
-          missile.drawMissile(100,missile.curX+90,missile.curY+50);
-          missile.move();
-        }
-      }
-    }
-    
-    public void drawBullets(){
-      updateBullets();
-      ArrayList<Bullet>bullets = helicopter.bullets;
-      for(Bullet bullet:bullets){
-        for(Ufo ufo:ufos){
-          if(bullet.isIntersectWithUfo(ufo)){
-            bullet.isVisiable = false; 
-            bullet.move();
-          }
-        }
-        if(bullet.isVisiable){
-          image(bullet.image,bullet.curX+90,bullet.curY+50,50,50);
-          bullet.move();
-        }
-      }
-    }
-    public void updateBullets(){
-      for(Bullet bullet:helicopter.bullets){
-        if(!bullet.isVisiable){
-          bullet.curX = helicopter.curX-1000;
-          bullet.curY = helicopter.curY;
-        }
-      }
-    }
-    
-    public void updateMissiles(){
-      for(Missile missile:missiles){
-        if(!missile.isVisiable){
-          missile.curX = helicopter.curX-1000;
-          missile.curY = helicopter.curY;
-        }
       }
     }
     
