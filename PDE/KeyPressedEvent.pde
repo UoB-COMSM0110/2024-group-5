@@ -32,7 +32,7 @@ void keyPressed(){
 }
 
 void keyReleased() {
-   if (key == 'Z' || key == 'z') {
+   if (key == 'Z' || key == 'z' && gameStatus.curLevel==Level.LEVEL_MAP1) {
      gameLevel1.shield.closeShield(); 
    }
 }
