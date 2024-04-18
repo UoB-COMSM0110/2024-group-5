@@ -1,7 +1,5 @@
 class Helicopter extends MoveObject implements Serializable{
   public int health;
-  public ArrayList<Bullet>bullets;
-  public int curBulletCount = 1000; //to do
   public int invincibleTimeWhenLoseHp = 3000; //3s
   public int hitBeginTime = 0;
   public Helicopter(){
@@ -13,7 +11,6 @@ class Helicopter extends MoveObject implements Serializable{
     this.curY = curY;
     this.health = health;
     this.speed = speed;
-    this.bullets = new ArrayList<Bullet>(); 
     this.sizeX = 100;
     this.sizeY = 100;
     String[] urls = {"spaceship.png","spaceship1.png","spaceshipDamaged.png","helicopter2.png","helicopter22.png"};
@@ -22,20 +19,7 @@ class Helicopter extends MoveObject implements Serializable{
     image = loadImage(imagePath);
   }
   
-  public void initBullets(int count){
-    for(int i=0;i<count;i++){
-      Bullet bullet = new Bullet();
-      bullet.curX = curX;
-      bullet.curY = curY;
-      bullets.add(bullet);
-    }
-  }
   
-  public void shoot(){
-    if(bullets!=null&&bullets.size()>0){
-      curBulletCount--;
-    }
-  }
 
   public void move(boolean isClicked){
     if(isClicked) {
@@ -104,20 +88,6 @@ class Helicopter extends MoveObject implements Serializable{
     }
     return false;
   }
-  
-  //public boolean intersectWithAsteriods(Asteriods asteriods){
-  //  for(int i=0;i<asteriods.asteriodCount;i++){
-  //     if(asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2>=curX&&asteriods.topImagesPos[i][0]+asteriods.topImageSize[i][0]/2<=curX+100&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2>=curY&&asteriods.topImagesPos[i][1]+asteriods.topImageSize[i][1]/2<=curY+100){
-  //        return true;
-  //      }
-  //  }
-  //   for(int i=0;i<asteriods.asteriodCount;i++){
-  //     if(asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2>=curX&&asteriods.botImagesPos[i][0]+asteriods.botImageSize[i][0]/2<=curX+100&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2>=curY&&asteriods.botImagesPos[i][1]+asteriods.botImageSize[i][1]/2<=curY+100){
-  //        return true;
-  //     }
-  //  }
-  //  return false;
-  //}
   
   public String intersectsWithAsteroidBelt(AsteroidBelts asteroids){
     for(int i=0;i<asteroids.asteroidCount;i++){

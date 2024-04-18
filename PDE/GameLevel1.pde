@@ -5,15 +5,11 @@ class GameLevel1 {
     public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
     public final Shield shield = new Shield();
-    public final Ufo[] ufos = new Ufo[5];
+    public final Ufo[] ufos = new Ufo[4];
     public Lazor lazor = new Lazor();
     public final Asteriods asteriods = new Asteriods(1);
     public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
     public int score = 0;
-    public int maxMissileCount = 70;
-    public final Missile[] missiles = new Missile[maxMissileCount];
-    public int missileCount = 70;
-    public int bulletCount = 70;
     
     public LightDecrease lightDecrease = new LightDecrease();
     public boolean isSet = false;
@@ -40,27 +36,18 @@ class GameLevel1 {
        initBoxs();
        initUfos();
        initFastCards();
-       initMissiles();
        initNewMaps();
-       //init bullets , need to be motified (when pick up bullet then init it)
-       helicopter.initBullets(100);
     }
     
     public void startLevel1(){
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
-          drawCoins();
-     
-          
-          //change speed with time passing
+          drawCoins();       
+          //change difficulty with time passing
           if(millis()-gameTime>=30000){
-            println("speed up!");
-            for(Ufo ufo:ufos){
-              ufo.speed += 5;
-            }
-            asteriods.speed +=1;
-            //randomMap = (int)random(5);
+            println("LEVEL UP");
+            increaseDifficulty();
             gameTime = millis();
           }
           
@@ -72,25 +59,13 @@ class GameLevel1 {
           }
           
           updateSpaceshipHitTime();
-          //letLightDecrease(1);
-          ////update time
-          //setLightDecrease();
-          //updateTime();
-          //setIsLightDecrease();
           drawUfos();
-          drawBullets();
           drawLazor();
-          drawMissiles();
-          //drawAbilityBoxs();
           drawFastCards();
-
-          //draw helicopter
-          //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
           drawSpaceship();
           drawAsteroidBelts();
           drawGamePanel();
           drawShield();
-          //drawIcon();
           drawHealth();
           helicopter.move(mousePressed);
         }else{
@@ -123,9 +98,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 100;
       helicopter.sizeY = 100;
-      missileCount = 70;
-      maxMissileCount = 70;
-      bulletCount = 70;
     }
     
     private void setNormal(){
@@ -136,9 +108,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 110;
       helicopter.sizeY = 110;
-      missileCount = 40;
-      maxMissileCount = 40;
-      bulletCount = 60;
     }
     
     private void setHard(){
@@ -149,9 +118,6 @@ class GameLevel1 {
       }
       helicopter.sizeX = 120;
       helicopter.sizeY = 120;
-      missileCount = 10;
-      maxMissileCount = 10;
-      bulletCount = 50;
     }
     
     public void slowTime(){
@@ -192,12 +158,6 @@ class GameLevel1 {
         int posX =  width-100+(i+1)*1500;
         cards[i].curY = posY;
         cards[i].curX = posX;
-      }
-    }
-    
-    private void initMissiles(){
-      for(int i=0;i<maxMissileCount;i++){
-        missiles[i] = new Missile();
       }
     }
     
@@ -304,39 +264,7 @@ class GameLevel1 {
     
     public void drawUfos(){
        for(Ufo ufo:ufos){
-            for(Bullet bullet:helicopter.bullets){
-               if((bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
-                 ufo.isVisiable = false;
-                 ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
-                 scorePanel.killCount++;
-                 if(ufo.explode.isEnd==true){
-                   ufo.move();
-                   ufo.isVisiable = true;
-                   ufo.explode.isEnd = false;
-                   ufo.explode.isVisible = true;
-                   ufo.explode.curIndx = 0;
-                   ufo.isDestoryed = false;
-                 }
-               } 
-            }
-            
-            for(Missile missile:missiles){
-               if((missile.isIntersectWithUfo(ufo)&&ufo.isVisiable)||ufo.isDestoryed){
-                 ufo.isVisiable = false;
-                 ufo.isDestoryed = true;
-                 ufo.explode.drawExplode(0.5,ufo.curX+40,ufo.curY+20);
-                 scorePanel.killCount++;
-                 if(ufo.explode.isEnd==true){
-                   ufo.move();
-                   ufo.isVisiable = true;
-                   ufo.explode.isEnd = false;
-                   ufo.explode.isVisible = true;
-                   ufo.explode.curIndx = 0;
-                   ufo.isDestoryed = false;
-                 }
-               } 
-            }
+
             if(lazor.isVisiable==true&&lazor.intersectWithUfo(ufo)){
                 ufo.isVisiable = false;
                 scorePanel.killCount++;
@@ -417,50 +345,6 @@ class GameLevel1 {
       }
     }
     
-    public void drawMissiles(){
-      updateMissiles();
-      for(Missile missile:missiles){
-        if(missile.isVisiable){
-          missile.drawMissile(100,missile.curX+90,missile.curY+50);
-          missile.move();
-        }
-      }
-    }
-    
-    public void drawBullets(){
-      updateBullets();
-      ArrayList<Bullet>bullets = helicopter.bullets;
-      for(Bullet bullet:bullets){
-        for(Ufo ufo:ufos){
-          if(bullet.isIntersectWithUfo(ufo)){
-            bullet.isVisiable = false; 
-            bullet.move();
-          }
-        }
-        if(bullet.isVisiable){
-          image(bullet.image,bullet.curX+90,bullet.curY+50,50,50);
-          bullet.move();
-        }
-      }
-    }
-    public void updateBullets(){
-      for(Bullet bullet:helicopter.bullets){
-        if(!bullet.isVisiable){
-          bullet.curX = helicopter.curX-1000;
-          bullet.curY = helicopter.curY;
-        }
-      }
-    }
-    
-    public void updateMissiles(){
-      for(Missile missile:missiles){
-        if(!missile.isVisiable){
-          missile.curX = helicopter.curX-1000;
-          missile.curY = helicopter.curY;
-        }
-      }
-    }
-    
     public void writeScoreToTxt(){
       var scores = readHighestScoreFromTxt("score.txt");
       int[] rank = new int[5];
@@ -538,5 +422,26 @@ class GameLevel1 {
           isTrigger = true;
           isSet=true;
       }
+    }
+    
+    public void increaseDifficulty() {
+      int randomSelect = (int)random(4);
+      switch (randomSelect) {
+        //speed of asteroid belts
+         case 1:
+           asteroidBelts.setSpeed(asteroidBelts.getSpeed() + 5);
+           break;
+        //speed of aliens
+         case 2:
+           for (Ufo ufo: ufos){
+             ufo.setSpeed(ufo.getSpeed() + 3);
+           }
+           break;
+         //TODO frequency that aliens fire
+         //case 3:  
+      }
+     //always change the distance between asteroid belts
+     int randomRange = (int)random(110);
+     asteroidBelts.setRange(randomRange);
     }
 }
