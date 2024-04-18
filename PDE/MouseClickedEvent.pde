@@ -87,6 +87,30 @@ void mousePressed(){
       return;
     }
    }
+   if(gameStatus.curLevel==Level.LEVEL_END2){
+     if(mouseX>=455&&mouseX<=700&&mouseY>=530&&mouseY<=600){
+        gameStatus.curLevel = Level.LEVEL_BEGIN;
+        return;
+     }
+   }
+   if(gameStatus.curLevel==Level.LEVEL_ROGUE){
+     if(mouseX>=220&&mouseX<=420&&mouseY>=170&&mouseY<=490){
+        gameStatus.curLevel = Level.LEVEL_MAP1;
+        rogue.trigger(rogue.options[0]);
+        return;
+     }
+      if(mouseX>=468&&mouseX<=663&&mouseY>=170&&mouseY<=490){
+        gameStatus.curLevel = Level.LEVEL_MAP1;
+        rogue.trigger(rogue.options[1]);
+        return;
+     }
+      if(mouseX>=716&&mouseX<=910&&mouseY>=170&&mouseY<=490){
+        gameStatus.curLevel = Level.LEVEL_MAP1;
+        rogue.trigger(rogue.options[2]);
+        return;
+     }
+   }
+   
 }
 
 boolean isMouseInButtonLAN(){

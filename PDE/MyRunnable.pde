@@ -27,6 +27,7 @@ class MyRunnable implements Runnable{
     
     //init gameLevel1
     gameLevel1 = new GameLevel1();
+    gameLevel2 = new GameLevel2();
     gameLevelLAN = new GameLevelLAN();
     
     //client

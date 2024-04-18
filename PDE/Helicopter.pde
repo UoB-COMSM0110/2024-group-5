@@ -16,7 +16,7 @@ class Helicopter extends MoveObject implements Serializable{
     this.bullets = new ArrayList<Bullet>(); 
     this.sizeX = 100;
     this.sizeY = 100;
-    String[] urls = {"spaceship.png","spaceship1.png","spaceshipDamaged.png"};
+    String[] urls = {"spaceship.png","spaceship1.png","spaceshipDamaged.png","helicopter2.png","helicopter22.png"};
     images = new PImage[urls.length];
     setImages(urls);
     image = loadImage(imagePath);
@@ -42,6 +42,14 @@ class Helicopter extends MoveObject implements Serializable{
       curY -= speed;
     }else{
       curY += speed;
+    }
+  }
+  
+  public void moveByKey(boolean isWPressed){
+    if(isWPressed&&keyPressed){
+      curY += speed;
+    }else{
+      curY -= speed;
     }
   }
   

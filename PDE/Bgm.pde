@@ -13,9 +13,8 @@ void bgmStart(Level level){
           playerStart.play();
       }
     }
-  }else{
-    playerStart.pause();
   }
+
   if(isAllDone){
     if(level == Level.LEVEL_BEGIN){
       if(!playerLevelBegin.isPlaying()){
@@ -35,7 +34,7 @@ void bgmStart(Level level){
       playerLevelSet.pause();
     }
     
-    if(level == Level.LEVEL_MAP1){
+    if(level == Level.LEVEL_MAP1 || level == Level.LEVEL_MAP2){
       if(!playerLevelMap1.isPlaying()){
           playerLevelMap1.rewind();
           playerLevelMap1.play();

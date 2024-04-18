@@ -31,6 +31,7 @@ class GameLevel1 {
     private final FastCard[] cards = new FastCard[2];
     
     public int gameTime = millis();
+    public int gameTime2 = millis();
     public boolean isSetSpeedPlus = false;
     
     
@@ -61,6 +62,13 @@ class GameLevel1 {
             asteriods.speed +=1;
             //randomMap = (int)random(5);
             gameTime = millis();
+          }
+          
+          if(millis()-gameTime2>=35000){
+             println("rogue!");
+            gameStatus.curLevel = Level.LEVEL_ROGUE;
+            rogue = new Rogue();
+            gameTime2 = millis();
           }
           
           updateSpaceshipHitTime();
@@ -144,6 +152,12 @@ class GameLevel1 {
       missileCount = 10;
       maxMissileCount = 10;
       bulletCount = 50;
+    }
+    
+    public void slowTime(){
+     for(int i=0;i<ufos.length;i++){
+        ufos[i].speed -= 7;
+      }
     }
     
     private void initBoxs(){

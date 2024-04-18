@@ -77,7 +77,11 @@ SetPanel setPanel;
 
 //GameLevel
 static GameLevel1 gameLevel1;
+static GameLevel2 gameLevel2;
 static GameLevelLAN gameLevelLAN;
+
+//Rogue
+Rogue rogue;
 
 void setup(){  
   thread = new Thread(new MyRunnable());
@@ -132,6 +136,12 @@ void draw(){
       gameLevel1 = new GameLevel1();
       gameLevel1.initByDifficulty();
     }
+    
+    if(gameLevel2.isGameEnd == true||gameLevel2.isGameEnd()){
+      gameLevel2 = new GameLevel2();
+      gameLevel2.initByDifficulty();
+    }
+    
     // play music
     bgmStart(gameStatus.curLevel);
     imageMode(CORNER);
@@ -191,6 +201,17 @@ void draw(){
     }
     return;
   }
+  
+  if(gameStatus.curLevel == Level.LEVEL_MAP2&&isAllDone){
+    // play music
+    bgmStart(gameStatus.curLevel);
+    gameLevel2.startLevel2();
+    if(gameLevel2.isGameEnd||gameLevel2.isGameEnd){
+      gameLevel2 = null;
+    }
+    return;
+  }
+  
   if(isLogin&&gameStatus.curLevel == Level.LEVEL_LOGIN&&isAllDone){
     // play music
     bgmStart(Level.LEVEL_BEGIN);
@@ -209,8 +230,11 @@ void draw(){
     }
     return;
   }
+  if(gameStatus.curLevel==Level.LEVEL_ROGUE){
+     rogue.draw();
+  }
   
-   if(gameStatus.curLevel == Level.LEVEL_STORY){
+  if(gameStatus.curLevel == Level.LEVEL_STORY){
      Story story = new Story();
      story.createPanel();
      return;
@@ -227,6 +251,12 @@ void draw(){
     gameResultPanel.createPanel();
     return;
   }
+  if(gameStatus.curLevel == Level.LEVEL_END2&&isAllDone){
+    GameResultPanel2 gameResultPanel2 = new GameResultPanel2();
+    gameResultPanel2.createPanel();
+    return;
+  }
+  
   if(gameStatus.curLevel == Level.LEVEL_RANK&&isAllDone){
     ToturialPanel toturialPanel = new  ToturialPanel();
      toturialPanel.createPanel();

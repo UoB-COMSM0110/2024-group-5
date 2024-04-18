@@ -5,6 +5,10 @@ class Shield{
     isVisible = true;
   }
   
+  public void showShield(int millis){
+    isVisible  = true;
+  }
+  
   public void closeShield(){
     isVisible = false;
   }
