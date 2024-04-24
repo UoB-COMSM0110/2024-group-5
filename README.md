@@ -3,18 +3,13 @@
 
 # Contents
 1. [Team](#team)  
-
 2. [Introduction](#intro)  
-
 3. [Requirements](#requirements)  
-
 4. [Design](#design)  
-
 5. [Implementation](#imp)  
-
-6. [Evaluation](#eval)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.[Quantitative Evaluation - NASA TLX](#NASA)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.[Qualitative Evaluation - Heuristic Evaluation](#HE)  
+6. [Evaluation](#eval)
+  1. [Quantitative Evaluation - NASA TLX](#NASA)
+  2. [Qualitative Evaluation - Heuristic Evaluation](#HE)  
 
 
 *# use html tags to make links work (markdown not interpreting normal links properly)*
