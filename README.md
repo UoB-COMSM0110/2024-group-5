@@ -2,19 +2,19 @@
 
 
 # Contents
-[1. Team](#team)
+1. [Team](#team)  
 
-[2. Introduction](#intro)
+2. [Introduction](#intro)  
 
-[3. Requirements](#requirements)
+3. [Requirements](#requirements)  
 
-[4. Design](#design)
+4. [Design](#design)  
 
-[5. Implementation](#imp)
+5. [Implementation](#imp)  
 
-[6. Evaluation](#eval)  
-&nbsp;&nbsp;&nbsp;&nbsp;[a. Quantitative Evaluation - NASA TLX](#NASA)  
-&nbsp;&nbsp;&nbsp;&nbsp;[b. Qualitative Evaluation - Heuristic Evaluation](#HE)  
+6. [Evaluation](#eval)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.[Quantitative Evaluation - NASA TLX](#NASA)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.[Qualitative Evaluation - Heuristic Evaluation](#HE)  
 
 
 *# use html tags to make links work (markdown not interpreting normal links properly)*
@@ -142,7 +142,7 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 <h3 id="NASA">Quantitative Evaluation: NASA TLX Scores</h3>
 
-For our quantitiativ evaluation, we used the NASA Task Load Index, which has been verified to provide valuable insights into users' subjective experiences and perceived workload when interacting with the system [^3]. In the interest of obtaining reliable data, we selected 10 users to fill out a [provided TLX form](docs/TLXScale.pdf) [^4]. We decided to use the **raw scores** rather than the weighted scores as it has similar correlation, but is easier to analyse and more time-efficient [^5]. The TLX data can be found [here](docs/NASA_TLX.md).  The first level is our game's default easy mode (aimed at beginners) and the second level is our harder level for more experienced players:
+For our quantitative evaluation, we used the NASA Task Load Index, which has been verified to provide valuable insights into users' subjective experiences and perceived workload when interacting with the system [^3]. In the interest of obtaining reliable data, we selected 10 users to fill out a [provided TLX form](docs/TLXScale.pdf) [^4]. We decided to use the **raw scores** rather than the weighted scores as it has similar correlation, but is easier to analyse and more time-efficient [^5]. The TLX data can be found [here](docs/NASA_TLX.md).  The first level is our game's default easy mode (aimed at beginners) and the second level is our harder level for more experienced players:
 
 <br>
 
@@ -150,7 +150,7 @@ For our quantitiativ evaluation, we used the NASA Task Load Index, which has bee
 
 <br>
 
-Once we obtained the data, we performed a Wilcoxon signed-rank test using [this calculator](https://www.statology.org/wilcoxon-signed-rank-test-calculator/) and obtained a W-value of 0, indicating users found that the second level had a significant increase in percieved workload compared to the first. The dimension where users experienced the most notable workload increase was in the temporal demand, which was fortuntate to see, as a large contributing factor to the increase in difficulty between the easier level and the harder one is the fact that the spaceship accelerates faster in the harder level, requiring faster reactions from the player to dodge obstacles.
+Once we obtained the data, we performed a Wilcoxon signed-rank test using [this calculator](https://www.statology.org/wilcoxon-signed-rank-test-calculator/) and obtained a W-value of 0, indicating users found that the second level had a significant increase in percieved workload compared to the first. The dimension where users experienced the most notable workload increase was in the temporal demand, which was fortunate to see, as a large contributing factor to the increase in difficulty between the easier level and the harder one is the fact that the spaceship accelerates faster in the harder level, requiring faster reactions from the player to dodge obstacles.
 
 <br>
 
