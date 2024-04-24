@@ -4,19 +4,20 @@
 # Contents
 1. [Team](#team)  
 2. [Introduction](#intro)  
-3. [Requirements](#requirements)
+3. [Requirements](#requirements)  
     1. [Use Case Diagram](#use-case-diagram)
     2. [User Stories](#user-stories)
 4. [Design](#design)  
-      1. [System Architecture](#system-architecture)
-      2. [Class Diagram](#class-diagram)
+    1. [System Architecture](#system-architecture)
+    2. [Class Diagram](#class-diagram)
 5. [Implementation](#imp)  
-6. [Evaluation](#eval)
+6. [Evaluation](#eval)  
     1. [Quantitative Evaluation - NASA TLX](#NASA)
     2. [Qualitative Evaluation - Heuristic Evaluation](#HE)
-    3. [Addressing Feedback](#addressing-feedback)  
-7. [Process](#pro)
-    1. [Team Roles](#roles)
+    3. [Addressing Feedback](#addressing-feedback)
+    4. [Testing](#testing)
+7. [Process](#pro)  
+    1. [Team Roles](#roles)  
 
 
 *# Use HTML tags to make links work (markdown not interpreting normal links properly)*
@@ -202,7 +203,7 @@ This would resolve the following issues with users:
 - Make the minerals look less like asteroids, and more like gems/something attractive
 
 
-### Code Testing
+<h3 id = "testing">Testing</h3>
 
 #### JUnit Testing
 <br>
