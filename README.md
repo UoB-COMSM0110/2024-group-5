@@ -15,9 +15,7 @@
 [6. Evaluation](#eval)
 
 
-
-
-//*use html tags to make links work* (markdown not interpreting normal links properly)
+*# use html tags to make links work (markdown not interpreting normal links properly)*
 
 
 <h2 id="team">Team</h2>
@@ -34,6 +32,7 @@ Kisshan Sridhar | bg23463@bristol.ac.uk | kisshan-s
 
 
 <h2 id="intro">Introduction</h2>
+
 When we first started to think about what kind of game we wanted, we found that we had lots of ideas, and we needed to simplify our choices. The games that we thought would be viable turned out to have many features, a lot of which were not actually necessary. This caused us to turn our focus onto games that were simpler to produce but could be evolved to make a more entertaining product.
 
 After sharing ideas for simpler games as a group, we settled on a game modelled after the popular flash game “copter”, which we believed would be much more viable to produce, as well as being a sort of “blank slate”, upon which that we could incorporate many new features and twists that would make the game much more enjoyable and interesting to play.
@@ -43,6 +42,7 @@ After sharing ideas for simpler games as a group, we settled on a game modelled 
 
 
 <h2 id="requirements">Requirements</h2>
+
 *This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use-case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
 
 ### Use Case Diagram
@@ -95,6 +95,7 @@ Overall, looking at the game through the lens of different types of users allowe
 
 
 <h2 id="design">Design</h2>
+
 *This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.*
 
 ### System Architecture
