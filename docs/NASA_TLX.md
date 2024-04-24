@@ -1,4 +1,4 @@
-#Level 1
+# Level 1
 
 | Users | MD  | PD  | TD  | Performance | Effort | Frustration | Score |
 |-------|-----|-----|-----|-------------|--------|-------------|-------|
@@ -13,7 +13,7 @@
 | 9     | 3   | 16  | 8   | 4           | 3      | 4           | 40    |
 | 10    | 1   | 2   | 7   | 9           | 16     | 12          | 47    |
 
-#Level 2
+# Level 2
 
 | Users | MD  | PD  | TD  | Performance | Effort | Frustration | Score |
 |-------|-----|-----|-----|-------------|--------|-------------|-------|
