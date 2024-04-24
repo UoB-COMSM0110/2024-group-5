@@ -137,40 +137,11 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 This is the evaluations section, where we go through quantitative and qualitative evaluations, which we have used to make our game better. Here, we also describe the different methods of testing we employed in our code to ensure it was in working order.\
 
-### Quantitative Evaluation: System Usability Scale
-
-User | Lvl 1 | Lvl 2
----|:---:|:---:
-1 | 77.5 | 70
-2 | 82.5 | 85
-3 | 85 | 78
-4 | 90 | 88
-5 | 57.5 | 52
-6 | 77.5 | 80
-7 | 55 | 42.5
-8 | 87.5 | 82.5
-9 | 57.5 | 55
-10 | 72.5 | 67.5
-
-<br>
-
-### Qualitative Evaluation: NASA TLX Scores
+### Quantitative Evaluation: NASA TLX Scores
 
 
-User | Mental Demand | Physical Demand | Temporal Demand | Performance | Effort | Frustration | Score 
-:---|:---:|:---|:---:|:---:|:---:|:---:|:---:
-1 | 4 | 2 | 15 | 7 | 4 | 10 | 180
-2 | 2 | 8 | 8 | 1 | 14 | 4 | 155
-3 | 6 | 1 | 3 | 17 | 10 | 2 | 165
-4 | 14 | 5 | 12 | 18 | 14 | 12 | 345
-5 | 4 | 4 | 12 | 12 | 7 | 4 | 185
-6 | 4 | 3 | 6 | 8 | 6 | 4 | 125
-7 | 3 | 3 | 11 | 12 | 3 | 7 | 165
-8 | 6 | 1 | 6 | 9 | 6 | 4 | 130
-9 | 15 | 6 | 12 | 21 | 2 | 18 | 340
-10 | 2 | 5 | 4 | 3 | 6 | 2 | 80
 
-<br>The NASA Task Load Index (TLX) scores provide valuable insights into users' subjective experiences and perceived workload when interacting with the system. Each user's mental , physical, and temporal demand, as well as their performance, effort, and frustration levels are assessed and quantified. These scores offer a nuanced understanding of the challenges users face and the aspects of the system that contribute to perceived workload. What is immediately obvious is that the game is not as accessible to everyone as we initially thought, as evidenced by a score range of 265, and an average score of 187. We observed that the mental and physical demand the game exerts on players is low, which are positive aspects of the evaluation. However, there were high scores in the frustration and temporal demand categories. Fortunately, we have identified potential improvements to alleviate the percieved workload in these areas, and enhance the overall game experience <br>
+<br>The NASA Task Load Index (TLX) scores provide valuable insights into users' subjective experiences and perceived workload when interacting with the system. Each user's mental , physical, and temporal demand, as well as their performance, effort, and frustration levels were assessed and quantified [raw data here](docs/NASA_TLX.md).  <br>
 
 ### Code Testing
 
