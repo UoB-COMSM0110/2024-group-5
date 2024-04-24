@@ -150,7 +150,7 @@ Once we obtained the data, we performed a Wilcoxon signed-rank test using [this 
 
 ### Qualitative Evaluation: Heuristic Evaluation
 
-For our qualitative evaluation, we utilised the [Nielsen Group's heuristic evaluation guide](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/). We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects [^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. Collecting and collating [the responses](docs/heuristicEvaluation.md) allowed us to obtain three valuable pieces of information per heuristic:
+For our qualitative evaluation, we utilised the Nielsen Group's heuristic evaluation guide[^6]. We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects [^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. Collecting and collating [the responses](docs/heuristicEvaluation.md) allowed us to obtain three valuable pieces of information per heuristic:
 - What works well
 - What issues prevented us from achieving the heuristic
 - Recommendations for improving our software to attain the heuristic
@@ -209,7 +209,8 @@ This would resolve the following issues with users:
 
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
-[^2]: Obtained from Nielsen Norman Group: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
+[^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
 [^3]: Hart, S. G. (2006). Nasa-Task Load Index (NASA-TLX); 20 Years Later. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 50(9), 904-908. https://doi.org/10.1177/154193120605000909
-[^4]: Obtained from NASA: https://humansystems.arc.nasa.gov/groups/tlx/downloads/TLXScale.pdf
+[^4]: Obtained from NASA. Available at: https://humansystems.arc.nasa.gov/groups/tlx/downloads/TLXScale.pdf
 [^5]: Grier, R. A. (2015). How High is High? A Meta-Analysis of NASA-TLX Global Workload Scores. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 59(1), 1727-1731. https://doi.org/10.1177/1541931215591373
+[^6]: Moran, K. and Gordon, K. (2024) Heuristic evaluations: How to conduct, Nielsen Norman Group. Available at: https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/ (Accessed: 20 March 2024). 
