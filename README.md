@@ -4,12 +4,17 @@
 # Contents
 1. [Team](#team)  
 2. [Introduction](#intro)  
-3. [Requirements](#requirements)  
-4. [Design](#design)  
+3. [Requirements](#requirements)
+    1. [Use Case Diagram](#use-case-diagram)
+    2. [User Stories](#user-stories)
+4. [Design](#design)
+  1. [System Architecture](#system-architecture)
+  2. [Class Diagram](#class-diagram)
 5. [Implementation](#imp)  
 6. [Evaluation](#eval)
     1. [Quantitative Evaluation - NASA TLX](#NASA)
     2. [Qualitative Evaluation - Heuristic Evaluation](#HE)
+    3. [Addressing Feedback](#addressing-feedback)  
 7. [Process](#pro)
     1. [Team Roles](#roles)
 
@@ -44,7 +49,7 @@ After sharing ideas for simpler games as a group, we settled on a game modelled 
 
 *This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
 
-### Use Case Diagram
+<h3 id="use-case-diagram">Use Case Diagram</h3>
 
 ![alt text](docs/use-case-diagram.png)
 
@@ -52,7 +57,8 @@ The figure above shows our use-case diagram. We already had many ideas about wha
 
 From designing a use-case diagram, we were able to distinguish between two types of players, a regular player and an experienced player. Fortunately, the simple nature of our game means that there is little difference in the two players, bar the experienced player being able to see their previous high score from the high score menu. With this in mind, we were able to go forward with the design process and similarly ensure the game catered to any type of player. For example, we originally had a tutorial level which would play every time the game was run. While this was great for new players as it would teach them the controls in a consequence-free setting, for experienced players it would be very tiring and possibly deter them from starting a new game if they had to go through the tutorial each time. Based on that, we implemented a simple panel which explained the controls that would show at the start of each game. The player could simply click to begin the game from then on. This was a non-intrusive way to showcase the controls and could be shown to both player types.
 
-### User Stories
+<h3 id="user-stories">User Stories</h3>
+
 The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
 
 ##### As a Player:
@@ -96,13 +102,14 @@ Overall, looking at the game through the lens of different types of users allowe
 <h2 id="design">Design</h2>
 
 *This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we could stay on track with our goals and ensure that the final product was able to meet the intended requirements.*
-alt text
-### System Architecture
+
+<h3 id="system-architecture">System Architecture</h3>
+
 Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems (Herbsleb, 2011). On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
 
 Furthermore, its synergy with the agile development style is of great benefit, as it allows members to make incremental enhancements to the code. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process (Beck, 2001), which allowed us to address challenges as and when they appeared.
 
-### Class Diagram
+<h3 id="class-diagram">Class Diagram</h3>
 
 ![alt text](docs/class-diagram.png)
 
@@ -159,7 +166,7 @@ For our qualitative evaluation, we utilised the Nielsen Group's heuristic evalua
 
 Based on this information, we set about incorporating the following changes:
 
-### Addressing Feedback
+<h3 id="addressing-feedback">Addressing Feedback</h3>
 
 *Things we could do to address the criticisms raised in the user feedback*
 
