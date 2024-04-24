@@ -12,6 +12,9 @@ Good points:
 Criticisms: 
 - There is no tutorial, or narrative. It is not explain that you need to click to keep the spaceship from falling down, or that you have weapons, or how to fire the weapons.
 - At the end of a game, the system appears unresponsive when you click "Continue".
+
+Recommendations:
+- Implement a story and tutorial section for players to get their bearings
 <br>
 
 ##### (2) Match Between the System and the Real World: 
@@ -24,6 +27,11 @@ Criticisms:
 - The text in the background image look like buttons or relevant bits of information, when they don't actually have any meaning.
 - When the spaceship moves upwards there isn't a visual representation that explains how/why it is moving upwards, e.g. no thruster, or the angle or the ship doesn't tilt upwards
 - The minerals that the user needs to collect look like asteroids that should be avoided
+
+Recommendations:
+- Incorporate the text in the background image into the game OR delete it so the background functions as a simple, dynamic background
+- Make the minerals stand out  
+
 <br>
 
 ##### (3) User Control and Freedom: 
@@ -36,12 +44,15 @@ Good points:
 ##### (4) Consistency and Standards: 
 >Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform and industry conventions.
 
-**Good points**:
+Good points:
 - It is clear what each button on the main menu does
 
 Criticisms:
 - Some areas of the background image/gif look like they are buttons, or they have meaning, or that it is possible to interact with them in some way
 - It's not obvious that left click will move the spaceship upwards, as opposed to the 'up' arrow
+
+Recommendations:
+- Include a 'controls' page
 <br>
 
 ##### (5) Error Prevention: 
@@ -49,6 +60,9 @@ Criticisms:
 
 Criticisms:
 - During the loading screen, some people press a key because they think that will allow them to skip it. This causes the game to crash.
+
+Recommendations:
+- Fix bug
 <br>
 
 ##### (6) Recognition rather than recall: 
@@ -59,6 +73,9 @@ Good points:
 
 Criticisms:
 - Without a tutorial it is impossible to know how to play. There is no tutorial.
+
+Recommendations:
+- Include a controls section to inform players how to play
 <br>
 
 ##### (7) Flexibility and Efficency of use: 
@@ -66,6 +83,7 @@ Criticisms:
 
 Good points:
 - Being able to set the difficulty level before the game begins would allow experienced players to skip the easy level, which they could find tedious.
+- Simple interface makes the game efficient to navigate for both experienced players and new players alike
 <br>
 
 ##### (8) Aesthetic and Minimalist Design: 
@@ -74,6 +92,9 @@ Good points:
 
 Criticism:
 - Some areas of the background image/gif look like they are buttons, or they have meaning, or that it is possible to interact with them in some way.
+
+Recommendations:
+- Change art to make it clear that they are simply background entities
 <br>
 
 ##### (9) Help Users Recognize, Diagnose, and Recover from Errors: 
@@ -83,6 +104,10 @@ Criticism:
 Ciritcism:
 - No error messages, e.g. when pressing a key during the loading screen, when clicking on LAN battle, when you die from crashing into the top of the screen.
 - No cursor to represent "loading" state, e.g. at the end of the game it takes a long time for the game to respond to a click on "Continue" button.
+
+Recommendations:
+- Implement suitable error messages
+- Track down and fix bugs that cause errors to appear
 <br>
 
 ##### (10) Help and documentation: 
