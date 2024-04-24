@@ -111,14 +111,14 @@ The figure above illustrates the high-level class diagram for the game system. T
 
 #### Major Classes
 
-+ *Spaceship*: represents the players spaceship, which will be equipped with health points and weapons. It has a central role in gameplay, as evidenced by the 1..1 relationship with the Player. It is also part of a composition relationship with an array of weapon objects.
-+ *Enemy*: Abstracts various enemy types in the game, which can be extended into specialist enemy types.
-+ *Map*, *Panel*, and *Obstacle*: Concerned with the game’s environment, UI, and difficulty, respectively.
++ `Spaceship`: represents the players spaceship, which will be equipped with health points and weapons. It has a central role in gameplay, as evidenced by the 1..1 relationship with the `Player`. It is also part of a composition relationship with an array of weapon objects.
++ `Enemy`: Abstracts various enemy types in the game, which can be extended into specialist enemy types.
++ `Map`, *Panel*, and *Obstacle*: Concerned with the game’s environment, UI, and difficulty, respectively.
   - `Map` creates moveable map objects.
   - `Panel` displays scores and statistics.
   - `Obstacle` checks for player collisions.
-+ *MoveObject* and *FixedObject* - these are two main base classes for all objects within the game, and allows for the
-  distinction to be made between moveable and static entities.\
++ `MoveObject` and `FixedObject` - these are two main base classes for all objects within the game, and allows for the
+  distinction to be made between moveable and static entities.
 
 Importantly, the creation of the class diagram itself provided clarity on the architecture. Creating the diagram involved thinking about multiplicity in class relationships, as well as inheritance and polymorphism, which allowed us to streamline our ideas. In addition to this, the diagram served as an effective communication tool amongst our team, and facilitated a shared understanding of the game’s overall design and structure, so everyone knew how the system worked.
 
