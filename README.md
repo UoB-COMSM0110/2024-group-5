@@ -209,7 +209,7 @@ This would resolve the following issues with users:
 
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
-[^2]: Obtained from [Nielsen Norman Group](https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf)
+[^2]: Obtained from Nielsen Norman Group: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
 [^3]: Hart, S. G. (2006). Nasa-Task Load Index (NASA-TLX); 20 Years Later. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 50(9), 904-908. https://doi.org/10.1177/154193120605000909
-[^4]: Obtained from [NASA](https://humansystems.arc.nasa.gov/groups/tlx/downloads/TLXScale.pdf)
+[^4]: Obtained from NASA: https://humansystems.arc.nasa.gov/groups/tlx/downloads/TLXScale.pdf
 [^5]: Grier, R. A. (2015). How High is High? A Meta-Analysis of NASA-TLX Global Workload Scores. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 59(1), 1727-1731. https://doi.org/10.1177/1541931215591373
