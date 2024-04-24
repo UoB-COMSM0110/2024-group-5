@@ -8,8 +8,8 @@
 4. [Design](#design)  
 5. [Implementation](#imp)  
 6. [Evaluation](#eval)
-  1. [Quantitative Evaluation - NASA TLX](#NASA)
-  2. [Qualitative Evaluation - Heuristic Evaluation](#HE)  
+    1. [Quantitative Evaluation - NASA TLX](#NASA)
+    2. [Qualitative Evaluation - Heuristic Evaluation](#HE)  
 
 
 *# use html tags to make links work (markdown not interpreting normal links properly)*
