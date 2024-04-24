@@ -13,7 +13,7 @@ public class ButtonImage{
   public ButtonImage(){
     BTN_START = loadImage("btn_start.png");
     BTN_SET = loadImage("btn_set.png");
-    cursor = loadImage("crop.png");
+    cursor = loadImage("2edit_crop.png");
     BTN_SETTAG= loadImage("btn_setIcon.png");
     BTN_MAINMENU = loadImage("mainMenu.png");
     HOVER_BTN_START = false;
