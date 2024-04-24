@@ -13,6 +13,8 @@
 [5. Implementation](#imp)
 
 [6. Evaluation](#eval)
+  - [a. Quantitative Evaluation - NASA TLX](#NASA)
+  - [b. Qualitative Evaluation - Heuristic Evaluation](#HE)
 
 
 *# use html tags to make links work (markdown not interpreting normal links properly)*
@@ -97,7 +99,7 @@ Overall, looking at the game through the lens of different types of users allowe
 <h2 id="design">Design</h2>
 
 *This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.*
-
+alt text
 ### System Architecture
 Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems (Herbsleb, 2011). On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
 
@@ -112,7 +114,7 @@ The figure above illustrates the high-level class diagram for the game system. T
 #### Major Classes
 
 + `Spaceship`: represents the players spaceship, which will be equipped with health points and weapons. It has a central role in gameplay, as evidenced by the 1..1 relationship with the `Player`. It is also part of a composition relationship with an array of weapon objects.
-+ `Enemy`: Abstracts various enemy types in the game, which can be extended into specialist enemy types.
++ `Enemy`: Abstracts various enemy types in the game, which can be extended into specialist enemy types.alt text
 + `Map`, *Panel*, and *Obstacle*: Concerned with the game’s environment, UI, and difficulty, respectively.
   - `Map` creates moveable map objects.
   - `Panel` displays scores and statistics.
@@ -138,7 +140,7 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 *This is the evaluations section, where we go through quantitative and qualitative evaluations, which we have used to make our game better. Here, we also describe the different methods of testing we employed in our code to ensure it was in working order.*
 
-### Quantitative Evaluation: NASA TLX Scores
+<h3 id="NASA">Quantitative Evaluation: NASA TLX Scores</h3>
 
 For our quantitiativ evaluation, we used the NASA Task Load Index, which has been verified to provide valuable insights into users' subjective experiences and perceived workload when interacting with the system [^3]. In the interest of obtaining reliable data, we selected 10 users to fill out a [provided TLX form](docs/TLXScale.pdf) [^4]. We decided to use the **raw scores** rather than the weighted scores as it has similar correlation, but is easier to analyse and more time-efficient [^5]. The TLX data can be found [here](docs/NASA_TLX.md).  The first level is our game's default easy mode (aimed at beginners) and the second level is our harder level for more experienced players:
 
@@ -152,7 +154,7 @@ Once we obtained the data, we performed a Wilcoxon signed-rank test using [this 
 
 <br>
 
-### Qualitative Evaluation: Heuristic Evaluation
+<h3 id="HE">Qualitative Evaluation: Heuristic Evaluation</h3>
 
 For our qualitative evaluation, we utilised the Nielsen Group's heuristic evaluation guide[^6]. We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects [^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. Collecting and collating [the responses](docs/heuristicEvaluation.md) allowed us to obtain three valuable pieces of information per heuristic:
 - What works well
