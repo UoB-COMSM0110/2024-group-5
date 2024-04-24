@@ -107,7 +107,7 @@ Furthermore, its synergy with the agile development style is of great benefit, a
 
 ### Class Diagram
 
-![alt text](https://github.com/UoB-COMSM0110/2024-group-5/blob/develop/docs/class-diagram.png?raw=true)
+![alt text](docs/class-diagram.png)
 
 The figure above illustrates the high-level class diagram for the game system. The main classes are `FixedObject`, `MoveObject`, and `Map`. Each encapsulating specific functionalities and attributes. Relationships between classes, such as associations and dependencies, are depicted to illustrate the interactions between objects.
 
