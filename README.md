@@ -157,7 +157,7 @@ This is the evaluations section, where we go through quantitative and qualitativ
 
 ### Heuristic Evaluation
 
-For our qualitative evaluation, we utilised the [Nielsen Group's heuristic evaluation guide](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/). We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects[^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. This allowed us to obtain three valuable pieces of information per heuristic:
+For our qualitative evaluation, we utilised the [Nielsen Group's heuristic evaluation guide](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/). We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects [^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. By collecting and collating the responses ([raw data here])(docs/heuristicEvaluation.md) allowed us to obtain three valuable pieces of information per heuristic:
 - What works well
 - What issues prevented us from acheiving the heuristic
 - Recommendations for improving our software to attain the heuristic
