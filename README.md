@@ -43,7 +43,7 @@ After sharing ideas for simpler games as a group, we settled on a game modelled 
 
 
 <h2 id="requirements">Requirements</h2>
-This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use-case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project. 
+*This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use-case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
 
 ### Use Case Diagram
 
@@ -95,7 +95,7 @@ Overall, looking at the game through the lens of different types of users allowe
 
 
 <h2 id="design">Design</h2>
-This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.
+*This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we can stay on track with our goals and ensure that the final product is able to meet the intended requirements.*
 
 ### System Architecture
 Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems (Herbsleb, 2011). On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
@@ -135,7 +135,7 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 <h2 id="eval">Evaluation</h2>
 
-This is the evaluations section, where we go through quantitative and qualitative evaluations, which we have used to make our game better. Here, we also describe the different methods of testing we employed in our code to ensure it was in working order.\
+*This is the evaluations section, where we go through quantitative and qualitative evaluations, which we have used to make our game better. Here, we also describe the different methods of testing we employed in our code to ensure it was in working order.*
 
 ### Quantitative Evaluation: NASA TLX Scores
 
@@ -155,7 +155,7 @@ This is the evaluations section, where we go through quantitative and qualitativ
 <br>
 
 
-### Heuristic Evaluation
+### Qualitative Evaluation: Heuristic Evaluation
 
 For our qualitative evaluation, we utilised the [Nielsen Group's heuristic evaluation guide](https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/). We first asked people to familiarise themselves with Jakob Nielsen's 10 usability heuristics for software projects [^1] and once they felt confident in their understanding, we asked them to play our game and examine it based on the heuristics in [this workbook](docs/Heuristic_Evaluation_Workbook_1_Fillable.pdf) [^2]. Collecting and collating [the responses](docs/heuristicEvaluation.md) allowed us to obtain three valuable pieces of information per heuristic:
 - What works well
