@@ -13,8 +13,8 @@
 [5. Implementation](#imp)
 
 [6. Evaluation](#eval)  
-  [a. Quantitative Evaluation - NASA TLX](#NASA)  
-  [b. Qualitative Evaluation - Heuristic Evaluation](#HE)  
+&nbsp;&nbsp;&nbsp;&nbsp;[a. Quantitative Evaluation - NASA TLX](#NASA)  
+&nbsp;&nbsp;&nbsp;&nbsp;[b. Qualitative Evaluation - Heuristic Evaluation](#HE)  
 
 
 *# use html tags to make links work (markdown not interpreting normal links properly)*
