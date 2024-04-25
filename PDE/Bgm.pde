@@ -34,14 +34,15 @@ void bgmStart(Level level){
       playerLevelSet.pause();
     }
     
-    if(level == Level.LEVEL_MAP1 || level == Level.LEVEL_MAP2){
-      if(!playerLevelMap1.isPlaying()){
-          playerLevelMap1.rewind();
-          playerLevelMap1.play();
-      }
-    }else{
-      playerLevelMap1.pause();
-    }
+    //if(level == Level.LEVEL_MAP1 || level == Level.LEVEL_MAP2){
+    //  if(!playerLevelMap1.isPlaying()){
+    //      playerLevelMap1.rewind();
+    //      playerLevelMap1.play();
+    //  }
+    //}
+    //else{
+    //  playerLevelMap1.pause();
+    //}
   }
   //to do
 }

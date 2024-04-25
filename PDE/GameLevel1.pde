@@ -24,7 +24,7 @@ class GameLevel1 {
     private Health health = new Health();
     //private PImage box = loadImage("abilityBox1.png");
     private boolean isGameEnd = false;
-    private final FastCard[] cards = new FastCard[2];
+    private final FastCard[] cards = new FastCard[1];
     
     public int gameTime = millis();
     public int gameTime2 = millis();
@@ -51,12 +51,12 @@ class GameLevel1 {
             gameTime = millis();
           }
           
-          if(millis()-gameTime2>=35000){
-             println("rogue!");
-            gameStatus.curLevel = Level.LEVEL_ROGUE;
-            rogue = new Rogue();
-            gameTime2 = millis();
-          }
+          //if(millis()-gameTime2>=35000){
+          //   println("rogue!");
+          //  gameStatus.curLevel = Level.LEVEL_ROGUE;
+          //  rogue = new Rogue();
+          //  gameTime2 = millis();
+          //}
           
           updateSpaceshipHitTime();
           drawUfos();
@@ -291,9 +291,12 @@ class GameLevel1 {
             if(helicopter.intersectWithFastCard(card)){
               card.isVisiable = false;
               helicopter.setHealth(helicopter.getHealth()+1);
-              for(Ufo ufo:ufos){
-                ufo.speed+=5;
-              } 
+              println("heree++++");
+            gameStatus.curLevel = Level.LEVEL_ROGUE;
+            rogue = new Rogue();
+              //for(Ufo ufo:ufos){
+              //  ufo.speed+=5;
+              //} 
             }
             if(card.isVisiable){
               image(card.getImage(),card.curX,card.curY,100,100);
