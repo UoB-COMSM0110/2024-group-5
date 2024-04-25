@@ -13,8 +13,24 @@ void mousePressed(){
   
   if(isMouseInButtonStart()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
     System.out.println("start button is clicked");
-    gameStatus.curLevel = Level.LEVEL_MAP1;
+    gameStatus.curLevel = Level.LEVEL_MODECHOOSE;
     return;
+  }
+  
+  if(gameStatus.curLevel==Level.LEVEL_MODECHOOSE){
+    //TO DO
+    if(mouseX>=213&&mouseX<=473&&mouseY>=152&&mouseY<=559){
+      gameStatus.curLevel = Level.LEVEL_MAP1;
+      return;
+    }
+    if(mouseX>=679&&mouseX<=933&&mouseY>=152&&mouseY<=559){
+      gameStatus.curLevel = Level.LEVEL_MAP2;
+      return;
+    }
+    if(mouseX>=495&&mouseX<=641&&mouseY>=551&&mouseY<-603){
+      gameStatus.curLevel = Level.LEVEL_BEGIN;
+      return;
+    }
   }
   
   if(isMouseInButtonSet()&&gameStatus.curLevel==Level.LEVEL_BEGIN){

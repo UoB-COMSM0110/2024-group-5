@@ -83,6 +83,9 @@ static GameLevelLAN gameLevelLAN;
 //Rogue
 Rogue rogue;
 
+//ModeChoosePanel
+ModeChoosePanel mcPanel;
+
 void setup(){  
   thread = new Thread(new MyRunnable());
   thread.start();
@@ -238,6 +241,10 @@ void draw(){
      Story story = new Story();
      story.createPanel();
      return;
+  }
+  
+  if(gameStatus.curLevel == Level.LEVEL_MODECHOOSE){
+     mcPanel.createPanel();
   }
   
   if(gameStatus.curLevel == Level.LEVEL_TOTURIAL){

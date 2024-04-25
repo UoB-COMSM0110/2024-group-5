@@ -30,6 +30,9 @@ class MyRunnable implements Runnable{
     gameLevel2 = new GameLevel2();
     gameLevelLAN = new GameLevelLAN();
     
+    //init gameModeChoose;
+    mcPanel = new ModeChoosePanel();
+    
     //client
     client = new Client();
     try{
