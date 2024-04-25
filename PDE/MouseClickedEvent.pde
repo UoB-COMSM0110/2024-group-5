@@ -27,7 +27,7 @@ void mousePressed(){
       gameStatus.curLevel = Level.LEVEL_MAP2;
       return;
     }
-    if(mouseX>=495&&mouseX<=641&&mouseY>=551&&mouseY<-603){
+    if(mouseX>=495&&mouseX<=641&&mouseY>=551&&mouseY<=603){
       gameStatus.curLevel = Level.LEVEL_BEGIN;
       return;
     }
