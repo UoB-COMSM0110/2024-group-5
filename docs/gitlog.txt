@@ -1,85 +1,86 @@
-* [33mdfcff09[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m added ref
-* [33mcb65488[m Update README.md - added ref
-* [33md1eb522[m formatting user stories
-* [33m72295ee[m Update README.md
-* [33m8a7ea97[m formatting
-* [33m79815fc[m Fixed spelling mistake
-* [33m4caafab[m Update README.md
-* [33m69bcd09[m Update README.md
-* [33mdded342[m Update README.md - added Hamza's role
-* [33ma725f3e[m fix bugs
-* [33m4ceb5a1[m true final version
-* [33m7685dab[m add playermode
-* [33mbe7aae3[m Update README.md - Formatting
-* [33mf4f04b8[m Update README.md
-* [33m0bc64e4[m Update README.md - Formatting
-* [33m113a7f6[m formatting
-* [33mce910b8[m Added team roles section
-* [33m680a5c1[m Update README.md
-* [33m728a454[m Formatting
-* [33mbd750d0[m Formatting
-* [33m3b01629[m Update class diagram
-* [33m6331257[m update use-case diagram
-* [33m2fd9b00[m Delete test.txt
-* [33m6cbfa4a[m formatting
-* [33me84fe23[m formatting
-* [33m767c09a[m formatting
-* [33m6918923[m Adding subheadings for Eval
-* [33m4848437[m Update README.md
-* [33m466f67e[m Update README.md
-* [33mf200d43[m Update README.md
-* [33m5d2cd12[m updated TLX graph
-* [33made8188[m Updated NASA TLX Graph
-* [33mbee8d54[m updated references
-* [33m85e3707[m Update README.md
-* [33mf70b706[m Added NASA TLX graph
-* [33me39c10a[m NASA TLX doc provided to userse
-* [33m0f866e1[m Update README.md - aesthetics
-* [33m7bd07b5[m Update README.md
-* [33mb0cd458[m Update README.md
-* [33mdc865fa[m Added link to raw Heuristic data
-* [33ma3247f9[m WIP Heuristic Evaluation section
-* [33m69904c1[m Add files via upload
-*   [33mb436878[m Merge pull request #15 from UoB-COMSM0110/develop
-[32m|[m[33m\[m  
-[32m|[m * [33m4d6cd35[m[33m ([m[1;31morigin/develop[m[33m)[m Update heuristicEvaluation.md
-[32m|[m * [33ma872b55[m Update heuristicEvaluation.md
-[32m|[m * [33mcc10c10[m test commit post merge
-* [33m|[m [33m418fcb2[m Update thinkAloudFeedback.md
-* [33m|[m [33m0fd01eb[m Update README.md
-* [33m|[m [33m6602443[m Create LICENSE
-[33m|[m[33m/[m  
-* [33m7c9c835[m[33m ([m[1;31morigin/development_backup_2404[m[33m)[m Update README.md
-* [33m02dd466[m update gitignore
-* [33m0f9b9e9[m cleanup
-* [33m6095dbe[m cleanup
-* [33m92fb8a6[m Update NASA_TLX.md
-* [33m1a76607[m Added NASA TLX graph
-* [33m96407d7[m uploaded TLX scores
-* [33mdbe69f2[m cleanup
-* [33ma7d2034[m Add game mode Image
-*   [33mf9ab68c[m merge
-[34m|[m[35m\[m  
-[34m|[m * [33m50fd53e[m Add P2SpaceShip Image
-[34m|[m * [33mb0153c3[m Add new MultiModeScore  UI
-[34m|[m *   [33mf5dc3ec[m Add bonus Item Pictures
-[34m|[m [36m|[m[1;31m\[m  
-[34m|[m [36m|[m * [33m9a44900[m bug fix: pressing 'z' during loading doesn't crash the game
-[34m|[m [36m|[m * [33m98a4f6f[m[33m ([m[1;31morigin/increaseDifficultyOverTime[m[33m)[m difficulty increases in varied ways: the speed of the asteroids, the speed of the UFOs, the distance between the asteroid belts becoming narrower
-[34m|[m [36m|[m * [33m4687d7a[m[33m ([m[1;31morigin/limitedAmmoAndShield[m[33m)[m cleaned up redundant code
-[34m|[m [36m|[m * [33m20ba4fb[m shield is limited by mineral count
-[34m|[m [36m|[m * [33m0fecf3f[m bug fix: when 'x' is held down to fire lazor a long time, any UFO that intersects with the ray will die
-[34m|[m [36m|[m * [33m5c570b0[m lazor uses minerals collected as ammo
-[34m|[m [36m|[m * [33ma862afd[m bullets no longer available
-[34m|[m * [1;31m|[m [33m4578e4f[m Add RogueBuffPanel Version1
-[34m|[m [1;31m|[m[1;31m/[m  
-* [1;31m/[m [33m3531a4c[m add two players mode and rogue
-[1;31m|[m[1;31m/[m  
-*   [33m7fe6d28[m[33m ([m[1;31morigin/develop_backup[m[33m)[m Merge branch 'develop' of https://github.com/UoB-COMSM0110/2024-group-5 into develop
-[1;32m|[m[1;33m\[m  
-[1;32m|[m * [33mb81f837[m UFO Images new version
-[1;32m|[m * [33ma8c760a[m new UFO Images
-[1;32m|[m * [33mf7745da[m Change UFO Images
+* <span style="color:#dfcff09;">dfcff09</span> (<span style="color:#dfcff09;">HEAD -> </span><span style="color:#32CD32;">main</span><span style="color:#dfcff09;">, </span><span style="color:#FF0000;">origin/main</span><span style="color:#dfcff09;">, </span><span style="color:#FF0000;">origin/HEAD</span><span style="color:#dfcff09;">) added ref
+* <span style="color:#dfcff09;">cb65488</span> Update README.md - added ref
+* <span style="color:#dfcff09;">d1eb522</span> formatting user stories
+* <span style="color:#dfcff09;">72295ee</span> Update README.md
+* <span style="color:#dfcff09;">8a7ea97</span> formatting
+* <span style="color:#dfcff09;">79815fc</span> Fixed spelling mistake
+* <span style="color:#dfcff09;">4caafab</span> Update README.md
+* <span style="color:#dfcff09;">69bcd09</span> Update README.md
+* <span style="color:#dfcff09;">dded342</span> Update README.md - added Hamza's role
+* <span style="color:#dfcff09;">a725f3e</span> fix bugs
+* <span style="color:#dfcff09;">4ceb5a1</span> true final version
+* <span style="color:#dfcff09;">7685dab</span> add playermode
+* <span style="color:#dfcff09;">be7aae3</span> Update README.md - Formatting
+* <span style="color:#dfcff09;">f4f04b8</span> Update README.md
+* <span style="color:#dfcff09;">0bc64e4</span> Update README.md - Formatting
+* <span style="color:#dfcff09;">113a7f6</span> formatting
+* <span style="color:#dfcff09;">ce910b8</span> Added team roles section
+* <span style="color:#dfcff09;">680a5c1</span> Update README.md
+* <span style="color:#dfcff09;">728a454</span> Formatting
+* <span style="color:#dfcff09;">bd750d0</span> Formatting
+* <span style="color:#dfcff09;">3b01629</span> Update class diagram
+* <span style="color:#dfcff09;">6331257</span> update use-case diagram
+* <span style="color:#dfcff09;">2fd9b00</span> Delete test.txt
+* <span style="color:#dfcff09;">6cbfa4a</span> formatting
+* <span style="color:#dfcff09;">e84fe23</span> formatting
+* <span style="color:#dfcff09;">767c09a</span> formatting
+* <span style="color:#dfcff09;">6918923</span> Adding subheadings for Eval
+* <span style="color:#dfcff09;">4848437</span> Update README.md
+* <span style="color:#dfcff09;">466f67e</span> Update README.md
+* <span style="color:#dfcff09;">f200d43</span> Update README.md
+* <span style="color:#dfcff09;">5d2cd12</span> updated TLX graph
+* <span style="color:#dfcff09;">ade8188</span> Updated NASA TLX Graph
+* <span style="color:#dfcff09;">bee8d54</span> updated references
+* <span style="color:#dfcff09;">85e3707</span> Update README.md
+* <span style="color:#dfcff09;">f70b706</span> Added NASA TLX graph
+* <span style="color:#dfcff09;">e39c10a</span> NASA TLX doc provided to userse
+* <span style="color:#dfcff09;">0f866e1</span> Update README.md - aesthetics
+* <span style="color:#dfcff09;">7bd07b5</span> Update README.md
+* <span style="color:#dfcff09;">b0cd458</span> Update README.md
+* <span style="color:#dfcff09;">dc865fa</span> Added link to raw Heuristic data
+* <span style="color:#dfcff09;">a3247f9</span> WIP Heuristic Evaluation section
+* <span style="color:#dfcff09;">69904c1</span> Add files via upload
+*   <span style="color:#dfcff09;">b436878</span> Merge pull request #15 from UoB-COMSM0110/develop
+<span style="color:#32CD32;">|</span><span style="color:#dfcff09;">\</span>  
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">4d6cd35</span><span style="color:#dfcff09;"> (</span><span style="color:#FF0000;">origin/develop</span><span style="color:#dfcff09;">)</span> Update heuristicEvaluation.md
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">a872b55</span> Update heuristicEvaluation.md
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">cc10c10</span> test commit post merge
+* <span style="color:#dfcff09;">|</span> <span style="color:#dfcff09;">418fcb2</span> Update thinkAloudFeedback.md
+* <span style="color:#dfcff09;">|</span> <span style="color:#dfcff09;">0fd01eb</span> Update README.md
+* <span style="color:#dfcff09;">|</span> <span style="color:#dfcff09;">6602443</span> Create LICENSE
+<span style="color:#dfcff09;">|</span><span style="color:#dfcff09;">/</span>  
+* <span style="color:#dfcff09;">7c9c835</span><span style="color:#dfcff09;"> (</span><span style="color:#FF0000;">origin/development_backup_2404</span><span style="color:#dfcff09;">)</span> Update README.md
+* <span style="color:#dfcff09;">02dd466</span> update gitignore
+* <span style="color:#dfcff09;">0f9b9e9</span> cleanup
+* <span style="color:#dfcff09;">6095dbe</span> cleanup
+* <span style="color:#dfcff09;">92fb8a6</span> Update NASA_TLX.md
+* <span style="color:#dfcff09;">1a76607</span> Added NASA TLX graph
+* <span style="color:#dfcff09;">96407d7</span> uploaded TLX scores
+* <span style="color:#dfcff09;">dbe69f2</span> cleanup
+* <span style="color:#dfcff09;">a7d2034</span> Add game mode Image
+*   <span style="color:#dfcff09;">f9ab68c</span> merge
+<span style="color:#0000FF;">|</span><span style="color:#dfcff09;">\</span>  
+<span style="color:#0000FF;">|</span> * <span style="color:#dfcff09;">50fd53e</span> Add P2SpaceShip Image
+<span style="color:#0000FF;">|</span> * <span style="color:#dfcff09;">b0153c3</span> Add new MultiModeScore  UI
+<span style="color:#0000FF;">|</span> *   <span style="color:#dfcff09;">f5dc3ec</span> Add bonus Item Pictures
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span><span style="color:#dfcff09;">\</span>  
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">9a44900</span> bug fix: pressing 'z' during loading doesn't crash the game
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">98a4f6f</span><span style="color:#dfcff09;"> (</span><span style="color:#FF0000;">origin/increaseDifficultyOverTime</span><span style="color:#dfcff09;">)</span> difficulty increases in varied ways: the speed of the asteroids, the speed of the UFOs, the distance between the asteroid belts becoming narrower
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">4687d7a</span><span style="color:#dfcff09;"> (</span><span style="color:#FF0000;">origin/limitedAmmoAndShield</span><span style="color:#dfcff09;">)</span> cleaned up redundant code
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">20ba4fb</span> shield is limited by mineral count
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">0fecf3f</span> bug fix: when 'x' is held down to fire lazor a long time, any UFO that intersects with the ray will die
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">5c570b0</span> lazor uses minerals collected as ammo
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">a862afd</span> bullets no longer available
+<span style="color:#0000FF;">|</span> * <span style="color:#32CD32;">|</span> <span style="color:#dfcff09;">4578e4f</span> Add RogueBuffPanel Version1
+<span style="color:#0000FF;">|</span>  <span style="color:#32CD32;">|</span><span style="color:#dfcff09;">/</span>  
+* <span style="color:#FFA500;">/</span> <span style="color:#dfcff09;">3531a4c</span> add two players mode and rogue
+<span style="color:#FFA500;">|</span><span style="color:#FFA500;">/</span>  
+*   <span style="color:#dfcff09;">7fe6d28</span><span style="color:#dfcff09;"> (</span><span style="color:#FF0000;">origin/develop_backup</span><span style="color:#dfcff09;">)</span> Merge branch 'develop' of https://github.com/UoB-COMSM0110/2024-group-5 into develop
+<span style="color:#32CD32;">|</span><span style="color:#008000;">\</span>  
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">b81f837</span> UFO Images new version
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">a8c760a</span> new UFO Images
+<span style="color:#32CD32;">|</span> * <span style="color:#dfcff09;">f7745da</span> Change UFO Images
+
 * [1;33m|[m [33m6c44bc3[m final version
 [1;33m|[m[1;33m/[m  
 * [33m26c826f[m New stroy and tutorial Image
