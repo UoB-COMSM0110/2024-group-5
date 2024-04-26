@@ -245,7 +245,27 @@ While we had our responsibilities, this did not mean we were left to our own dev
 
 <h3 id="tools-used">Tools Used</h3>
 
+To assist us in collaboration, we employed a number of tools to ensure all members were on the same page:
+- Github
+    - Kanban Boards
+- Pair Programming
+- Planning Poker
 
+<h4 id="git">GitHub</h4>
+
+GitHub, of course, played a central role in team organisation. GitHub offered many tools to help us follow the Agile methodology, of which, the Kanban board especially was useful.
+
+##### Kanban Board
+
+The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10]. 
+
+We made it a point for users to apply changes to the code in their own branch, which was named after either an issue on the Kanban board or a problem that the member was trying to solve:
+
+![alt text](docs/gitlog.png)
+
+Snapshot of our Git log  
+
+We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board.
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
@@ -256,3 +276,4 @@ While we had our responsibilities, this did not mean we were left to our own dev
 [^7]: Sarandeska, I. (2019) Chorei: A Japanese morning business routine for a Productive Day, Kanban Zone - The Lean Software to do More with Less. Available at: https://kanbanzone.com/2019/chorei-japanese-routine-for-productivity/
 [^8]: Herbsleb, James D. and Audris Mockus. “An Empirical Study of Speed and Communication in Globally Distributed Software Development.” IEEE Trans. Software Eng. 29 (2003): 481-494.
 [^9]: Beck, Kent L. et al. “Manifesto for Agile Software Development.” (2013).
+[^10]: dos Santos, P.S.M., Beltrão, A.C., de Souza, B.P. et al. On the benefits and challenges of using kanban in software engineering: a structured synthesis study. J Softw Eng Res Dev 6, 13 (2018). https://doi.org/10.1186/s40411-018-0057-1
