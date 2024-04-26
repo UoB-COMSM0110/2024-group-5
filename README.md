@@ -46,7 +46,7 @@ After sharing ideas for simpler games as a group, we settled on a game modelled 
 
 
 
-
+Update README.md
 <h2 id="requirements">Requirements</h2>
 
 *This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
@@ -163,11 +163,13 @@ For our quantitative evaluation, we used the NASA Task Load Index, which has bee
 
 ![alt text](docs/tlxScores.png)
 
-<br>
+<br>  
+
 
 Once we obtained the data, we performed a Wilcoxon signed-rank test using [this calculator](https://www.statology.org/wilcoxon-signed-rank-test-calculator/) and obtained a W-value of 0, indicating users found that the second level had a significant increase in perceived workload compared to the first. The dimension where users experienced the most notable workload increase was in the temporal demand, which was fortunate to see, as a large contributing factor to the increase in difficulty between the easier level and the harder one is the fact that the spaceship accelerates faster in the harder level, requiring faster reactions from the player to dodge obstacles.
 
-<br>
+<br>  
+
 
 <h3 id="HE">Qualitative Evaluation: Heuristic Evaluation</h3>
 
@@ -261,12 +263,17 @@ The Kanban board was fundamental to monitoring our progress as a team. As studie
 
 ![alt text](docs/kanban-one.png)  
 
-<br>
+<br>  
+
 
 A benefit of using GitHub to store our Kanban board as opposed to other software was the synergy with GitHub's other features. We were able to combine issues on the Kanban board with GitHub issues, which, in turn, allowed us to assign issues to members and create branches for those issues to be solved:  
 
 
 ![alt text](docs/kanban-two.png)
+
+<br>  
+
+##### Branches and Pull Requests
 
 We made it a point for users to apply changes to the code in their own branch, which was named after either an issue on the Kanban board or a problem that the member was trying to solve:  
 
@@ -275,7 +282,10 @@ We made it a point for users to apply changes to the code in their own branch, w
 
 Snapshot of our Git log  
 
-We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board.
+<br>  
+
+
+We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
