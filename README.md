@@ -17,7 +17,8 @@
     3. [Addressing Feedback](#addressing-feedback)
     4. [Testing](#testing)
 7. [Process](#pro)  
-    1. [Team Roles](#roles)  
+    1. [Team Roles](#roles)
+    2. [Tools Used](#tools-used)
 
 
 *# Use HTML tags to make links work (markdown not interpreting normal links properly)*
@@ -61,8 +62,8 @@ From designing a use-case diagram, we were able to distinguish between two types
 <h3 id="user-stories">User Stories</h3>
 
 The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
-
-##### As a Player:
+<details>
+<summary>##### As a Player:</summary>
 > I want to be able to open the game just by clicking on it.
 
 > I want to be able to start the game by clicking Start Game.
@@ -80,8 +81,10 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 > I want to be able to set the difficulty before I start the game.
 
 > I want to be able to enter my name, see my score, and save my details when the game ends.
+</details>
 
-##### As an Experienced Player:
+<details>
+<summary>##### As an Experienced Player: </summary>
 
 > I want to be able to view my previous high scores.
 
@@ -90,6 +93,8 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 > I want to be able to unlock new enemies.
 
 > I want to be able to unlock new weapons.
+</details>
+
 
 By delineating user actions, we gained insight into how our game mechanics should function in practice, enabling us to make more informed decisions on which of our ideas we should pursue and develop further. For example, it became clear that we should focus our efforts on core gameplay mechanics first, such as responsive controls. This allowed us to work efficiently and avoid wasting time on features that weren’t necessary. 
 
@@ -230,7 +235,9 @@ In our first meeting as a team, we spoke about each other's past experiences and
 4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working according to schedule, as well as gathering data, researching, and writing the report.
 5. Hamza: **???** - Unfortunately, Hamza could not be assigned a role. Having exclusively turned up to one meeting at the start of the project, we could only hazard a guess as to where his strengths lay. Though frequent attempts were made to involve him, our calls fell on deaf ears. Hamza had no involvement in the work displayed here.
 
-While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.
+While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.  
+
+<h3 id="tools-used">Tools Used</h3>
 
 
 
