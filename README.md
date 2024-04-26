@@ -62,8 +62,10 @@ From designing a use-case diagram, we were able to distinguish between two types
 <h3 id="user-stories">User Stories</h3>
 
 The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
-<details>
-<summary> **As a Player:** </summary>
+
+<details open>
+<summary> As a Player: </summary>  
+
 
 > I want to be able to open the game just by clicking on it.
 
@@ -85,8 +87,9 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 
 </details>
 
-<details>
-<summary> As an Experienced Player: </summary>
+<details open>
+<summary> As an Experienced Player: </summary>  
+
 
 > I want to be able to view my previous high scores.
 
