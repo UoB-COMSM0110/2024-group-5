@@ -119,7 +119,7 @@ Overall, looking at the game through the lens of different types of users allowe
 
 Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems [^8]. On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
 
-Furthermore, its synergy with the agile development style is of great benefit, as it allows members to make incremental enhancements to the code. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process (Beck, 2001), which allowed us to address challenges as and when they appeared.
+Furthermore, its synergy with the agile development style is of great benefit, as it allows members to make incremental enhancements to the code. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process [^9], which allowed us to address challenges as and when they appeared.
 
 <h3 id="class-diagram">Class Diagram</h3>
 
@@ -255,3 +255,4 @@ While we had our responsibilities, this did not mean we were left to our own dev
 [^6]: Moran, K. and Gordon, K. (2024) Heuristic evaluations: How to conduct, Nielsen Norman Group. Available at: https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/
 [^7]: Sarandeska, I. (2019) Chorei: A Japanese morning business routine for a Productive Day, Kanban Zone - The Lean Software to do More with Less. Available at: https://kanbanzone.com/2019/chorei-japanese-routine-for-productivity/
 [^8]: Herbsleb, James D. and Audris Mockus. “An Empirical Study of Speed and Communication in Globally Distributed Software Development.” IEEE Trans. Software Eng. 29 (2003): 481-494.
+[^9]: Beck, Kent L. et al. “Manifesto for Agile Software Development.” (2013).
