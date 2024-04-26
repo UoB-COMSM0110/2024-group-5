@@ -259,14 +259,14 @@ GitHub, of course, played a central role in team organisation. GitHub offered ma
 
 The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10]. Utilising the Kanban board allowed us to establish a clear, visual representation of our project status:  
 
-![alt text](docs/GitHub kanban board screenshot.png)  
+![alt text](docs/docs/kanban-one.png)  
 
 <br>
 
 A benefit of using GitHub to store our Kanban board as opposed to other software was the synergy with GitHub's other features. We were able to combine issues on the Kanban board with GitHub issues, which, in turn, allowed us to assign issues to members and create branches for those issues to be solved:  
 
 
-![alt text](docs/GitHub kanban board screenshot2.png)
+![alt text](docs/docs/kanban-two.png)
 
 We made it a point for users to apply changes to the code in their own branch, which was named after either an issue on the Kanban board or a problem that the member was trying to solve:  
 
