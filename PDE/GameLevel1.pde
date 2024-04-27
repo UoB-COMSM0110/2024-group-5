@@ -30,6 +30,8 @@ class GameLevel1 {
     public int gameTime2 = millis();
     public boolean isSetSpeedPlus = false;
     
+    public HashSet<Integer> keysInUse = new HashSet<Integer>();
+    
     
     public GameLevel1(){
        initCoins();
@@ -46,7 +48,6 @@ class GameLevel1 {
           drawCoins();       
           //change difficulty with time passing
           if(millis()-gameTime>=30000){
-            println("LEVEL UP");
             increaseDifficulty();
             gameTime = millis();
           }
@@ -60,7 +61,7 @@ class GameLevel1 {
           drawGamePanel();
           drawShield();
           drawHealth();
-          helicopter.move(keyPressed && key == ' ');
+          helicopter.move(keysInUse.contains(32));
         }else{
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;
@@ -283,7 +284,6 @@ class GameLevel1 {
        for(FastCard card:cards){
             if(helicopter.intersectWithFastCard(card)){
               card.isVisiable = false;
-              helicopter.setHealth(helicopter.getHealth()+1);
             gameStatus.curLevel = Level.LEVEL_ROGUE;
             rogue = new Rogue();
             
@@ -334,10 +334,13 @@ class GameLevel1 {
     
     public void drawShield(){
       if(shield.isVisible){
+        if (keysInUse.contains(90) && scorePanel.goldCount > 0) scorePanel.goldCount--; 
+        
         image(shield.image,helicopter.curX-15,helicopter.curY-25,150,150);
-        if (millis() - shield.getStartTime() - shield.getShieldLife() >= 0) {
+        if (shield.isBonusShieldInUse() && millis() - shield.getStartTime() - shield.getShieldLife() >= 0) {
         shield.closeShield();
         }
+        if (scorePanel.goldCount == 0 && !shield.isBonusShieldInUse()) shield.closeShield();
       }
 
     }

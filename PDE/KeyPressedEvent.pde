@@ -1,4 +1,6 @@
 void keyPressed(){
+  gameLevel1.keysInUse.add(keyCode);
+  
 //lasor
    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
        gameLevel1.scorePanel.goldCount--;
@@ -11,7 +13,7 @@ void keyPressed(){
    }
    
    //shield
-   if(key=='Z'||key=='z'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+   if(keyCode == 90 && gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
      gameLevel1.scorePanel.goldCount--;
      gameLevel1.shield.showShield(); 
      if (gameLevel1.scorePanel.goldCount == 0) {
@@ -33,7 +35,11 @@ void keyPressed(){
 }
 
 void keyReleased() {
-   if (key == 'Z' || key == 'z' && gameStatus.curLevel==Level.LEVEL_MAP1) {
+   if (gameStatus.curLevel==Level.LEVEL_MAP1) {
+     if (keyCode == 90) {
      gameLevel1.shield.closeShield(); 
+     }
+     gameLevel1.keysInUse.remove(keyCode);
    }
+   
 }
