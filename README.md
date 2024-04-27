@@ -149,7 +149,56 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 
 
-<h2 id="imp">Implementation</h2>
+<h2 id="imp">Implementation</h2>  
+
+Our game has many elements that move around the screen. We realised early on in the development process that it makes sense to have an object that stores all of the necessary data for moving an element around the game screen. This led to us creating `MoveObject`, it has attributes and methods for accessing co-ordinates, the value for speed, and the element’s image.
+
+#### Challenge 1: Appropriate level of difficulty
+
+We learned from the Think Aloud user feedback session that our game was:
+
+1) too hard for first time players
+
+2) a couple of people said that it was too easy after you had become comfortable with the controls.
+
+We implemented 2 solutions to address this feedback.
+
+1) We created a tutorial that explains how to move the spaceship, the aim of the game, how to score points, and you can die. After completing this we asked classmates and friends who hadn’t played the game yet, to try it. Their feedback showed an improvement that we were satisfied with.
+
+2) Create a system that gradually increases the difficulty of the game. Every 30 seconds various values are adjusted to make the game play more challenging.. There are many aspects of the game that when altered will increase or decrease the difficulty of the game:
+
+- Health points
+- The speed that the enemy UFOs flight at you
+- The speed of the asteroid belts
+- The size of the space between the asteroid belts/the size of the space that you fly within
+
+We found that if we adjusted all of these aspects every 30 seconds then the game became too challenging too quickly, so we settled for a method ,`GameLevel1.increaseDifficulty()`, that at random increases 1 attribute and randomly adjusts the gap between the asteroid belts.
+
+#### Challenge 2:
+
+Challenges that Ming faced:
+
+- Start animation(includes multiple threads programming),
+- how to shoot missiles(make it looks smoother)
+- two player’s mode(hard to find the strategy of winning game)
+
+#### Challenge 3: The asteroid belts
+
+The idea for the asteroid belts was a result of us reviewing our notes from our first qualitative user feedback session - a few players said that the game needed clearer boundaries, and that it was not clear why the spaceship would lose a health point every time it reached the bottom or top of the screen. Given the context of the game, asteroid belts seemed like ideal frames/boundaries for the screen. The first step towards creating an asteroid belt, to move an asteroid across the screen, was simple. Though after this step we faced a few challenges:
+
+- The asteroid belt needs to be a continuous, random sequence of asteroids.
+- The depth of the asteroid belts need to be able to change dynamically.
+- Refactoring the code base so that the paths of the enemy UFOs, minerals, and mystery boxes are all within the space between the asteroid belts.
+
+The AsteroidBelt object inherits from `MoveObject`, and it procedurally generates the belt of asteroids based on the:
+
+- number of asteroids defined, which determines the density of the belt.
+- value given for the `range` of the belt, which limits the range of the belt against the Y-axis.
+- Value given for the `speed`, which defines how quickly the asteroids move across the screen.
+
+Being able to change these values allows us to adjust the difficulty of the game.
+
+Changing the boundaries of the screen like this meant refactoring the code for the other moving elements in the game because they always need to be within the playable space of the screen, i.e., within the gap between the asteroid belts. Prior to this the paths for all of the moving elements were limited by the constant values of `height` and `width`. Changing the implementation for all of the moving objects so that their paths could be dynamically updated so to keep them between the asteroid belts required restructuring the code base to allow for the necessary values from `AsteroidBelts` object to be passed to the other moving objects.
 
 <h2 id="eval">Evaluation</h2>
 
@@ -241,8 +290,8 @@ In our first meeting as a team, we spoke about each other's past experiences and
 2. Jan: **Project Manager** - Jan has experience working in software and has first-hand experience in how teams in industry manage tasks, this allowed him to perform the responsibilities of overseeing overall progress, making sure we were meeting our goals, and organising team meetings
 3. Quillan: **Developer and Creative Lead** - Quillan frequently worked with Ming on improvements to the overall game, as well as designing the game art, UX, and story.
 4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working according to schedule, as well as gathering data, researching, and writing the report.
-5. Hamza: **???** - Unfortunately, Hamza could not be assigned a role. Having exclusively turned up to one meeting at the start of the project, we could only hazard a guess as to where his strengths lay. Though frequent attempts were made to involve him, our calls fell on deaf ears. Hamza had no involvement in the work displayed here.
-
+5. Hamza: **Role Unassigned**
+   
 While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.  
 
 <h3 id="tools-used">Tools Used</h3>
