@@ -22,9 +22,7 @@
         1. [GitHub](#git)
         2. [Pair Programming and Planning Poker](#pair-poker)
 
-
-*# Use HTML tags to make links work (markdown not interpreting normal links properly)*
-
+---
 
 <h2 id="team">Team</h2>
 
