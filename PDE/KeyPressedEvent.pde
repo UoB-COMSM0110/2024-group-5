@@ -39,6 +39,7 @@ void keyReleased() {
      if (keyCode == 90) {
      gameLevel1.shield.closeShield(); 
      }
+     
      gameLevel1.keysInUse.remove(keyCode);
    }
    

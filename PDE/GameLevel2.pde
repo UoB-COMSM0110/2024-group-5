@@ -20,7 +20,6 @@ class GameLevel2 {
     public int gameTime = millis();
     public boolean isSetSpeedPlus = false;
     
-    
     public GameLevel2(){
        initCoins();
        initUfos();
@@ -61,7 +60,7 @@ class GameLevel2 {
             helicopter.move(mousePressed);
           }
           if( helicopter2.health>0){
-            helicopter2.move(key=='w'||key=='W');
+            helicopter2.move(keyPressed && key == ' ');
           }
         }else{
           gameStatus.curLevel = Level.LEVEL_END2;
