@@ -290,9 +290,8 @@ In our first meeting as a team, we spoke about each other's past experiences and
 2. Jan: **Project Manager** - Jan has experience working in software and has first-hand experience in how teams in industry manage tasks, this allowed him to perform the responsibilities of overseeing overall progress, making sure we were meeting our goals, and organising team meetings
 3. Quillan: **Developer and Creative Lead** - Quillan frequently worked with Ming on improvements to the overall game, as well as designing the game art, UX, and story.
 4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working according to schedule, as well as gathering data, researching, and writing the report.
-5. Hamza: **Role Unassigned**
-   
-While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.  
+
+We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were currently working on and how long it would take. These sessions were brief and held over the phone, allowing participants to participate from any location. Due to their brevity and regularity, even absent members could stay informed, as another meeting would soon follow. By fostering awareness of each member's activities, these sessions facilitated collaboration, often resulting in overlapping efforts and smoother project execution.
 
 <h3 id="tools-used">Tools Used</h3>
 
@@ -308,7 +307,7 @@ GitHub, of course, played a central role in team organisation. GitHub offered ma
 
 ##### Kanban Board
 
-The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10]. Utilising the Kanban board allowed us to establish a clear, visual representation of our project status:  
+The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10] :  
 
 ![alt text](docs/kanban-one.png)  
 *Snapshot of Kanban board*
@@ -330,7 +329,19 @@ We made it a point for users to apply changes to the code in their own branch, w
 <br>  
 
 
-We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team, allowing us to streamline our development process, facilitating code sharing, and ensuring project transparency.
+We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team, allowing us to streamline our development process, facilitating code sharing, and ensuring project transparency.  
+
+<br>  
+
+Overall, utilising the Kanban board allowed us to establish a clear, visual representation of our project status. However, while the Kanban board provided a general overview of all the issues, it did not by itself describe how time-consuming each issue would be or allow us to break down issues into smaller ones. This limitation prompted us to complement our workflow with other Agile practices, such as pair programming.  
+
+
+
+<h4 id="ppPP">Pair Programming & Planning Poker</h4>  
+
+Pair programming played a significant role in enhancing our productivity and code quality. By working collaboratively in pairs, we were able to leverage each other's strengths and knowledge to tackle complex problems more effectively. This approach facilitated continuous code review and knowledge sharing, leading to faster problem-solving and reduced chances of errors slipping through. Additionally, pair programming fostered a culture of collaboration and accountability within our team, as team members actively contributed to each other's learning and growth.
+
+Incorporating pair programming alongside the Kanban board allowed us to address the limitations of the latter while capitalizing on its strengths. While the Kanban board provided a high-level overview of our project's progress and allowed us to manage our workflow efficiently, pair programming enabled us to dive deeper into specific issues, break them down into smaller tasks, and collaborate more closely on their resolution. Together, these practices synergized to create a robust Agile workflow that empowered our team to deliver high-quality results efficiently and adapt to changes effectively.
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
