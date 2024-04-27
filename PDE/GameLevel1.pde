@@ -67,7 +67,7 @@ class GameLevel1 {
           drawGamePanel();
           drawShield();
           drawHealth();
-          helicopter.move(mousePressed);
+          helicopter.move(keyPressed && key == ' ');
         }else{
           gameStatus.curLevel = Level.LEVEL_END;
           score = scorePanel.score+scorePanel.goldCount*10;

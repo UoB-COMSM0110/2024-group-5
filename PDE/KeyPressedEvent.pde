@@ -29,6 +29,7 @@ void keyPressed(){
     Arrays.fill(usedStars,false);
     spaceship.speed = 8;
    }
+  
 }
 
 void keyReleased() {
