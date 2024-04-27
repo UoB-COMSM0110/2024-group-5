@@ -161,7 +161,7 @@ For our quantitative evaluation, we used the NASA Task Load Index, which has bee
 
 <br>
 
-![alt text](docs/tlxScores.png)
+![alt text](docs/tlxFINAL.png)
 
 <br>  
 
