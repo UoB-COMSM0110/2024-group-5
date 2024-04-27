@@ -19,6 +19,8 @@
 7. [Process](#pro)  
     1. [Team Roles](#roles)
     2. [Tools Used](#tools-used)
+        1. [GitHub](#git)
+        2. [Pair Programming and Planning Poker](#pair-poker)
 
 
 *# Use HTML tags to make links work (markdown not interpreting normal links properly)*
@@ -333,11 +335,10 @@ We provided helpful documentation with each commit so members were aware of each
 
 <br>  
 
-Overall, utilising the Kanban board allowed us to establish a clear, visual representation of our project status. However, while the Kanban board provided a general overview of all the issues, it did not by itself describe how time-consuming each issue would be or allow us to break down issues into smaller ones. This limitation prompted us to complement our workflow with other Agile practices, such as pair programming.  
+Overall, utilising the Kanban board allowed us to establish a clear, visual representation of our project status. Though useful, the Kanban board did not allow us to describe how time-consuming each issue would be or to grade the difficulty of each task to implement. Therefore, we decided to use Agile practices of pair programming and planning poker to bridge the gap.
 
 
-
-<h4 id="ppPP">Pair Programming & Planning Poker</h4>  
+<h4 id="pair-poker">Pair Programming & Planning Poker</h4>  
 
 Pair programming played a significant role in enhancing our productivity and code quality. By working collaboratively in pairs, we were able to leverage each other's strengths and knowledge to tackle complex problems more effectively. This approach facilitated continuous code review and knowledge sharing, leading to faster problem-solving and reduced chances of errors slipping through. Additionally, pair programming fostered a culture of collaboration and accountability within our team, as team members actively contributed to each other's learning and growth.
 
