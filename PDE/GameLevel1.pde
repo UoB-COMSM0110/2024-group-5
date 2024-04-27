@@ -30,6 +30,7 @@ class GameLevel1 {
     public int gameTime2 = millis();
     public boolean isSetSpeedPlus = false;
     
+    
     public HashSet<Integer> keysInUse = new HashSet<Integer>();
     
     
@@ -434,14 +435,14 @@ class GameLevel1 {
         //speed of aliens
          case 2:
            for (Ufo ufo: ufos){
-             ufo.setSpeed(ufo.getSpeed() + 3);
+             ufo.setSpeed(ufo.getSpeed() + 5);
            }
-           break;
-         //TODO frequency that aliens fire
-         //case 3:  
+           break; 
       }
      //always change the distance between asteroid belts
-     int randomRange = (int)random(110);
+     int minRange = asteroidBelts.getMinRange();
+     int randomRange = (int)random(minRange, 110);
      asteroidBelts.setRange(randomRange);
+     if (minRange < 70) asteroidBelts.setMinRange(minRange + 10);
     }
 }

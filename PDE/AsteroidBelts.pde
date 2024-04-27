@@ -8,6 +8,7 @@
     private int range;
     public final int imgWidth;
     public final int imgHeight;
+    private int minRange;
     
     
     public AsteroidBelts(int imageCount, int range){
@@ -27,6 +28,7 @@
       botImagesPos = new int[asteroidCount][2]; 
       createBelts();
       speed = 10;
+      minRange = 0;
     }
     
     
@@ -61,4 +63,8 @@
     public int getRange() {
       return this.range;
     }
+    
+    public int getMinRange() {return this.minRange;}
+    
+    public void setMinRange(int x) {this.minRange = x;}
   }
