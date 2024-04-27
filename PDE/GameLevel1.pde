@@ -50,14 +50,7 @@ class GameLevel1 {
             increaseDifficulty();
             gameTime = millis();
           }
-          
-          //if(millis()-gameTime2>=35000){
-          //   println("rogue!");
-          //  gameStatus.curLevel = Level.LEVEL_ROGUE;
-          //  rogue = new Rogue();
-          //  gameTime2 = millis();
-          //}
-          
+                   
           updateSpaceshipHitTime();
           drawUfos();
           drawLazor();
@@ -291,12 +284,9 @@ class GameLevel1 {
             if(helicopter.intersectWithFastCard(card)){
               card.isVisiable = false;
               helicopter.setHealth(helicopter.getHealth()+1);
-              println("heree++++");
             gameStatus.curLevel = Level.LEVEL_ROGUE;
             rogue = new Rogue();
-              //for(Ufo ufo:ufos){
-              //  ufo.speed+=5;
-              //} 
+            
             }
             if(card.isVisiable){
               image(card.getImage(),card.curX,card.curY,100,100);
@@ -345,7 +335,11 @@ class GameLevel1 {
     public void drawShield(){
       if(shield.isVisible){
         image(shield.image,helicopter.curX-15,helicopter.curY-25,150,150);
+        if (millis() - shield.getStartTime() - shield.getShieldLife() >= 0) {
+        shield.closeShield();
+        }
       }
+
     }
     
     public void writeScoreToTxt(){

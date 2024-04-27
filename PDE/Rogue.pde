@@ -52,8 +52,8 @@ class Rogue{
               break;
       case 2: gameLevel1.scorePanel.score*=2;
               break;
-      case 3: gameLevel1.shield.showShield(30000);
-      default: gameLevel1.scorePanel.score*=2;
+      case 3: gameLevel1.shield.startBonusShield(millis());
+
     }
   
   }
