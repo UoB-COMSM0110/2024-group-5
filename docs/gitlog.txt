@@ -1,0 +1,217 @@
+* [33m373bd25[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update gitlog.txt
+* [33m41f7af9[m Update gitlog.txt
+* [33m3c64bd0[m added git log
+* [33mdfcff09[m added ref
+* [33mcb65488[m Update README.md - added ref
+* [33md1eb522[m formatting user stories
+* [33m72295ee[m Update README.md
+* [33m8a7ea97[m formatting
+* [33m79815fc[m Fixed spelling mistake
+* [33m4caafab[m Update README.md
+* [33m69bcd09[m Update README.md
+* [33mdded342[m Update README.md - added Hamza's role
+* [33ma725f3e[m fix bugs
+* [33m4ceb5a1[m true final version
+* [33m7685dab[m add playermode
+* [33mbe7aae3[m Update README.md - Formatting
+* [33mf4f04b8[m Update README.md
+* [33m0bc64e4[m Update README.md - Formatting
+* [33m113a7f6[m formatting
+* [33mce910b8[m Added team roles section
+* [33m680a5c1[m Update README.md
+* [33m728a454[m Formatting
+* [33mbd750d0[m Formatting
+* [33m3b01629[m Update class diagram
+* [33m6331257[m update use-case diagram
+* [33m2fd9b00[m Delete test.txt
+* [33m6cbfa4a[m formatting
+* [33me84fe23[m formatting
+* [33m767c09a[m formatting
+* [33m6918923[m Adding subheadings for Eval
+* [33m4848437[m Update README.md
+* [33m466f67e[m Update README.md
+* [33mf200d43[m Update README.md
+* [33m5d2cd12[m updated TLX graph
+* [33made8188[m Updated NASA TLX Graph
+* [33mbee8d54[m updated references
+* [33m85e3707[m Update README.md
+* [33mf70b706[m Added NASA TLX graph
+* [33me39c10a[m NASA TLX doc provided to userse
+* [33m0f866e1[m Update README.md - aesthetics
+* [33m7bd07b5[m Update README.md
+* [33mb0cd458[m Update README.md
+* [33mdc865fa[m Added link to raw Heuristic data
+* [33ma3247f9[m WIP Heuristic Evaluation section
+* [33m69904c1[m Add files via upload
+*   [33mb436878[m Merge pull request #15 from UoB-COMSM0110/develop
+[32m|[m[33m\[m  
+[32m|[m * [33m4d6cd35[m[33m ([m[1;31morigin/develop[m[33m)[m Update heuristicEvaluation.md
+[32m|[m * [33ma872b55[m Update heuristicEvaluation.md
+[32m|[m * [33mcc10c10[m test commit post merge
+* [33m|[m [33m418fcb2[m Update thinkAloudFeedback.md
+* [33m|[m [33m0fd01eb[m Update README.md
+* [33m|[m [33m6602443[m Create LICENSE
+[33m|[m[33m/[m  
+* [33m7c9c835[m[33m ([m[1;31morigin/development_backup_2404[m[33m)[m Update README.md
+* [33m02dd466[m update gitignore
+* [33m0f9b9e9[m cleanup
+* [33m6095dbe[m cleanup
+* [33m92fb8a6[m Update NASA_TLX.md
+* [33m1a76607[m Added NASA TLX graph
+* [33m96407d7[m uploaded TLX scores
+* [33mdbe69f2[m cleanup
+* [33ma7d2034[m Add game mode Image
+*   [33mf9ab68c[m merge
+[34m|[m[35m\[m  
+[34m|[m * [33m50fd53e[m Add P2SpaceShip Image
+[34m|[m * [33mb0153c3[m Add new MultiModeScore  UI
+[34m|[m *   [33mf5dc3ec[m Add bonus Item Pictures
+[34m|[m [36m|[m[1;31m\[m  
+[34m|[m [36m|[m * [33m9a44900[m bug fix: pressing 'z' during loading doesn't crash the game
+[34m|[m [36m|[m * [33m98a4f6f[m[33m ([m[1;31morigin/increaseDifficultyOverTime[m[33m)[m difficulty increases in varied ways: the speed of the asteroids, the speed of the UFOs, the distance between the asteroid belts becoming narrower
+[34m|[m [36m|[m * [33m4687d7a[m[33m ([m[1;31morigin/limitedAmmoAndShield[m[33m)[m cleaned up redundant code
+[34m|[m [36m|[m * [33m20ba4fb[m shield is limited by mineral count
+[34m|[m [36m|[m * [33m0fecf3f[m bug fix: when 'x' is held down to fire lazor a long time, any UFO that intersects with the ray will die
+[34m|[m [36m|[m * [33m5c570b0[m lazor uses minerals collected as ammo
+[34m|[m [36m|[m * [33ma862afd[m bullets no longer available
+[34m|[m * [1;31m|[m [33m4578e4f[m Add RogueBuffPanel Version1
+[34m|[m [1;31m|[m[1;31m/[m  
+* [1;31m/[m [33m3531a4c[m add two players mode and rogue
+[1;31m|[m[1;31m/[m  
+*   [33m7fe6d28[m[33m ([m[1;31morigin/develop_backup[m[33m)[m Merge branch 'develop' of https://github.com/UoB-COMSM0110/2024-group-5 into develop
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33mb81f837[m UFO Images new version
+[1;32m|[m * [33ma8c760a[m new UFO Images
+[1;32m|[m * [33mf7745da[m Change UFO Images
+* [1;33m|[m [33m6c44bc3[m final version
+[1;33m|[m[1;33m/[m  
+* [33m26c826f[m New stroy and tutorial Image
+* [33mf5a4272[m final version without toturial
+* [33m1a68c8a[m new cursor and difficulty
+*   [33m6457077[m Merge branch 'asteroidBelts' into develop
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m71a269d[m bug fix: game couldn't load map-0.png because it didn't exist
+[1;34m|[m * [33m095d7da[m HP, score, mineral count is in front of asteroid belt
+[1;34m|[m * [33mfe0c250[m minerals/goldCoins are always located inbetween asteroid belts
+[1;34m|[m * [33m88384bf[m enemies always fly inbetween asteroid belts
+[1;34m|[m * [33mb895fb4[m spaceship burns when it crashes into an asteroid or enemy
+[1;34m|[m * [33mcb9d469[m helicopter loses 1HP when it crashes into asteroid belt and it moves 75units away from the asteroid
+[1;34m|[m * [33mfe78f04[m range for asteroid belts is set in constructor
+[1;34m|[m * [33m485276c[m asteroids in initial belts have varied height
+[1;34m|[m * [33m2658e64[m .gitignore file; basic functionality for asteroid belts; bug fixed - increasing asteroid count doesn't affect asteroid speed
+[1;34m|[m * [33m5b6430c[m basic asteroid belt; bug fix - changing number of asteroids no longer changes their speed
+* [1;35m|[m [33m3bd4bfa[m tiny fix to 2nd heuristic rule
+* [1;35m|[m [33m464d34d[m Pushed commit to wrong branch! Work is not yet ready for merging... Revert "basic asteroid belt; bug fix - changing number of asteroids no longer changes their speed"
+* [1;35m|[m [33ma15b7a2[m basic asteroid belt; bug fix - changing number of asteroids no longer changes their speed
+[1;35m|[m[1;35m/[m  
+* [33m29b82d2[m Updated evaluation sections - TLX and Think Aloud (WIP)
+* [33mee09d6d[m added response to feedback section
+* [33m33aadc2[m continued editing of evaluation section
+* [33m3a17bd0[m added to evaluation section (WIP)
+* [33m502d699[m Added Evaluation Section (WIP)
+* [33m45dfff2[m started Evaluation writeup
+* [33m75d24b7[m Delete ~$flection on User Stories and Use Cases.docx
+[1;35m|[m * [33m605ae8b[m[33m ([m[1;31morigin/NoOutOfBounds[m[33m)[m button image
+[1;35m|[m * [33mfb6e59c[m second edited cursor image to fix hotspot
+[1;35m|[m * [33m08b4d7e[m Add files via upload
+[1;35m|[m * [33mdc74ce2[m changed cursor and added method to set hotspot but it's set to the bottom of the image, not the top
+[1;35m|[m * [33mec7e085[m stopped game ending if edges of the screen are hit
+[1;35m|[m[1;35m/[m  
+* [33m9c8ee2d[m cleanup
+* [33mb814622[m Update README.md
+* [33me85efc5[m Update README.md - added brief (unfinished) introduction section
+* [33m3259166[m Made edits and corrections.
+* [33m768d70f[m finalised addition of requirements section. Made further corrections and edits elsewhere
+* [33m6fd98be[m Update README.md
+* [33m644ed7e[m Update README.md
+* [33m2707f21[m finished requirements section
+* [33mce7163b[m updated README with the use case diagram
+* [33m5498058[m use case diagram finished
+* [33mf43be8d[m updated use-case diagram
+* [33m6f6d7bc[m Update README.md
+* [33m422af89[m Update README.md - added requirements section WIP
+* [33m185c7ac[m Update README.md - added Design section
+* [33m021b40c[m Update README.md
+* [33m447dd8e[m Update README.md
+* [33m9b43990[m Update README.md
+* [33mbb8fd03[m Update README.md - added class diagram
+* [33mff83cb7[m Update README.md
+* [33m0e91bd4[m Update README.md
+* [33m7d2256f[m Update README.md
+* [33m319df4d[m Update README.md
+* [33m3252039[m Update README.md
+* [33m5f89a0e[m Update README.md
+* [33m62e6eb8[m Update README.md
+* [33me68c485[m Update README.md
+* [33m1a11303[m Update README.md
+* [33mbf1c3f7[m added class diagram png
+* [33me121792[m moved images to docs dir
+* [33m9aa0570[m Update README.md
+* [33md172616[m re-formatted data into table
+* [33mdb977bb[m screenshots of kanban board; simple python script for calculating Nasa TLX scores
+*   [33m50b3d8a[m Merge branch 'develop' of github.com:UoB-COMSM0110/2024-group-5 into develop
+[31m|[m[32m\[m  
+[31m|[m * [33m7e24b95[m added method to destroy copter if out of bounds
+* [32m|[m [33mb3a936f[m NASA TLX scores in a table with total score
+* [32m|[m [33m924480b[m the scores from SUS
+* [32m|[m [33m42e24f6[m written up what we could implement to address the user feedback
+* [32m|[m [33m78e980f[m feedback from heuristic evaluation
+* [32m|[m [33mbede098[m written up notes from user feedback session
+[32m|[m[32m/[m  
+* [33m416c11e[m updated class diagram for design section
+* [33m1640593[m added use-case diagram
+[32m|[m * [33m82f703b[m[33m ([m[1;31morigin/10-user-feedback-need-the-boundaries-top-and-bottom-need-to-be-more-clearly-defined[m[33m)[m attempting to resolve merge conflicts
+[32m|[m[32m/[m  
+* [33m0a883a2[m changed layer of fastbox
+* [33mad7686e[m path to data/gameMap is correct
+* [33m812fdad[m copy gameMap folder to data folder
+* [33m2cf2653[m fix last bug, add new assets of asteriods
+* [33mcf2d91e[m change the range of Asteriods
+* [33m773b97e[m optimize miracle.pde draw() logic, but detect one bug that there will be a block if staying at main menu for a long time
+* [33mba7bb6b[m add game maps, fix bug which cause ufo stop all the time
+* [33m304e5f2[m change new map UI
+* [33m5d9de13[m solve one bug cause a delay when one explosion happens
+* [33m375e3c8[m fix set button bug(which causes long time no response situation)
+* [33mc89ed9c[m implement hp decrease
+* [33m33cd411[m add another thread to load objects to reduce waiting time
+* [33m6e03704[m update new bgm and star
+* [33m208e76b[m add welcome animation
+* [33m0fe40b3[m add hp
+* [33md17b37d[m add font
+* [33mbba0466[m add explode effect
+* [33mb82a2f3[m add new ufo and map
+* [33m03cd543[m add rank
+* [33ma17b80d[m add tutorial
+* [33mfdb0465[m lightDecrease and  gameResults
+* [33m090033e[m write score file and read score file
+*   [33mdf70ab2[m Merge branch 'develop' into WriteScoreToFile
+[34m|[m[35m\[m  
+[34m|[m *   [33m74336a0[m Merge remote-tracking branch 'origin/asteroids-top-and-bottom' into develop
+[34m|[m [36m|[m[1;31m\[m  
+[34m|[m [36m|[m *   [33m703c26e[m[33m ([m[1;31morigin/asteroids-top-and-bottom[m[33m)[m Merge remote-tracking branch 'origin/asteroids-top-and-bottom' into asteroids-top-and-bottom
+[34m|[m [36m|[m [1;32m|[m[1;33m\[m  
+[34m|[m [36m|[m [1;32m|[m * [33mf846fbd[m intersect with asteriods
+[34m|[m [36m|[m [1;32m|[m * [33m70d2866[m asteriods top and down move
+[34m|[m [36m|[m * [1;33m|[m [33m2803793[m added self drawn asteroid images
+[34m|[m [36m|[m * [1;33m|[m [33m259689d[m added refelction essay
+[34m|[m * [1;33m|[m [1;33m|[m   [33md09e427[m Merge remote-tracking branch 'origin/comet-and-asteroid-artwork' into develop
+[34m|[m [1;33m|[m[1;35m\[m [1;33m\[m [1;33m\[m  
+[34m|[m [1;33m|[m [1;35m|[m[1;33m_[m[1;33m|[m[1;33m/[m  
+[34m|[m [1;33m|[m[1;33m/[m[1;35m|[m [1;33m|[m   
+* [1;33m|[m [1;35m|[m [1;33m|[m   [33m6c4d0c8[m Merge remote-tracking branch 'origin/comet-and-asteroid-artwork' into WriteScoreToFile
+[1;33m|[m[1;35m\[m [1;33m\[m [1;35m\[m [1;33m\[m  
+[1;33m|[m [1;35m|[m[1;33m/[m [1;35m/[m [1;33m/[m  
+[1;33m|[m[1;33m/[m[1;35m|[m [1;35m/[m [1;33m/[m   
+[1;33m|[m [1;35m|[m[1;35m/[m [1;33m/[m    
+[1;33m|[m * [1;33m|[m [33mef426af[m[33m ([m[1;31morigin/comet-and-asteroid-artwork[m[33m)[m asteroid belt image
+* [31m|[m [1;33m|[m [33mc93658c[m Add files via upload
+[31m|[m[31m/[m [1;33m/[m  
+* [1;33m|[m [33m73660a4[m Add files via upload
+* [1;33m|[m [33m836d3f7[m Add files via upload
+* [1;33m|[m [33m906f0c5[m Create README.ad
+* [1;33m|[m [33m557ab84[m Add files via upload
+* [1;33m|[m [33m3a22ec1[m Create README.ad
+* [1;33m|[m [33mb6b4df2[m Add files via upload
+[1;33m|[m[1;33m/[m  
+* [33m2d765f2[m user stories first draft
+* [33m3db0646[m copying content from first repo

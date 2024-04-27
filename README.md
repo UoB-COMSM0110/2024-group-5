@@ -17,7 +17,8 @@
     3. [Addressing Feedback](#addressing-feedback)
     4. [Testing](#testing)
 7. [Process](#pro)  
-    1. [Team Roles](#roles)  
+    1. [Team Roles](#roles)
+    2. [Tools Used](#tools-used)
 
 
 *# Use HTML tags to make links work (markdown not interpreting normal links properly)*
@@ -45,7 +46,7 @@ After sharing ideas for simpler games as a group, we settled on a game modelled 
 
 
 
-
+Update README.md
 <h2 id="requirements">Requirements</h2>
 
 *This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
@@ -62,7 +63,10 @@ From designing a use-case diagram, we were able to distinguish between two types
 
 The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
 
-##### As a Player:
+<details open>
+<summary> As a Player: </summary>  
+
+
 > I want to be able to open the game just by clicking on it.
 
 > I want to be able to start the game by clicking Start Game.
@@ -81,7 +85,11 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 
 > I want to be able to enter my name, see my score, and save my details when the game ends.
 
-##### As an Experienced Player:
+</details>
+
+<details open>
+<summary> As an Experienced Player: </summary>  
+
 
 > I want to be able to view my previous high scores.
 
@@ -90,6 +98,9 @@ The creation of user stories in tandem with use-cases further bolstered our unde
 > I want to be able to unlock new enemies.
 
 > I want to be able to unlock new weapons.
+
+</details>
+
 
 By delineating user actions, we gained insight into how our game mechanics should function in practice, enabling us to make more informed decisions on which of our ideas we should pursue and develop further. For example, it became clear that we should focus our efforts on core gameplay mechanics first, such as responsive controls. This allowed us to work efficiently and avoid wasting time on features that weren’t necessary. 
 
@@ -106,9 +117,9 @@ Overall, looking at the game through the lens of different types of users allowe
 
 <h3 id="system-architecture">System Architecture</h3>
 
-Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems (Herbsleb, 2011). On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
+Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems [^8]. On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
 
-Furthermore, its synergy with the agile development style is of great benefit, as it allows members to make incremental enhancements to the code. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process (Beck, 2001), which allowed us to address challenges as and when they appeared.
+Furthermore, its synergy with the agile development style is of great benefit, as it allows members to make incremental enhancements to the code. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process [^9], which allowed us to address challenges as and when they appeared.
 
 <h3 id="class-diagram">Class Diagram</h3>
 
@@ -138,7 +149,56 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 
 
-<h2 id="imp">Implementation</h2>
+<h2 id="imp">Implementation</h2>  
+
+Our game has many elements that move around the screen. We realised early on in the development process that it makes sense to have an object that stores all of the necessary data for moving an element around the game screen. This led to us creating `MoveObject`, it has attributes and methods for accessing co-ordinates, the value for speed, and the element’s image.
+
+#### Challenge 1: Appropriate level of difficulty
+
+We learned from the Think Aloud user feedback session that our game was:
+
+1) too hard for first time players
+
+2) a couple of people said that it was too easy after you had become comfortable with the controls.
+
+We implemented 2 solutions to address this feedback.
+
+1) We created a tutorial that explains how to move the spaceship, the aim of the game, how to score points, and you can die. After completing this we asked classmates and friends who hadn’t played the game yet, to try it. Their feedback showed an improvement that we were satisfied with.
+
+2) Create a system that gradually increases the difficulty of the game. Every 30 seconds various values are adjusted to make the game play more challenging.. There are many aspects of the game that when altered will increase or decrease the difficulty of the game:
+
+- Health points
+- The speed that the enemy UFOs flight at you
+- The speed of the asteroid belts
+- The size of the space between the asteroid belts/the size of the space that you fly within
+
+We found that if we adjusted all of these aspects every 30 seconds then the game became too challenging too quickly, so we settled for a method ,`GameLevel1.increaseDifficulty()`, that at random increases 1 attribute and randomly adjusts the gap between the asteroid belts.
+
+#### Challenge 2:
+
+Challenges that Ming faced:
+
+- Start animation(includes multiple threads programming),
+- how to shoot missiles(make it looks smoother)
+- two player’s mode(hard to find the strategy of winning game)
+
+#### Challenge 3: The asteroid belts
+
+The idea for the asteroid belts was a result of us reviewing our notes from our first qualitative user feedback session - a few players said that the game needed clearer boundaries, and that it was not clear why the spaceship would lose a health point every time it reached the bottom or top of the screen. Given the context of the game, asteroid belts seemed like ideal frames/boundaries for the screen. The first step towards creating an asteroid belt, to move an asteroid across the screen, was simple. Though after this step we faced a few challenges:
+
+- The asteroid belt needs to be a continuous, random sequence of asteroids.
+- The depth of the asteroid belts need to be able to change dynamically.
+- Refactoring the code base so that the paths of the enemy UFOs, minerals, and mystery boxes are all within the space between the asteroid belts.
+
+The AsteroidBelt object inherits from `MoveObject`, and it procedurally generates the belt of asteroids based on the:
+
+- number of asteroids defined, which determines the density of the belt.
+- value given for the `range` of the belt, which limits the range of the belt against the Y-axis.
+- Value given for the `speed`, which defines how quickly the asteroids move across the screen.
+
+Being able to change these values allows us to adjust the difficulty of the game.
+
+Changing the boundaries of the screen like this meant refactoring the code for the other moving elements in the game because they always need to be within the playable space of the screen, i.e., within the gap between the asteroid belts. Prior to this the paths for all of the moving elements were limited by the constant values of `height` and `width`. Changing the implementation for all of the moving objects so that their paths could be dynamically updated so to keep them between the asteroid belts required restructuring the code base to allow for the necessary values from `AsteroidBelts` object to be passed to the other moving objects.
 
 <h2 id="eval">Evaluation</h2>
 
@@ -150,13 +210,15 @@ For our quantitative evaluation, we used the NASA Task Load Index, which has bee
 
 <br>
 
-![alt text](docs/tlxScores.png)
+![alt text](docs/tlxFINAL.png)
 
-<br>
+<br>  
+
 
 Once we obtained the data, we performed a Wilcoxon signed-rank test using [this calculator](https://www.statology.org/wilcoxon-signed-rank-test-calculator/) and obtained a W-value of 0, indicating users found that the second level had a significant increase in perceived workload compared to the first. The dimension where users experienced the most notable workload increase was in the temporal demand, which was fortunate to see, as a large contributing factor to the increase in difficulty between the easier level and the harder one is the fact that the spaceship accelerates faster in the harder level, requiring faster reactions from the player to dodge obstacles.
 
-<br>
+<br>  
+
 
 <h3 id="HE">Qualitative Evaluation: Heuristic Evaluation</h3>
 
@@ -227,11 +289,48 @@ In our first meeting as a team, we spoke about each other's past experiences and
 1. Ming: **Lead Developer** - Ming has experience in processing, as such, he was instrumental in bringing the rest of the team up to speed with the language and validating the work members were doing on their branches.
 2. Jan: **Project Manager** - Jan has experience working in software and has first-hand experience in how teams in industry manage tasks, this allowed him to perform the responsibilities of overseeing overall progress, making sure we were meeting our goals, and organising team meetings
 3. Quillan: **Developer and Creative Lead** - Quillan frequently worked with Ming on improvements to the overall game, as well as designing the game art, UX, and story.
-4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working to schedule, as well as performing the tasks necessary to write the report.
+4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working according to schedule, as well as gathering data, researching, and writing the report.
+5. Hamza: **Role Unassigned**
+   
+While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.  
 
-While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.
+<h3 id="tools-used">Tools Used</h3>
+
+To assist us in collaboration, we employed a number of tools to ensure all members were on the same page:
+- Github
+    - Kanban Boards
+- Pair Programming
+- Planning Poker
+
+<h4 id="git">GitHub</h4>
+
+GitHub, of course, played a central role in team organisation. GitHub offered many tools to help us follow the Agile methodology, of which, the Kanban board especially was useful.
+
+##### Kanban Board
+
+The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10]. Utilising the Kanban board allowed us to establish a clear, visual representation of our project status:  
+
+![alt text](docs/kanban-one.png)  
+*Snapshot of Kanban board*
+
+A benefit of using GitHub to store our Kanban board as opposed to other software was the synergy with GitHub's other features. We were able to combine issues on the Kanban board with GitHub issues, which, in turn, allowed us to assign issues to members and create branches for those issues to be solved:  
+
+![alt text](docs/kanban-two.png)  
+
+<br>  
+
+##### Branches and Pull Requests  
+
+We made it a point for users to apply changes to the code in their own branch, which was named after either an issue on the Kanban board or a problem that the member was trying to solve:  
 
 
+![alt text](docs/gitlog.png)
+*Snapshot of our Git log.*
+
+<br>  
+
+
+We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team, allowing us to streamline our development process, facilitating code sharing, and ensuring project transparency.
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
@@ -240,3 +339,6 @@ While we had our responsibilities, this did not mean we were left to our own dev
 [^5]: Grier, R. A. (2015). How High is High? A Meta-Analysis of NASA-TLX Global Workload Scores. Proceedings of the Human Factors and Ergonomics Society Annual Meeting, 59(1), 1727-1731. https://doi.org/10.1177/1541931215591373
 [^6]: Moran, K. and Gordon, K. (2024) Heuristic evaluations: How to conduct, Nielsen Norman Group. Available at: https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/
 [^7]: Sarandeska, I. (2019) Chorei: A Japanese morning business routine for a Productive Day, Kanban Zone - The Lean Software to do More with Less. Available at: https://kanbanzone.com/2019/chorei-japanese-routine-for-productivity/
+[^8]: Herbsleb, James D. and Audris Mockus. “An Empirical Study of Speed and Communication in Globally Distributed Software Development.” IEEE Trans. Software Eng. 29 (2003): 481-494.
+[^9]: Beck, Kent L. et al. “Manifesto for Agile Software Development.” (2013).
+[^10]: dos Santos, P.S.M., Beltrão, A.C., de Souza, B.P. et al. On the benefits and challenges of using kanban in software engineering: a structured synthesis study. J Softw Eng Res Dev 6, 13 (2018). https://doi.org/10.1186/s40411-018-0057-1
