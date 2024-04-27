@@ -1,10 +1,15 @@
 void keyPressed(){
-  gameLevel1.keysInUse.add(keyCode);
-  
-  // Start game with space bar
-  if (keyCode == 32) { // 32 is the ASCII code for space
-      gameLevel1.gameStarted = true;
-  }
+    // Prevent any key interaction until the main menu is reached
+    if (gameStatus.curLevel == Level.LEVEL_START) {
+        return; // Do nothing if the game is still at the start screen
+    }
+
+    gameLevel1.keysInUse.add(keyCode);
+
+    // Start game with space bar
+    if (keyCode == 32) { // 32 is the ASCII code for space
+        gameLevel1.gameStarted = true;
+    }
 
   //lasor
   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
