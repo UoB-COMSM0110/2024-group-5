@@ -19,10 +19,10 @@
 7. [Process](#pro)  
     1. [Team Roles](#roles)
     2. [Tools Used](#tools-used)
+        1. [GitHub](#git)
+        2. [Pair Programming and Planning Poker](#pair-poker)
 
-
-*# Use HTML tags to make links work (markdown not interpreting normal links properly)*
-
+---
 
 <h2 id="team">Team</h2>
 
@@ -290,9 +290,8 @@ In our first meeting as a team, we spoke about each other's past experiences and
 2. Jan: **Project Manager** - Jan has experience working in software and has first-hand experience in how teams in industry manage tasks, this allowed him to perform the responsibilities of overseeing overall progress, making sure we were meeting our goals, and organising team meetings
 3. Quillan: **Developer and Creative Lead** - Quillan frequently worked with Ming on improvements to the overall game, as well as designing the game art, UX, and story.
 4. Kisshan: **Vice Project Manager and Documentation Lead** - Kisshan collaborated with Jan on managing the team, ensuring the team was working according to schedule, as well as gathering data, researching, and writing the report.
-5. Hamza: **Role Unassigned**
-   
-While we had our responsibilities, this did not mean we were left to our own devices. We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were working on at the moment and how long it would take them. These meetings were short and held over the phone so that members could attend wherever they were. The efficiency and frequency of these meetings meant that even if a member was not present for one, they would not be out of the loop for long as another meeting shortly followed. These meetings allowed us to be aware of what other members were working on; with this awareness, members were able to collaborate on tasks more easily, as there was often overlap in our responsibilities. Furthermore, we made certain that our responsibilities did not impose restrictions on us, which meant that we could divert our attention to more pressing matters when the moment arose.  
+
+We frequently held 'Chorei' style meetings [^7], with each member informing the team what they were currently working on and how long it would take. These sessions were brief and held over the phone, allowing participants to participate from any location. Due to their brevity and regularity, even absent members could stay informed, as another meeting would soon follow. By fostering awareness of each member's activities, these sessions facilitated collaboration, often resulting in overlapping efforts and smoother project execution.
 
 <h3 id="tools-used">Tools Used</h3>
 
@@ -302,13 +301,15 @@ To assist us in collaboration, we employed a number of tools to ensure all membe
 - Pair Programming
 - Planning Poker
 
+As well as online tools, we held weekly meetings on Mondays after each workshop, which provided a valuable opportunity for face-to-face discussions and to build up rapport within the team.
+
 <h4 id="git">GitHub</h4>
 
 GitHub, of course, played a central role in team organisation. GitHub offered many tools to help us follow the Agile methodology, of which, the Kanban board especially was useful.
 
 ##### Kanban Board
 
-The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10]. Utilising the Kanban board allowed us to establish a clear, visual representation of our project status:  
+The Kanban board was fundamental to monitoring our progress as a team. As studies have shown, Kanban's main benefits lie in work visibility, monitoring workflow, and control of project activities and tasks [^10] :  
 
 ![alt text](docs/kanban-one.png)  
 *Snapshot of Kanban board*
@@ -330,7 +331,22 @@ We made it a point for users to apply changes to the code in their own branch, w
 <br>  
 
 
-We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team, allowing us to streamline our development process, facilitating code sharing, and ensuring project transparency.
+We provided helpful documentation with each commit so members were aware of each other's progress. In addition, commits were tagged with comments by other members with strengths and/or recommendations so as to keep improving upon our work. Once a branch was deemed to be finished, the issue was moved from `in progress` to `in review` on the Kanban board and a pull request was made for the branch to be merged into branch `main` or `develop`. Once the code in the branch was validated to be working, it was either integrated into the final version of the game or deleted. This signified that the issue was closed, and the corresponding item was moved from `in review` to `done` on the board. Overall, usage of GitHub was vital to our performance as a team, allowing us to streamline our development process, facilitating code sharing, and ensuring project transparency.  
+
+<br>  
+
+Overall, utilising the Kanban board allowed us to establish a clear, visual representation of our project status. Though useful, the Kanban board did not allow us to describe how time-consuming each issue would be or to grade the difficulty of each task to implement. Therefore, we decided to use Agile practices of pair programming and planning poker to bridge the gap.
+
+
+<h4 id="pair-poker">Pair Programming & Planning Poker</h4>  
+
+
+##### Planning Poker  
+
+Once we populated the Kanban with issues to be solved, we held 'planning poker' sessions at weekly meetings, as it is proven to be helpful in cementing team understanding and estimating effort for items to be implemented [^11] . We found planning poker sessions to be incredibly informative to our collective understanding of the difficulty of a task, as well as being able to solve any misunderstandings between members. One such example was when we decided on the difficulty of adding a story to the game. Half the team thought this would be very easy, as it involved writing a short backstory which required very little effort, whereas the other half considered this to be much more effortful, as it would require a new button on the main menu that players could click on to view the story, which would require a redesign of the main UI. If we were using just a Kanban board, this misunderstanding would have caused issues in team flow, but through planning poker, we were able to plan with awareness of how each subteam viewed the difficulty of a task and allocate the proper time for it.
+
+
+
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
@@ -342,3 +358,4 @@ We provided helpful documentation with each commit so members were aware of each
 [^8]: Herbsleb, James D. and Audris Mockus. “An Empirical Study of Speed and Communication in Globally Distributed Software Development.” IEEE Trans. Software Eng. 29 (2003): 481-494.
 [^9]: Beck, Kent L. et al. “Manifesto for Agile Software Development.” (2013).
 [^10]: dos Santos, P.S.M., Beltrão, A.C., de Souza, B.P. et al. On the benefits and challenges of using kanban in software engineering: a structured synthesis study. J Softw Eng Res Dev 6, 13 (2018). https://doi.org/10.1186/s40411-018-0057-1
+[^11]:Cohn, M. (2024) Planning poker: An agile estimating and planning technique, Mountain Goat Software. Available at: https://www.mountaingoatsoftware.com/agile/planning-poker
