@@ -301,6 +301,8 @@ To assist us in collaboration, we employed a number of tools to ensure all membe
 - Pair Programming
 - Planning Poker
 
+As well as online tools, we held weekly meetings on Mondays after each workshop, which provided a valuable opportunity for face-to-face discussions and to build up rapport within the team.
+
 <h4 id="git">GitHub</h4>
 
 GitHub, of course, played a central role in team organisation. GitHub offered many tools to help us follow the Agile methodology, of which, the Kanban board especially was useful.
@@ -338,9 +340,13 @@ Overall, utilising the Kanban board allowed us to establish a clear, visual repr
 
 <h4 id="pair-poker">Pair Programming & Planning Poker</h4>  
 
-Pair programming played a significant role in enhancing our productivity and code quality. By working collaboratively in pairs, we were able to leverage each other's strengths and knowledge to tackle complex problems more effectively. This approach facilitated continuous code review and knowledge sharing, leading to faster problem-solving and reduced chances of errors slipping through. Additionally, pair programming fostered a culture of collaboration and accountability within our team, as team members actively contributed to each other's learning and growth.
 
-Incorporating pair programming alongside the Kanban board allowed us to address the limitations of the latter while capitalizing on its strengths. While the Kanban board provided a high-level overview of our project's progress and allowed us to manage our workflow efficiently, pair programming enabled us to dive deeper into specific issues, break them down into smaller tasks, and collaborate more closely on their resolution. Together, these practices synergized to create a robust Agile workflow that empowered our team to deliver high-quality results efficiently and adapt to changes effectively.
+##### Planning Poker  
+
+Once we populated the Kanban with issues to be solved, we held 'planning poker' sessions at weekly meetings, as it is proven to be helpful in cementing team understanding and estimating effort for items to be implemented [^11] . We found planning poker sessions to be incredibly informative to our collective understanding of the difficulty of a task, as well as being able to solve any misunderstandings between members. One such example was when we decided on the difficulty of adding a story to the game. Half the team thought this would be very easy, as it involved writing a short backstory which required very little effort, whereas the other half considered this to be much more effortful, as it would require a new button on the main menu that players could click on to view the story, which would require a redesign of the main UI. If we were using just a Kanban board, this misunderstanding would have caused issues in team flow, but through planning poker, we were able to plan with awareness of how each subteam viewed the difficulty of a task and allocate the proper time for it.
+
+
+
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
@@ -352,3 +358,4 @@ Incorporating pair programming alongside the Kanban board allowed us to address 
 [^8]: Herbsleb, James D. and Audris Mockus. “An Empirical Study of Speed and Communication in Globally Distributed Software Development.” IEEE Trans. Software Eng. 29 (2003): 481-494.
 [^9]: Beck, Kent L. et al. “Manifesto for Agile Software Development.” (2013).
 [^10]: dos Santos, P.S.M., Beltrão, A.C., de Souza, B.P. et al. On the benefits and challenges of using kanban in software engineering: a structured synthesis study. J Softw Eng Res Dev 6, 13 (2018). https://doi.org/10.1186/s40411-018-0057-1
+[^11]:Cohn, M. (2024) Planning poker: An agile estimating and planning technique, Mountain Goat Software. Available at: https://www.mountaingoatsoftware.com/agile/planning-poker
