@@ -1,5 +1,8 @@
 import java.util.*;
 class GameLevel1 {
+  //////////////////////////////////////////////////////////
+    public boolean gameStarted = false;
+   ////////////////////////////////////////////////////
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
@@ -31,6 +34,17 @@ class GameLevel1 {
     public boolean isSetSpeedPlus = false;
     
     
+    //////////////////////ADDED//////////////////////
+public void drawInitialScene() {
+    imageMode(CORNER);
+    for (Map map : newMaps) {  // Assuming newMaps is an array of Map objects.
+        image(map.image, map.curX, map.curY, width, height);
+    }
+    drawSpaceship();  // Correct function name for drawing the helicopter or spaceship
+    drawGamePanel();   // Draw game panel if needed
+}
+/////////////////////////////////////////////////////////
+
     public HashSet<Integer> keysInUse = new HashSet<Integer>();
     
     
@@ -42,11 +56,22 @@ class GameLevel1 {
        initNewMaps();
     }
     
+
+    
     public void startLevel1(){
+    if (!gameStarted) {
+        drawInitialScene();  // This will just draw the initial stationary frame.
+        return;
+    }
+
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
           drawCoins();       
+          
+           // Update score only when the game has actually started
+        scorePanel.updateScore();  // This ensures score updates after game start
+        
           //change difficulty with time passing
           if(millis()-gameTime>=30000){
             increaseDifficulty();
@@ -187,6 +212,7 @@ class GameLevel1 {
     }
     
     public void drawGamePanel(){
+      if (gameStarted) {
        fill(255);
        textSize(30);
        textAlign(LEFT);
@@ -197,20 +223,21 @@ class GameLevel1 {
        text("Kill:",0,150);
        text(scorePanel.killCount,120,150);
        scorePanel.updateScore();
+      }
     }
     
-    public void drawSpaceship(){
-      if(helicopter.hitBeginTime!=0){
-        image(helicopter.images[2], helicopter.curX, helicopter.curY,helicopter.sizeX,helicopter.sizeY);
-         tint(150,100); 
-      }
-      if(mousePressed){
-        image(helicopter.images[1],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
-      }else{
-        image(helicopter.images[0],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
-      }
-      noTint();
+public void drawSpaceship() {
+    if(helicopter.hitBeginTime!=0){
+        image(helicopter.images[2], helicopter.curX, helicopter.curY, helicopter.sizeX, helicopter.sizeY);
+        tint(150,100);
     }
+    if(mousePressed){
+        image(helicopter.images[1], helicopter.curX, helicopter.curY, helicopter.sizeX, helicopter.sizeY);
+    } else {
+        image(helicopter.images[0], helicopter.curX, helicopter.curY, helicopter.sizeX, helicopter.sizeY);
+    }
+    noTint();
+}
     
     public void updateSpaceshipHitTime(){
       if(millis()-helicopter.hitBeginTime>=helicopter.invincibleTimeWhenLoseHp){

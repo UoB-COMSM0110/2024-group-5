@@ -117,6 +117,9 @@ void setup(){
 
 }
 
+
+
+
 void draw(){
   frameRate(180);
   isAllDone = !thread.isAlive();

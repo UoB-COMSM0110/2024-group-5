@@ -1,11 +1,16 @@
 void keyPressed(){
   gameLevel1.keysInUse.add(keyCode);
   
-//lasor
-   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
-       gameLevel1.scorePanel.goldCount--;
-       gameLevel1.lazor.isVisiable = true;
-   }
+  // Start game with space bar
+  if (keyCode == 32) { // 32 is the ASCII code for space
+      gameLevel1.gameStarted = true;
+  }
+
+  //lasor
+  if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+      gameLevel1.scorePanel.goldCount--;
+      gameLevel1.lazor.isVisiable = true;
+  }
    
    //quit and save game
    if(key=='q'||key=='Q'){
