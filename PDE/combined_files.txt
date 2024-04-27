@@ -1,0 +1,1508 @@
+Ability.pde  
+  
+class Ability extends MoveObject{
+  
+
+}
+ 
+AbilityBox.pde  
+  
+public class AbilityBox extends FixedObject implements Serializable{
+   
+   public AbilityBox(){
+     PImage image = loadImage("abilityBox.png");
+     this.setImage(image);
+   }
+}
+ 
+Background.pde  
+  
+public class BackgroundImage{
+  public int background_start_cur_X = 0;
+  public int background_start_cur_Y = 0;
+  public float speedX = 2.5;
+  public float speedY = 0;
+  public BackgroundImage(){
+    
+  }
+}
+ 
+BackgroundGif.pde  
+  
+public class BackgroundGif{
+
+ 
+  public BackgroundGif(){
+   
+  }
+ 
+}
+ 
+Bgm.pde  
+  
+public class Bgm{
+  public static final String bgmLevelBegin = "mainMenu.wav";
+  public static final String bgmLevelMap1 = "bgmLevelMap1.mp3";
+  public static final String bgmBullet1 = "bullet1.mp3";
+}
+
+void bgmStart(Level level){
+  if(level == Level.LEVEL_BEGIN){
+    if(!playerLevelBegin.isPlaying()){
+        playerLevelBegin.rewind();
+        playerLevelBegin.play();
+    }
+  }else{
+    playerLevelBegin.pause();
+  }
+  
+  if(level == Level.LEVEL_SET){
+    if(!playerLevelSet.isPlaying()){
+        playerLevelSet.rewind();
+        playerLevelSet.play();
+    }
+  }else{
+    playerLevelSet.pause();
+  }
+  
+  if(level == Level.LEVEL_MAP1){
+    if(!playerLevelMap1.isPlaying()){
+        playerLevelMap1.rewind();
+        playerLevelMap1.play();
+    }
+  }else{
+    playerLevelMap1.pause();
+  }
+   
+  //to do
+}
+ 
+Bullet.pde  
+  
+class Bullet extends MoveObject{
+  
+  public Bullet(){
+    image = loadImage("bullet1.png");
+    speed = 20;
+  }
+  @Override
+  public void move(){
+    if(!isOutOfBound()&&isVisiable==true){
+      curX+=speed;
+    }else{
+      curX = gameLevel1.helicopter.curX-1000;
+      curY = gameLevel1.helicopter.curY;
+      isVisiable = false;
+    }
+  }
+  
+  @Override
+  public boolean isOutOfBound(){
+    if(curX+75>width){
+      return true;
+    }
+    return false;
+  }
+  
+  public boolean isIntersectWithUfo(Ufo ufo){
+    if(ufo.curX>=curX&&ufo.curX<=curX+50&&ufo.curY>=curY&&ufo.curY<=curY+50){
+      return true;
+    }
+    if(ufo.curX+100>=curX&&ufo.curX+100<=curX+50&&ufo.curY>=curY&&ufo.curY<=curY+50){
+      return true;
+    }
+    if(ufo.curX>=curX&&ufo.curX<=curX+50&&ufo.curY+50>=curY&&ufo.curY+50<=curY+50){
+      return true;
+    }
+    if(ufo.curX+50>=curX&&ufo.curX+50<=curX+50&&ufo.curY+50>=curY&&ufo.curY+50<=curY+50){
+      return true;
+    }
+    return false;
+  }
+ 
+}
+ 
+ButtonImage.pde  
+  
+public class ButtonImage{
+  public final PImage BTN_START;  //start button
+  public final PImage BTN_SET;  //set button
+  public final PImage BTN_SETTAG;
+  public final PImage cursor;
+  public final PImage BTN_MAINMENU; 
+  public boolean HOVER_BTN_START;
+  public boolean HOVER_BTN_SET;
+  public ButtonImage(){
+    BTN_START = loadImage("btn_start.png");
+    BTN_SET = loadImage("btn_set.png");
+    cursor = loadImage("cursor.png");
+    BTN_SETTAG= loadImage("btn_setIcon.png");
+    BTN_MAINMENU = loadImage("mainMenu.png");
+    HOVER_BTN_START = false;
+    HOVER_BTN_SET = false;
+  }
+}
+ 
+Client.pde  
+  
+import websockets.*;
+import java.net.*;
+
+final class Client{
+   WebsocketClient wsc;
+   public Client(){
+     
+   }
+    
+   public void connect(PApplet miracle){
+      wsc= new WebsocketClient(miracle, "ws://localhost:8025/john");
+   }
+   public void send(){
+        if(millis()>now+100){
+          ProtocolDataFormat protocolDataFormat = new ProtocolDataFormat();
+          protocolDataFormat.player = player1;
+          protocolDataFormat.ip = ip;
+          JSONObject msgFromClient = protocolDataFormat.toJSONObject();
+          wsc.sendMessage(msgFromClient.toString());
+        }
+        now=millis();
+   }
+   
+}
+
+   //This is an event like onMouseClicked. If you chose to use it, it will be executed whenever the server sends a message 
+    public void webSocketEvent(String msg){
+      synchronized(this){
+        println("getMessage from server");
+        try{
+        String[] msgClients = msg.split(","); 
+        String msgFromAnotherClient = "";
+        for(String s:msgClients){
+          if(ip!=msgToProtocolDataFormat(s).ip){
+            msgFromAnotherClient = s;
+            break;
+          }
+        }
+        protocolDataFormat = msgToProtocolDataFormat(msgFromAnotherClient);
+        player2 = protocolDataFormat.player; 
+        }catch(Exception e){
+           e.printStackTrace();
+        }
+      }
+    }
+    
+    ProtocolDataFormat msgToProtocolDataFormat(String msgFromServer){
+      JSONUtilizer tool = new JSONUtilizer();
+      ProtocolDataFormat protocolDataFormat = new ProtocolDataFormat();
+      JSONObject obj = JSONObject.parse(msgFromServer);
+      JSONObject player = obj.getJSONObject("player");
+      Player player2 = tool.JSONToPlayer(player);
+      protocolDataFormat.player = player2;
+      return protocolDataFormat;
+    }
+    
+    
+ 
+DrawButton.pde  
+  
+void drawButton(Level level){
+  switch(level){
+    case LEVEL_BEGIN:
+      drawButtonBegin();
+      break;
+    //to do
+  }
+}
+
+void drawButtonBegin(){
+  imageMode(CENTER);
+  image(buttonImage.BTN_MAINMENU,width/2,height/1.4,300,300);
+  
+  /*
+    old UI
+  */
+  
+  //set hover styles
+  //if(isMouseInButtonStart()){
+  //  buttonImage.HOVER_BTN_START = true;
+  //}else{
+  //  buttonImage.HOVER_BTN_START = false;
+  //}
+  
+  //if(isMouseInButtonSet()){
+  //  buttonImage.HOVER_BTN_SET = true;
+  //}else{
+  //  buttonImage.HOVER_BTN_SET = false;
+  //}
+  
+  //if(buttonImage.HOVER_BTN_START){
+  //  tint(150,100);
+  //}else{
+  //  noTint();
+  //}
+  //image(buttonImage.BTN_START, width/2, height/1.5, buttonImage.BTN_START.width/4, buttonImage.BTN_START.height/5);
+  
+  //if(buttonImage.HOVER_BTN_SET){
+  //  tint(150,100);
+  //}else{
+  //  noTint();
+  //}
+  //image(buttonImage.BTN_SET, width/2, height/1.5+gameConstant.BUTTON_SPACE, buttonImage.BTN_START.width/4, buttonImage.BTN_START.height/5);
+  //noTint();
+}
+ 
+FastCard.pde  
+  
+public class FastCard extends MoveObject{
+  
+    public FastCard(){
+      image = loadImage("fastCard.png");
+      speed = 5;
+    }
+    
+    @Override
+    public void move(){
+      if(isOutOfBound()){
+        isVisiable = true;
+        curX = width+1500;
+      }
+      curX-=speed;
+    }
+    
+    @Override
+    public boolean isOutOfBound(){
+      if(curX<0){
+        return true;
+      }
+      return false;
+    }
+   
+}
+ 
+FixedObject.pde  
+  
+abstract class FixedObject implements Serializable{
+  public PImage image;
+  public int curX;
+  public int curY;
+  public boolean isVisiable = false;
+
+    
+  public JSONObject toJSONObject(){
+    JSONObject obj = new JSONObject();
+    obj.setInt("curX",curX);
+    obj.setInt("curY",curY);
+    obj.setBoolean("isVisiable",isVisiable);
+    return obj;
+  }
+  
+  public PImage getImage() {
+    return image;
+  }
+
+  public void setImage(PImage image) {
+    this.image = image;
+  }
+
+  public int getCurX() {
+    return curX;
+  }
+
+  public void setCurX(int curX) {
+    this.curX = curX;
+  }
+
+  public int getCurY() {
+    return curY;
+  }
+
+  public void setCurY(int curY) {
+    this.curY = curY;
+  }
+
+  public boolean isVisiable() {
+    return isVisiable;
+  }
+
+  public void setVisiable(boolean visiable) {
+    isVisiable = visiable;
+  }
+
+
+}
+ 
+GameConstant.pde  
+  
+public class GameConstant{
+  public final int MAX_WIDTH; //sreen width
+  public final int MAX_HEIGHT;  //screen height
+  public final int BUTTON_SPACE;  //button space
+  public GameConstant(){
+    MAX_WIDTH = 1024; 
+    MAX_HEIGHT = 768;
+    BUTTON_SPACE = 150; //first window
+  }
+}
+ 
+GameLevel1.pde  
+  
+class GameLevel1 {
+    public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
+    public final Map map1 = new Map("map1.png",0,0,2);
+    public final GoldCoin[] coins = new GoldCoin[10];
+    public final Ufo[] ufos = new Ufo[5];
+    public Lazor lazor = new Lazor();
+    
+    public int maxMissileCount = 5;
+    public final Missile[] missiles = new Missile[maxMissileCount];
+    public int missileCount = 5;
+    
+    
+    private ScorePanel scorePanel = new ScorePanel();
+    private AbilityBox[] boxs = new AbilityBox[3];
+    private boolean isGameEnd = false;
+    private final FastCard[] cards = new FastCard[2];
+    
+    public GameLevel1(){
+       //init coins
+       initCoins();
+       //init boxs;
+       initBoxs();
+       //init ufos;
+       initUfos();
+       //init fastCards;
+       initFastCards();
+       //init missiles
+       initMissiles();
+       //init bullets , need to be motified (when pick up bullet then init it)
+       helicopter.initBullets(100);
+    }
+    
+    public void startLevel1(){
+        if(!isGameEnd()&&!isGameEnd){
+          imageMode(CORNER);
+          //draw map
+          image(map1.getImage(),map1.curX,map1.curY,width,height);
+          //draw coins
+          for(GoldCoin coin:coins){
+            if(helicopter.intersectWithCoin(coin) && coin.isVisiable){
+              coin.isVisiable = false;
+              scorePanel.goldCount++; 
+            }
+            if(coin.isVisiable){
+              image(coin.getImage(),coin.curX,coin.curY,100,100);
+            }
+             coin.move();
+          }
+          //draw ufo
+          drawUfos();
+          //draw helicopter
+          //image(helicopter.getImage(),helicopter.curX,helicopter.curY,100,100); old ui
+          drawSpaceship();
+          //draw gamePanel
+          drawGamePanel();
+          //draw abilityBox
+          drawAbilityBoxs();
+          //draw fasrCard
+          drawFastCards();
+          //draw bullet
+          drawBullets();
+          //draw lazor;
+          drawLazor();
+          //draw missile;
+          drawMissiles();
+          helicopter.move(mousePressed);
+        }else{
+          gameStatus.curLevel = Level.LEVEL_BEGIN;
+          println("You lose!Your Score is "+(scorePanel.score+scorePanel.goldCount*10));
+        }
+    }
+    private void initBoxs(){
+      int path = 20;
+      for(int i=0;i<boxs.length;i++){
+        boxs[i] = new AbilityBox();
+        boxs[i].curY = 0;
+        boxs[i].curX = 100+path+i*75;
+      }
+    }
+    
+    private void initFastCards(){
+      for(int i=0;i<cards.length;i++){
+        cards[i] = new FastCard();
+        cards[i].isVisiable = true;
+        int posY = (int)((height-100)*Math.random());
+        int posX =  width-100+(i+1)*1500;
+        cards[i].curY = posY;
+        cards[i].curX = posX;
+      }
+    }
+    
+    private void initMissiles(){
+      for(int i=0;i<maxMissileCount;i++){
+        missiles[i] = new Missile();
+      }
+    }
+    
+    private void initCoins(){
+      for(int i=0;i<coins.length;i++){
+        coins[i] = new GoldCoin();
+        coins[i].isVisiable = true;
+        int posY = (int)((height-100)*Math.random());
+        int posX =  width-100+i*300;
+        coins[i].curX = posX;
+        coins[i].curY = posY;
+      }
+    }
+    
+    private void initUfos(){
+      for(int i=0;i<ufos.length;i++){
+        ufos[i] = new Ufo();
+        ufos[i].isVisiable = true;
+        int posY = (int)((height-100)*Math.random());
+        int posX =  width-100+i*300;
+        ufos[i].curX = posX;
+        ufos[i].curY = posY;
+      }
+    }
+
+    
+    public boolean isGameEnd(){
+      if(helicopter.isOutOfBound()){
+        return true;
+      }
+      return false;
+    }
+    
+    public void drawGamePanel(){
+       fill(255);
+       textSize(30);
+       text("Score:",0,50);
+       text(scorePanel.score,90,50);
+       text("Gold:",0,100);
+       text(scorePanel.goldCount,90,100);
+       scorePanel.updateScore();
+    }
+    
+    public void drawSpaceship(){
+      if(mousePressed){
+        image(helicopter.images[1],helicopter.curX,helicopter.curY,100,100);
+      }else{
+        image(helicopter.images[0],helicopter.curX,helicopter.curY,100,100);
+      }
+    }
+    
+    public void drawUfos(){
+       for(Ufo ufo:ufos){
+            for(Bullet bullet:helicopter.bullets){
+               if(bullet.isIntersectWithUfo(ufo)&&ufo.isVisiable){
+                 ufo.isVisiable = false;
+                 ufo.move();
+                 ufo.isVisiable = true;
+               } 
+            }
+            if(lazor.isVisiable==true&&lazor.intersectWithUfo(ufo)){
+                ufo.isVisiable = false;
+                ufo.move();
+                ufo.isVisiable = true;
+            }
+            if(helicopter.intersectWithUfo(ufo)){
+              isGameEnd = true;
+              return;
+            }
+            if(ufo.isVisiable){
+              image(ufo.getImage(),ufo.curX,ufo.curY,100,100);
+              ufo.move();
+            }
+       }
+    }
+    
+
+    
+    public void drawFastCards(){
+       for(FastCard card:cards){
+            if(helicopter.intersectWithFastCard(card)){
+              for(Ufo ufo:ufos){
+                ufo.speed+=5;
+              } 
+            }
+            if(card.isVisiable){
+              image(card.getImage(),card.curX,card.curY,100,100);
+            }
+            card.move();
+       }
+    }
+    
+    public void drawAbilityBoxs(){
+       for(AbilityBox box:boxs){
+         image(box.image,box.curX,box.curY,150,150);
+       }
+    }
+    
+    public void drawLazor(){
+      updateLazor();
+      if(lazor.isVisiable==true){
+         image(lazor.image,lazor.curX+40,lazor.curY-45,1500,150);
+         lazor.move();
+         lazor.isVisiable = false;
+      }
+    }
+    
+    public void updateLazor(){
+      lazor.curX = helicopter.curX;
+      lazor.curY = helicopter.curY;
+    }
+    
+    public void drawMissiles(){
+      updateMissiles();
+      for(Missile missile:missiles){
+         for(Ufo ufo:ufos){
+          if(missile.isIntersectWithUfo(ufo)){
+            missile.isVisiable = false; 
+            missile.move();
+          }
+        }
+        if(missile.isVisiable){
+          missile.drawAnimation(missile.curX,missile.curY,100,100,1000);
+          missile.move();
+        }
+      }
+    }
+    
+    public void drawBullets(){
+      updateBullets();
+      ArrayList<Bullet>bullets = helicopter.bullets;
+      for(Bullet bullet:bullets){
+        for(Ufo ufo:ufos){
+          if(bullet.isIntersectWithUfo(ufo)){
+            bullet.isVisiable = false; 
+            bullet.move();
+          }
+        }
+        if(bullet.isVisiable){
+          image(bullet.image,bullet.curX+90,bullet.curY+50,50,50);
+          bullet.move();
+        }
+      }
+    }
+    public void updateBullets(){
+      for(Bullet bullet:helicopter.bullets){
+        if(!bullet.isVisiable){
+          bullet.curX = helicopter.curX-1000;
+          bullet.curY = helicopter.curY;
+        }
+      }
+    }
+    
+    public void updateMissiles(){
+      for(Missile missile:missiles){
+        if(!missile.isVisiable){
+          missile.curX = helicopter.curX-1000;
+          missile.curY = helicopter.curY;
+        }
+      }
+    }
+    
+}
+ 
+GameLevelLAN.pde  
+  
+class GameLevelLAN{
+  public final PImage imageHelicopter = loadImage("helicopter.png");
+  public boolean isGameAllEnd = false;
+  public Player player1;
+  public Player player2;
+  public PublicSource publicSource;
+  public final Map map1 = new Map("map1.png",0,0,2);
+  public GameLevelLAN(){
+      initPlayer1();
+  }
+  
+  public void initPlayer1(){
+      player1 = new Player1();
+  }
+  
+  public void setPlayer2(Player player2){
+     this.player2 = player2;
+  }
+  
+  public void initPublicSource(){
+      
+  }
+  
+    public void startLevelLanBattle(){
+      if(isGameAllEnd){
+        gameStatus.curLevel = Level.LEVEL_BEGIN;
+        return;
+      }
+      if(!player1.isGameEnd||!player2.isGameEnd){
+          imageMode(CORNER);
+          //draw map
+          image(map1.getImage(),map1.curX,map1.curY,width,height);
+          if(!player1.isGameEnd){
+            image(imageHelicopter,player1.helicopter.curX,player1.helicopter.curY,100,100);
+          }
+          if(!player2.isGameEnd){
+            image(imageHelicopter,player2.helicopter.curX,player2.helicopter.curY,100,100);
+          }
+          player1.helicopter.move(mousePressed);
+       }
+       isGameAllEnd =  player1.isGameEnd&&player2.isGameEnd;
+    }
+    //public void drawCoins(){
+    //   for(GoldCoin coin:publicSource.coins){
+    //      if(player1.helicopter.intersectWithCoin(coin) && coin.isVisiable){
+    //          coin.isVisiable = false;
+    //          player1.scorePanel.goldCount++; 
+    //        }
+    //       if(coin.isVisiable){
+    //          image(coin.getImage(),coin.curX,coin.curY,100,100);
+    //       }
+    //       coin.move();
+    //      if(player2.helicopter.intersectWithCoin(coin) && coin.isVisiable){
+    //          coin.isVisiable = false;
+    //          player2.scorePanel.goldCount++; 
+    //        }
+    //       if(coin.isVisiable){
+    //          image(coin.getImage(),coin.curX,coin.curY,100,100);
+    //       }
+    //       coin.move();
+    //  }
+    //}
+}
+ 
+GameStatus.pde  
+  
+public class GameStatus{
+  public Level curLevel = Level.LEVEL_BEGIN;
+  
+}
+ 
+GoldCoin.pde  
+  
+public class GoldCoin extends MoveObject{
+  public GoldCoin(){
+    PImage image = loadImage("goldCoin.png");
+    this.setImage(image);
+    speed = 10;
+  }
+  
+  @Override
+  public void move(){
+    if(isOutOfBound()){
+      isVisiable = true;
+      curX = width;
+    }
+    curX-=speed;
+  }
+  
+  @Override
+  public boolean isOutOfBound(){
+    if(curX<0){
+      return true;
+    }
+    return false;
+  };
+}
+ 
+Helicopter.pde  
+  
+class Helicopter extends MoveObject implements Serializable{
+  public int health;
+  public ArrayList<Bullet>bullets;
+  public int curBulletCount = 1000; //to do
+  
+  public Helicopter(){
+
+  }
+  
+  public Helicopter(String imagePath,int curX,int curY,int health,int speed){
+    this.curX = curX;
+    this.curY = curY;
+    this.health = health;
+    this.speed = speed;
+    this.bullets = new ArrayList<Bullet>(); 
+    images = new PImage[2];
+    String[] urls = {"spaceship.png","spaceship1.png"};
+    setImages(urls);
+    image = loadImage(imagePath);
+  }
+  
+  public void initBullets(int count){
+    for(int i=0;i<count;i++){
+      Bullet bullet = new Bullet();
+      bullet.curX = curX;
+      bullet.curY = curY;
+      bullets.add(bullet);
+    }
+  }
+  
+  public void shoot(){
+    if(bullets!=null&&bullets.size()>0){
+      curBulletCount--;
+    }
+  }
+
+  public void move(boolean isClicked){
+    if(isClicked) {
+      curY -= speed;
+    }else{
+      curY += speed;
+    }
+  }
+
+  @Override
+  public boolean isOutOfBound(){
+    if(curY<0||curY+100>height){
+      return true;
+    }
+    return false;
+  }
+
+  public int getHealth() {
+    return health;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
+  }
+
+
+  public void lostHealth(){
+    health--;
+  }
+  
+  public boolean intersectWithCoin(GoldCoin coin){
+    if(coin.curX+50>=curX&&coin.curX+50<=curX+100&&coin.curY+50>=curY&&coin.curY+50<=curY+100){
+      return true;
+    }
+    return false;
+  }
+  
+  public boolean intersectWithUfo(Ufo ufo){
+    if(ufo.curX+50>=curX&&ufo.curX+50<=curX+100&&ufo.curY+50>=curY&&ufo.curY+50<=curY+100){
+      return true;
+    }
+    return false;
+  }
+  
+  public boolean intersectWithFastCard(FastCard card){
+    if(card.curX+50>=curX&&card.curX+50<=curX+100&&card.curY+50>=curY&&card.curY+50<=curY+100){
+      return true;
+    }
+    return false;
+  }
+}
+ 
+JSONUtilizer.pde  
+  
+class JSONUtilizer{
+  public Helicopter JSONToHelicopter(JSONObject obj){
+    int curX = obj.getInt("curX");
+    int curY = obj.getInt("curY");
+    int speed = obj.getInt("speed");
+    boolean isVisiable = obj.getBoolean("isVisiable");
+    Helicopter hp = new Helicopter();
+    hp.curX = curX;
+    hp.curY = curY;
+    hp.speed = speed;
+    hp.isVisiable = isVisiable;
+    return hp;
+  }
+  
+  public Player JSONToPlayer(JSONObject obj){
+    JSONObject helicopter = obj.getJSONObject("helicopter");
+    Helicopter hp = JSONToHelicopter(helicopter);
+    boolean isGameEnd = obj.getBoolean("isGameEnd");
+    Player player = new Player();
+    player.isGameEnd = isGameEnd;
+    player.helicopter = hp;
+    return player;
+  }
+  
+}
+ 
+KeyPressedEvent.pde  
+  
+void keyPressed(){
+   if(key=='C'||key=='c'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+      Helicopter helicopter = gameLevel1.helicopter;
+      if(helicopter.curBulletCount>0){
+        if(!playerBullet1.isPlaying()){
+          playerBullet1.rewind();
+          playerBullet1.play();
+        }else{
+          playerBullet1.pause();
+        }
+        println("shoot!");
+        ArrayList<Bullet> bullets = helicopter.bullets;
+        for(int i=bullets.size()-1;i>=0;i--){
+          if(!bullets.get(i).isVisiable){
+            bullets.get(i).isVisiable = true;
+            bullets.get(i).curX = gameLevel1.helicopter.curX;
+            bullets.get(i).curY = gameLevel1.helicopter.curY;
+            break;
+          }
+        }
+        helicopter.shoot();
+      }
+   }
+   
+    if(key=='d'||key=='D'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+      Missile[] missiles = gameLevel1.missiles;
+      if(gameLevel1.missileCount>0){
+        println("shoot!Missile!");
+        for(int i=gameLevel1.missileCount-1;i>=0;i--){
+          if(!missiles[i].isVisiable){
+            missiles[i].isVisiable = true;
+            missiles[i].curX = gameLevel1.helicopter.curX;
+            missiles[i].curY = gameLevel1.helicopter.curY;
+            break;
+          }
+        }
+      }
+   }
+   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1){
+     gameLevel1.lazor.isVisiable = true;
+   }
+   if(key=='q'||key=='Q'){
+     gameStatus.curLevel = Level.LEVEL_BEGIN;
+   }
+}
+ 
+Lazor.pde  
+  
+class Lazor extends Ability implements Serializable{
+  public Lazor(){
+    image = loadImage("lazor.png");
+    speed = width;
+  }
+  
+  @Override
+  public void move(){
+    curX+=speed;
+  }
+  
+  public boolean intersectWithUfo(Ufo ufo){
+    if(ufo.curX+50>=curX+40&&ufo.curX<=curX+1540&&ufo.curY>=curY-45&&ufo.curY<=curY+105){
+      return true;
+    }
+    return false;
+  }
+  
+}
+ 
+Level.pde  
+  
+enum Level{
+  LEVEL_BEGIN,
+  LEVEL_SET,
+  LEVEL_MAP1,
+  LEVEL_LOGIN,
+  LEVEL_LANBATTLE
+}
+ 
+LoginUnit.pde  
+  
+import g4p_controls.*;
+
+class LoginUnit {
+  GWindow gWindow ;
+  GTextField usernameField, passwordField;
+  public LoginUnit(PApplet window) {
+      gWindow = GWindow.getWindow(window,"login",width/2,height/2,400,200,JAVA2D);
+      usernameField = new GTextField(gWindow, 100, 50, 200, 30);
+      usernameField.setPromptText("Username");
+      
+      passwordField = new GTextField(gWindow, 100, 100, 200, 30);
+      passwordField.setPromptText("Your message to another player");
+      passwordField.setOpaque(true);
+      
+      loginButton = new GButton(gWindow, 150, 150, 100, 40,"1");
+      loginButton.setText("connect");
+      isLogin = false;
+  }
+}
+
+void handleButtonEvents(GButton button, GEvent event){
+  if(button==loginButton&&event == GEvent.CLICKED){
+    println("connect");
+    loginUnit.gWindow.setVisible(false);
+    loginUnit.gWindow.close();
+    client.connect(sketch);
+    gameStatus.curLevel = Level.LEVEL_LANBATTLE;
+  }
+}
+ 
+Map.pde  
+  
+class Map extends MoveObject{
+  public Map(String imagePath,int curX,int curY,int speed){
+    this.curX = curX;
+    this.curY = curY;
+    this.speed = speed;
+    image = loadImage(imagePath);
+  }
+  @Override
+  public void move(){
+    //to do
+  }
+
+}
+ 
+Miracle.pde  
+  
+import gifAnimation.*;
+import ddf.minim.*;
+
+
+
+//LAN BATTLE
+Client client;
+Player player2;
+Player player1;
+ProtocolDataFormat protocolDataFormat; 
+PApplet sketch = this;
+String ip;
+String msgFromServer;
+
+//time
+int now;
+
+//Login UI
+GButton loginButton;
+LoginUnit loginUnit;
+boolean isLogin=false;
+
+//declaration of GameConstant
+GameConstant gameConstant;
+
+//declaration of ButtonImage
+ButtonImage buttonImage; 
+
+//declaration of BackgroundImage
+BackgroundImage backgroundImage; 
+
+//declaration of Level
+Level level;
+
+//start background 
+Gif gif;
+PImage backgroundStart;
+
+//start font
+//PFont font;
+
+//gameName miracle
+PImage gameName;
+
+//bgm starter
+Minim minim;
+AudioPlayer playerLevelBegin;
+AudioPlayer playerLevelSet;
+AudioPlayer playerLevelMap1;
+AudioPlayer playerBullet1;
+
+//GameStatus
+GameStatus gameStatus;
+
+//SetPanel
+SetPanel setPanel;
+
+//GameLevel
+static GameLevel1 gameLevel1;
+static GameLevelLAN gameLevelLAN;
+
+void setup(){  
+  //start record time
+  now = millis();
+  
+  //init GameConstant
+  gameConstant = new GameConstant(); 
+  
+  //init ButtonImage
+  buttonImage = new ButtonImage();
+  
+  //init BackgroundImage
+  backgroundImage = new BackgroundImage();
+  
+  //init gameName
+  gameName = loadImage("miracle.png");
+  
+  //init gif 
+  gif = new Gif(this,"background_start2.gif");
+  //backgroundStart = loadImage("background_start.gif");
+  gif.play();
+  
+  //font
+  //font = createFont("monaco.ttf",50);
+  //draw welcome screen
+  
+  //init bgm
+  minim = new Minim(this);
+  playerLevelBegin = minim.loadFile(Bgm.bgmLevelBegin);
+  playerLevelSet = minim.loadFile(Bgm.bgmLevelBegin);
+  playerLevelMap1 = minim.loadFile(Bgm.bgmLevelMap1);
+  playerBullet1 = minim.loadFile(Bgm.bgmBullet1);
+  
+  //init GameStatus
+  gameStatus = new GameStatus();
+  
+  //init setPanel
+  setPanel = new SetPanel();
+  
+  //init gameLevel1
+  gameLevel1 = new GameLevel1();
+  gameLevelLAN = new GameLevelLAN();
+  
+  //client
+  client = new Client();
+  try{
+     InetAddress localhost = InetAddress.getLocalHost();
+     ip = localhost.getHostAddress();
+  }catch (UnknownHostException e) {
+     e.printStackTrace();
+  }
+  
+  size(1125,630);
+}
+
+void draw(){
+  // show background with level
+  //init cursor
+  cursor(buttonImage.cursor);
+  if(gameStatus.curLevel == Level.LEVEL_BEGIN){
+    gameLevel1 = new GameLevel1();
+    // play music
+    bgmStart(gameStatus.curLevel);
+    imageMode(CORNER);
+    image(gif, 0,0 ,width,height);
+    imageMode(CORNER);
+    image(buttonImage.BTN_SETTAG,width-70,30,40,40);
+    drawButton(level.LEVEL_BEGIN);
+    imageMode(CENTER);
+    // need to be confirmed(design a function matched with level)
+    image(gameName,width/2,height/5,gameName.width,gameName.height);
+  }
+  if(gameStatus.curLevel == Level.LEVEL_SET){
+    //// play music
+    //bgmStart(gameStatus.curLevel);
+    setPanel.createPanel();
+    if(mousePressed&&mouseX>=setPanel.volumePointerX-20&&mouseX-10<=setPanel.volumePointerX+80&&mouseY>=setPanel.volumePointerY-20&&mouseY<=setPanel.volumePointerY+40){
+      if(mouseX<400){
+        setPanel.volumePointerX = 400;
+      }
+      else if(mouseX>695){
+        setPanel.volumePointerX = 695;
+      }
+      else{
+         setPanel.volumePointerX = mouseX-40;
+      }
+      println("yes!");
+    }
+    
+    if(mousePressed&&mouseX>=setPanel.diffPointerX-20&&mouseX-10<=setPanel.diffPointerX+80&&mouseY>=setPanel.diffPointerY-20&&mouseY<=setPanel.diffPointerY+40){
+      if(mouseX<400){
+        setPanel.diffPointerX = 400;
+      }
+      else if(mouseX>695){
+        setPanel.diffPointerX = 695;
+      }
+      else{
+         setPanel.diffPointerX = mouseX-40;
+      }
+      println("yes!");
+    }
+    
+  println("setPanel.volumePointerX:"+setPanel.volumePointerX+",setPanel.volumePointerY:"+setPanel.volumePointerY);
+  }
+  if(gameStatus.curLevel == Level.LEVEL_MAP1){
+    // play music
+    bgmStart(gameStatus.curLevel);
+    gameLevel1.startLevel1();
+  }
+  if(isLogin&&gameStatus.curLevel == Level.LEVEL_LOGIN){
+    // play music
+    bgmStart(Level.LEVEL_BEGIN);
+    //init loginUi
+    loginUnit = new LoginUnit(this);
+  }
+  if(gameStatus.curLevel == Level.LEVEL_LANBATTLE){
+     if(player2!=null){
+      gameLevelLAN.setPlayer2(player2);
+      gameLevelLAN.startLevelLanBattle();
+    }
+    player1 = gameLevelLAN.player1;
+    if(client!=null){
+      client.send();
+    }
+  }
+}
+ 
+Missile.pde  
+  
+class Missile extends MoveObject{
+  public Missile(){
+    images = new PImage[3]; //pay attention to initialize
+    String[] urls = {"missile1.png","missile2.png","missile3.png"};
+    setImages(urls);
+    speed = 15;
+  }
+  
+  @Override
+  public void move(){
+    if(!isOutOfBound()&&isVisiable==true){
+      curX+=speed;
+    }else{
+      curX = gameLevel1.helicopter.curX-1000;
+      curY = gameLevel1.helicopter.curY;
+      isVisiable = false;
+    }
+  }
+  
+  @Override
+  public boolean isOutOfBound(){
+    if(curX+75>width){
+      return true;
+    }
+    return false;
+  }
+  
+  public boolean isIntersectWithUfo(Ufo ufo){
+    if(ufo.curX>=curX&&ufo.curX<=curX+50&&ufo.curY>=curY&&ufo.curY<=curY+50){
+      return true;
+    }
+    if(ufo.curX+100>=curX&&ufo.curX+100<=curX+50&&ufo.curY>=curY&&ufo.curY<=curY+50){
+      return true;
+    }
+    if(ufo.curX>=curX&&ufo.curX<=curX+50&&ufo.curY+50>=curY&&ufo.curY+50<=curY+50){
+      return true;
+    }
+    if(ufo.curX+50>=curX&&ufo.curX+50<=curX+50&&ufo.curY+50>=curY&&ufo.curY+50<=curY+50){
+      return true;
+    }
+    return false;
+  }
+  
+}
+ 
+MouseClickedEvent.pde  
+  
+void mousePressed(){
+  if(isMouseInButtonStart()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
+    System.out.println("start button is clicked");
+    gameStatus.curLevel = level.LEVEL_MAP1;
+  }
+  
+  if(isMouseInButtonSet()&&gameStatus.curLevel==Level.LEVEL_BEGIN){
+    System.out.println("set button is clicked");
+    gameStatus.curLevel = Level.LEVEL_SET;
+  }
+  
+  //bug 
+  if(gameStatus.curLevel==Level.LEVEL_BEGIN){
+    if(mouseX>=1020&&mouseX<=1150&&mouseY>=20&&mouseY<=80){
+      System.out.println("settag button is clicked");
+      gameStatus.curLevel = Level.LEVEL_SET;
+    }
+    if(isMouseInButtonLAN()){
+      gameStatus.curLevel = Level.LEVEL_LOGIN;
+      isLogin = true;
+    }
+  }
+  
+  if(gameStatus.curLevel==Level.LEVEL_MAP1){
+    
+  }
+  
+  if(gameStatus.curLevel==Level.LEVEL_LANBATTLE){
+      
+  }
+  
+  
+  if(gameStatus.curLevel==Level.LEVEL_SET){
+    if(mouseX>=476&&mouseX<=677&&mouseY>=490&&mouseY<=590){
+      gameStatus.curLevel = Level.LEVEL_BEGIN;
+    }
+    if(mouseX>=setPanel.volumePointerX&&mouseX<=setPanel.volumePointerX+40&&mouseY>=setPanel.volumePointerY&&mouseY<=setPanel.volumePointerY+40){
+
+    }
+  }
+}
+
+boolean isMouseInButtonLAN(){
+  return mouseX>=width/2-150 && mouseX<=width/2+150 && mouseY>=height/1.4-75 && mouseY<=height/1.4;
+}
+
+boolean isMouseInButtonStart(){
+  return mouseX>=width/2-150 && mouseX<=width/2+150 && mouseY>=height/1.4-150 && mouseY<=height/1.4-75;
+}
+
+boolean isMouseInButtonSet(){
+  return mouseX>=width/2-150 && mouseX<=width/2+200 && mouseY>=height/1.4+75 && mouseY<=height/1.4+150;
+}
+ 
+MoveObject.pde  
+  
+import java.io.*;
+abstract class MoveObject implements Serializable{
+  public PImage image; 
+  public PImage[] images;
+  public int curX;
+  public int curY;
+  public int prevX;
+  public int prevY;
+  public int speed;
+  public boolean isVisiable = false;
+  
+  
+  public JSONObject toJSONObject(){
+    JSONObject obj = new JSONObject();
+    obj.setInt("curX",curX);
+    obj.setInt("curY",curY);
+    obj.setInt("prevX",prevX);
+    obj.setInt("prevY",prevY);
+    obj.setInt("speed",speed);
+    obj.setBoolean("isVisiable",isVisiable);
+    return obj;
+  }
+    
+  public void move(){
+    prevX = curX;
+    curX+=speed;
+  };
+
+  public void drawAnimation(int x,int y,int imageWidth,int imageHeight,int delayTime){
+    //int now = millis();
+    for(int i=0;i<images.length;){
+      image(images[i],x,y,imageWidth,imageHeight);
+      //while(millis()-now<50){
+      //}
+      i++;
+    }
+  }
+  
+  public PImage getImage() {
+    return image;
+  }
+
+  public void setImage(PImage image) {
+    this.image = image;
+  }
+  
+  public PImage[] getImages() {
+    return images;
+  }
+
+  public void setImages(String[] urls) {
+      for(int i=0;i<urls.length;i++){
+        images[i]=loadImage(urls[i]);
+      }
+  }
+  
+  public int getCurX() {
+    return curX;
+  }
+
+  public void setCurX(int curX) {
+    this.curX = curX;
+  }
+
+  public int getCurY() {
+    return curY;
+  }
+
+  public void setCurY(int curY) {
+    this.curY = curY;
+  }
+
+  public int getPrevX() {
+    return prevX;
+  }
+
+  public void setPrevX(int prevX) {
+    this.prevX = prevX;
+  }
+
+  public int getPrevY() {
+    return prevY;
+  }
+
+  public void setPrevY(int prevY) {
+    this.prevY = prevY;
+  }
+
+  public int getSpeed() {
+    return speed;
+  }
+
+  public void setSpeed(int speed) {
+    this.speed = speed;
+  }
+
+  public boolean isVisiable() {
+    return isVisiable;
+  }
+
+  public void setVisiable(boolean visiable) {
+    isVisiable = visiable;
+  }
+
+  public boolean isOutOfBound(){
+    return false;
+  };
+  
+
+}
+ 
+Player.pde  
+  
+class Player implements Serializable{
+    public Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
+    //public Lazor lazor = new Lazor();
+    //public ScorePanel scorePanel = new ScorePanel();
+    //public AbilityBox[] boxs = new AbilityBox[3];
+    public boolean isGameEnd = false;
+    
+    public JSONObject toJSONObject(){
+      JSONObject obj = new JSONObject();
+      //JSONObject[] objsAbilityBox=  new JSONObject[3];
+      //int i = 0;
+      //for(AbilityBox box:boxs){
+      //  objsAbilityBox[i] = box.toJSONObject(); 
+      //  obj.setJSONObject("box"+i,objsAbilityBox[i]);
+      //  i++;
+      //}
+      obj.setJSONObject("helicopter",helicopter.toJSONObject());
+      //obj.setJSONObject("lazor",lazor.toJSONObject());
+      //obj.setJSONObject("scorePanel",scorePanel.toJSONObject());
+      obj.setBoolean("isGameEnd",isGameEnd);
+      return obj;
+    }
+    
+ 
+}
+ 
+Player1.pde  
+  
+class Player1 extends Player{
+  
+}
+ 
+Player2.pde  
+  
+class Player2 extends Player{
+  
+
+}
+ 
+ProtocolDataFormat.pde  
+  
+class ProtocolDataFormat implements Serializable{
+  public Player player;
+  //public PublicSource publicSource;
+  public String ip;
+  public void setData(Player player, PublicSource publicSource, String ip){
+    this.player = player;
+    //this.publicSource = publicSource;
+    this.ip = ip;
+  }
+  public JSONObject toJSONObject(){
+    JSONObject obj = new JSONObject();
+    obj.setJSONObject("player",player.toJSONObject());
+    //obj.setJSONObject("publicSource",publicSource.toJSONObject());
+    obj.setString("ip",ip);
+    return obj;
+  }
+}
+ 
+PublicSource.pde  
+  
+class PublicSource implements Serializable{
+    public final GoldCoin[] coins = new GoldCoin[10];
+    public final Ufo[] ufos = new Ufo[5];
+    
+    public JSONObject toJSONObject(){
+      JSONObject obj = new JSONObject();
+      int i = 0;
+      JSONObject[] objsCoins = new JSONObject[10];
+      for(GoldCoin coin:coins){
+        objsCoins[i] = coin.toJSONObject();
+        obj.setJSONObject("coin"+i, objsCoins[i]);
+        i++;
+      }
+      
+      i = 0;
+      JSONObject[] objsUfos = new JSONObject[10];
+      for(Ufo ufo:ufos){
+        objsUfos[i] = ufo.toJSONObject();
+        obj.setJSONObject("ufo"+i, objsUfos[i]);
+        i++;
+      }
+      return obj;
+    }
+}
+ 
+ScorePanel.pde  
+  
+public class ScorePanel extends FixedObject implements Serializable{
+   public int score;
+   public int goldCount;
+   public int time;
+      
+   public void updateScore(){
+     score++;
+   }
+}
+ 
+SetPanel.pde  
+  
+public class SetPanel{
+  private final PImage setPanel = loadImage("setting.png");
+  private final PImage diffPointer = loadImage("diffPointer.png");
+  private final PImage volumePointer = loadImage("volumePointer.png");
+  public int volumePointerX = 551;
+  public int volumePointerY = 230;
+  public int diffPointerX = 545;
+  public int diffPointerY = 365;
+  public void createPanel(){
+    imageMode(CENTER);
+    image(setPanel,width/2,height/2,700,700);
+    imageMode(CORNER);
+    image(volumePointer,volumePointerX,volumePointerY,40,40);
+    image(diffPointer,diffPointerX,diffPointerY,50,50);
+  }
+}
+ 
+Ufo.pde  
+  
+
+class Ufo extends MoveObject{
+   private int speedY = 5;
+   public Ufo(){
+     PImage image = loadImage("ufo.png");
+     speed = 15;
+     setImage(image);
+   }
+   @Override
+    public void move(){
+      if((curX<0&&isOutOfBound())||isVisiable==false){
+        curX = width+(int)(500*Math.random());
+      }else if(isOutOfBound()){
+        speedY = -speedY;
+        curX -= speed;
+        curY += speedY;
+      }else{
+        curX -= speed;
+        curY += speedY;
+      }
+    }
+
+  @Override
+  public boolean isOutOfBound(){
+    if(curX<0||curY<0||curY+100>height){
+      return true;
+    }
+    return false;
+  }
+}
+ 
