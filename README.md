@@ -263,13 +263,24 @@ This would resolve the following issues with users:
 
 <h3 id = "testing">Testing</h3>
 
-#### JUnit Testing
-<br>
+We tested our game frequently during its development lifecycle. Our Git workflow made it easy for us to test each new feature - we had a branch per feature, and before merging the branch into the main branch we would manually test it against the current set of test cases. We wouldn’t merge the branch until it was passing all test cases. After merging the branch we would test the game again, but from the main branch because usually there had been changes to the main branch between the time the feature branch was created and when it was merged. The list of test cases grew as the game developed, here is an example of the test cases that we ran:
+Can start the game.
+The game doesn’t crash when a key is pressed during the loading screen.
+Can change the difficulty.
+Can play the game.
+When I crash into an asteroid or enemy, then I lose 1 health point.
+When I lose 3 health points I die.
+When I collect a mineral, my mineral count goes up.
+When I press ‘x’ the spaceship fires a laser, and it uses the minerals as ammo.
+When I hold ‘z’ the spaceship’s shield is activated, and it uses the minerals as fuel.
+When I hit an enemy with my laser, it dies.
+When I collect a mystery box, the rogue-style store opens.
+The powers from the rogue-style store work.
+The difficulty of the game increases every 30 seconds.
+When I die I am presented with my score and it is saved in the leaderboard.
+I can view the leaderboard.
+We tested all of this manually, which was time-consuming, but it did give us a good grasp of the game (and made us excellent players of the game). Often whilst testing the game we would get ideas for improvements, for example, I think our solution for how to increase the difficulty of the game was inspired by us having played the game many times.
 
-#### Regression Testing
-<br>
-
-#### Integration Testing
 <br>
 
 <h2 id="pro">Process</h2>
