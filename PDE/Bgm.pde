@@ -48,10 +48,10 @@ void bgmStart(Level level){
 }
 
 public void setVolume(float diff){
-  playerLevelBegin.setGain(diff);
-  playerLevelSet.setGain(diff);
-   playerLevelMap1.setGain(diff);
-  playerBullet1.setGain(diff);
-  playerStart.setGain(diff);
-  playerClick.setGain(diff);
+    playerLevelBegin.setGain(diff);
+    playerLevelSet.setGain(diff);
+    playerLevelMap1.setGain(diff); // Make sure this line exists
+    playerBullet1.setGain(diff);
+    playerStart.setGain(diff);
+    playerClick.setGain(diff);
 }

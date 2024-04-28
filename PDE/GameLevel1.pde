@@ -103,6 +103,9 @@ public void drawInitialScene() {
           score = scorePanel.score+scorePanel.goldCount*10;
           println("You lose!Your Score is "+score);
           writeScoreToTxt();
+          if (playerLevelMap1.isPlaying()) {
+            playerLevelMap1.pause();  // Use pause or stop method as per your audio library's functionality
+        }
         }
     }
     public void initByDifficulty(){

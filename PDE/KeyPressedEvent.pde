@@ -6,51 +6,52 @@ void keyPressed(){
 
     gameLevel1.keysInUse.add(keyCode);
 
-    // Start game with space bar
+    // Start game with space bar and start the background music
     if (keyCode == 32) { // 32 is the ASCII code for space
         gameLevel1.gameStarted = true;
+        if (!playerLevelMap1.isPlaying()) {
+            playerLevelMap1.play();
+            playerLevelMap1.loop();
+        }
     }
 
-  //lasor
-  if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
-      gameLevel1.scorePanel.goldCount--;
-      gameLevel1.lazor.isVisiable = true;
-  }
+    // Other controls
+    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+        gameLevel1.scorePanel.goldCount--;
+        gameLevel1.lazor.isVisiable = true;
+    }
    
-   //quit and save game
-   if(key=='q'||key=='Q'){
-     gameStatus.curLevel = Level.LEVEL_BEGIN;
-   }
+    if(key=='q'||key=='Q'){
+        gameStatus.curLevel = Level.LEVEL_BEGIN;
+        playerLevelMap1.pause(); // Stop the music when quitting to main menu
+    }
    
-   //shield
-   if(keyCode == 90 && gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
-     gameLevel1.scorePanel.goldCount--;
-     gameLevel1.shield.showShield(); 
-     if (gameLevel1.scorePanel.goldCount == 0) {
-       gameLevel1.shield.closeShield();
-     }
-   }
+    if(keyCode == 90 && gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+        gameLevel1.scorePanel.goldCount--;
+        gameLevel1.shield.showShield(); 
+        if (gameLevel1.scorePanel.goldCount == 0) {
+            gameLevel1.shield.closeShield();
+        }
+    }
    
-   //show start animation
-   if(key=='r'||key=='R'){
-     gameStatus.curLevel = Level.LEVEL_START;
-     gameStarted = false;
-    textVisible = true;
-    starsFormingMiracle = false;
-    isAnimationEnd = false;
-    Arrays.fill(usedStars,false);
-    spaceship.speed = 8;
-   }
-  
+    if(key=='r'||key=='R'){
+        gameStatus.curLevel = Level.LEVEL_START;
+        gameStarted = false;
+        textVisible = true;
+        starsFormingMiracle = false;
+        isAnimationEnd = false;
+        Arrays.fill(usedStars,false);
+        spaceship.speed = 8;
+        playerLevelMap1.pause(); // Ensure music stops on reset
+    }
 }
 
 void keyReleased() {
-   if (gameStatus.curLevel==Level.LEVEL_MAP1) {
-     if (keyCode == 90) {
-     gameLevel1.shield.closeShield(); 
-     }
+    if (gameStatus.curLevel==Level.LEVEL_MAP1) {
+        if (keyCode == 90) {
+            gameLevel1.shield.closeShield(); 
+        }
      
-     gameLevel1.keysInUse.remove(keyCode);
-   }
-   
+        gameLevel1.keysInUse.remove(keyCode);
+    }
 }
