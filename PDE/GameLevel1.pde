@@ -149,7 +149,8 @@ class GameLevel1 {
       for(int i=0;i<cards.length;i++){
         cards[i] = new FastCard();
         cards[i].isVisiable = true;
-        int posY = (int)((height-100)*Math.random());
+        //int posY = (int)((height-100)*Math.random());
+        int posY = (int) random(asteroidBelts.getRange(), height - asteroidBelts.getRange()-100);
         int posX =  width-100+(i+1)*1500;
         cards[i].curY = posY;
         cards[i].curX = posX;
@@ -284,14 +285,15 @@ class GameLevel1 {
     public void drawFastCards(){
        for(FastCard card:cards){
             if(helicopter.intersectWithFastCard(card)){
+              if (keysInUse.contains(32)) keysInUse.remove(32);
               card.isVisiable = false;
-            gameStatus.curLevel = Level.LEVEL_ROGUE;
-            rogue = new Rogue();
-            
+              gameStatus.curLevel = Level.LEVEL_ROGUE;
+              rogue = new Rogue();
             }
             if(card.isVisiable){
               image(card.getImage(),card.curX,card.curY,100,100);
             }
+            card.asteroidRange = asteroidBelts.getRange();
             card.move();
        }
     }
