@@ -1,6 +1,6 @@
 public class Story{
   private final PImage storyPanel = loadImage("StoryImage.png");
-  private final PImage toturialPanel = loadImage("TutorialImage.png");
+  private final PImage toturialPanel = loadImage("control-screen.png");
   public void createPanel(){
     imageMode(CENTER);
     if(gameStatus.curLevel==Level.LEVEL_STORY){
