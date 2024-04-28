@@ -157,7 +157,7 @@ Our game has many elements that move around the screen. We realised early on in 
 
 We learned from the Think Aloud user feedback session that our game was:
 
-1) too hard for first time players
+1) too hard for first-time players
 
 2) a couple of people said that it was too easy after you had become comfortable with the controls.
 
@@ -167,27 +167,23 @@ We implemented 2 solutions to address this feedback.
 
 2) Create a system that gradually increases the difficulty of the game. Every 30 seconds various values are adjusted to make the game play more challenging.. There are many aspects of the game that when altered will increase or decrease the difficulty of the game:
 
-- Health points
-- The speed that the enemy UFOs flight at you
-- The speed of the asteroid belts
-- The size of the space between the asteroid belts/the size of the space that you fly within
+- Health points.
+- The speed that the enemy UFOs fly at you.
+- The speed of the asteroid belts.
+- The size of the space between the asteroid belts/the size of the space that you fly within.
 
 We found that if we adjusted all of these aspects every 30 seconds then the game became too challenging too quickly, so we settled for a method ,`GameLevel1.increaseDifficulty()`, that at random increases 1 attribute and randomly adjusts the gap between the asteroid belts.
 
 #### Challenge 2:
 
-Challenges that Ming faced:
-
-- Start animation(includes multiple threads programming),
-- how to shoot missiles(make it looks smoother)
-- two player’s mode(hard to find the strategy of winning game)
+Processing does not have in-built support for when multiple keys are pressed at the same time. However, we needed this functionality in order to address a piece of user feedback - that it would be better if players could move the spaceship using the keyboard instead of the mouse. Initially this seemed like a straightforward feature to implement because the method for moving the spaceship was triggered by the `mousePressed` in-built boolean variable. We thought we could pass `keyPressed && key == ‘ ‘` into the `move()` method and this would be the completion of implementing this feature. Though this did move the spaceship, we discovered during testing that the spaceship would start falling whenever you pressed another key, e.g. to shoot a missile or use the shield, at the same time as moving the spaceship. This is because Processing only registers one key press at a time, and the most recent key press has precedence. There are a few complex solutions to this on Stack Overflow and the Processing forum, but in the end we found a simple solution to this problem - using a Hashmap to track the current key presses. Every time a key is pressed, the ASCII code for the key is added to the Hashmap, and when the key is released the ASCII code is removed. This meant that to trigger a method based on a keypress we pass the boolean value of whether the `HashMap` contains the relevant ASCII code, e.g. to move the spaceship we do `move(keysInUse.contains(32))`.
 
 #### Challenge 3: The asteroid belts
 
 The idea for the asteroid belts was a result of us reviewing our notes from our first qualitative user feedback session - a few players said that the game needed clearer boundaries, and that it was not clear why the spaceship would lose a health point every time it reached the bottom or top of the screen. Given the context of the game, asteroid belts seemed like ideal frames/boundaries for the screen. The first step towards creating an asteroid belt, to move an asteroid across the screen, was simple. Though after this step we faced a few challenges:
 
 - The asteroid belt needs to be a continuous, random sequence of asteroids.
-- The depth of the asteroid belts need to be able to change dynamically.
+- The depth of the asteroid belts needs to be able to change dynamically.
 - Refactoring the code base so that the paths of the enemy UFOs, minerals, and mystery boxes are all within the space between the asteroid belts.
 
 The AsteroidBelt object inherits from `MoveObject`, and it procedurally generates the belt of asteroids based on the:
