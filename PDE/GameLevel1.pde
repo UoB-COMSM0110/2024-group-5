@@ -1,8 +1,10 @@
 import java.util.*;
 class GameLevel1 {
+ 
   //////////////////////////////////////////////////////////
     public boolean gameStarted = false;
    ////////////////////////////////////////////////////
+      public boolean showStartImage = true;
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
@@ -59,10 +61,18 @@ public void drawInitialScene() {
 
     
     public void startLevel1(){
-    if (!gameStarted) {
-        drawInitialScene();  // This will just draw the initial stationary frame.
-        return;
+ if (!gameStarted) {
+        drawInitialScene(); // Draw the initial scene that might be static or an intro view.
+
+        // Check if the start image should be shown
+        if (showStartImage) {
+            imageMode(CENTER);
+            PImage startImg = loadImage("pressstart.png"); // Ensure this image is stored in the sketch's "data" folder
+            image(startImg, width / 2, height / 2);
+        }
+        return; // Stop further execution to wait for the game to start
     }
+
 
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
