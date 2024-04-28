@@ -1,3 +1,5 @@
+# An example of the test cases we checked our game against
+
 - Can start the game.
 - The game doesn’t crash when a key is pressed during the loading screen.
 - Holding mouse click or space bar will move my spaceship up
