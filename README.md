@@ -157,7 +157,7 @@ Our game has many elements that move around the screen. We realised early on in 
 
 We learned from the Think Aloud user feedback session that our game was:
 
-1) too hard for first time players
+1) too hard for first-time players
 
 2) a couple of people said that it was too easy after you had become comfortable with the controls.
 
@@ -167,27 +167,23 @@ We implemented 2 solutions to address this feedback.
 
 2) Create a system that gradually increases the difficulty of the game. Every 30 seconds various values are adjusted to make the game play more challenging.. There are many aspects of the game that when altered will increase or decrease the difficulty of the game:
 
-- Health points
-- The speed that the enemy UFOs flight at you
-- The speed of the asteroid belts
-- The size of the space between the asteroid belts/the size of the space that you fly within
+- Health points.
+- The speed that the enemy UFOs fly at you.
+- The speed of the asteroid belts.
+- The size of the space between the asteroid belts/the size of the space that you fly within.
 
 We found that if we adjusted all of these aspects every 30 seconds then the game became too challenging too quickly, so we settled for a method ,`GameLevel1.increaseDifficulty()`, that at random increases 1 attribute and randomly adjusts the gap between the asteroid belts.
 
 #### Challenge 2:
 
-Challenges that Ming faced:
-
-- Start animation(includes multiple threads programming),
-- how to shoot missiles(make it looks smoother)
-- two player’s mode(hard to find the strategy of winning game)
+Processing does not have in-built support for when multiple keys are pressed at the same time. However, we needed this functionality in order to address a piece of user feedback - that it would be better if players could move the spaceship using the keyboard instead of the mouse. Initially this seemed like a straightforward feature to implement because the method for moving the spaceship was triggered by the `mousePressed` in-built boolean variable. We thought we could pass `keyPressed && key == ‘ ‘` into the `move()` method and this would be the completion of implementing this feature. Though this did move the spaceship, we discovered during testing that the spaceship would start falling whenever you pressed another key, e.g. to shoot a missile or use the shield, at the same time as moving the spaceship. This is because Processing only registers one key press at a time, and the most recent key press has precedence. There are a few complex solutions to this on Stack Overflow and the Processing forum, but in the end we found a simple solution to this problem - using a Hashmap to track the current key presses. Every time a key is pressed, the ASCII code for the key is added to the Hashmap, and when the key is released the ASCII code is removed. This meant that to trigger a method based on a keypress we pass the boolean value of whether the `HashMap` contains the relevant ASCII code, e.g. to move the spaceship we do `move(keysInUse.contains(32))`.
 
 #### Challenge 3: The asteroid belts
 
 The idea for the asteroid belts was a result of us reviewing our notes from our first qualitative user feedback session - a few players said that the game needed clearer boundaries, and that it was not clear why the spaceship would lose a health point every time it reached the bottom or top of the screen. Given the context of the game, asteroid belts seemed like ideal frames/boundaries for the screen. The first step towards creating an asteroid belt, to move an asteroid across the screen, was simple. Though after this step we faced a few challenges:
 
 - The asteroid belt needs to be a continuous, random sequence of asteroids.
-- The depth of the asteroid belts need to be able to change dynamically.
+- The depth of the asteroid belts needs to be able to change dynamically.
 - Refactoring the code base so that the paths of the enemy UFOs, minerals, and mystery boxes are all within the space between the asteroid belts.
 
 The AsteroidBelt object inherits from `MoveObject`, and it procedurally generates the belt of asteroids based on the:
@@ -267,13 +263,26 @@ This would resolve the following issues with users:
 
 <h3 id = "testing">Testing</h3>
 
-#### JUnit Testing
-<br>
+We tested our game frequently during its development lifecycle. Our Git workflow made it easy for us to test each new feature - we had a branch per feature, and before merging the branch into the main branch we would manually test it against the current set of test cases. We wouldn’t merge the branch until it was passing all test cases. After merging the branch we would test the game again, but from the main branch because usually there had been changes to the main branch between the time the feature branch was created and when it was merged. The list of test cases grew as the game developed, here is an example of the test cases that we ran:
 
-#### Regression Testing
-<br>
+- Can start the game.
+- The game doesn’t crash when a key is pressed during the loading screen.
+- Can change the difficulty.
+- Can play the game.
+- When I crash into an asteroid or enemy, then I lose 1 health point.
+- When I lose 3 health points I die.
+- When I collect a mineral, my mineral count goes up.
+- When I press ‘x’ the spaceship fires a laser, and it uses the minerals as ammo.
+- When I hold ‘z’ the spaceship’s shield is activated, and it uses the minerals as fuel.
+- When I hit an enemy with my laser, it dies.
+- When I collect a mystery box, the rogue-style store opens.
+- The powers from the rogue-style store work.
+- The difficulty of the game increases every 30 seconds.
+- When I die I am presented with my score and it is saved in the leaderboard.
+- I can view the leaderboard.
 
-#### Integration Testing
+We tested all of this manually, which was time-consuming, but it did give us a good grasp of the game (and made us excellent players of the game). Often whilst testing the game we would get ideas for improvements, for example, I think our solution for how to increase the difficulty of the game was inspired by us having played the game many times.
+
 <br>
 
 <h2 id="pro">Process</h2>
