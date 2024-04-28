@@ -219,7 +219,7 @@ class GameLevel2 {
       }
       noTint();
       if( helicopter2.health>0){
-        if(keyPressed&&key=='w'){
+        if(keyPressed&&key==' '){
           image(helicopter2.images[4],helicopter2.curX,helicopter2.curY,helicopter2.sizeX,helicopter2.sizeY);
         }else{
           image(helicopter2.images[3],helicopter2.curX,helicopter2.curY,helicopter2.sizeX,helicopter2.sizeY);

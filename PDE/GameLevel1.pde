@@ -204,7 +204,7 @@ class GameLevel1 {
         image(helicopter.images[2], helicopter.curX, helicopter.curY,helicopter.sizeX,helicopter.sizeY);
          tint(150,100); 
       }
-      if(mousePressed){
+      if(keysInUse.contains(32)){
         image(helicopter.images[1],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
       }else{
         image(helicopter.images[0],helicopter.curX,helicopter.curY,helicopter.sizeX,helicopter.sizeY);
