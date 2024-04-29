@@ -38,16 +38,16 @@ GButton loginButton;
 LoginUnit loginUnit;
 boolean isLogin=false;
 
-//declaration of GameConstant
+
 GameConstant gameConstant;
 
-//declaration of ButtonImage
+
 ButtonImage buttonImage; 
 
-//declaration of BackgroundImage
+
 BackgroundImage backgroundImage; 
 
-//declaration of Level
+
 Level level;
 
 //start background 
@@ -161,7 +161,6 @@ void draw(){
     image(buttonImage.BTN_SETTAG,width-70,30,40,40);
     drawButton(Level.LEVEL_BEGIN);
     imageMode(CENTER);
-    // need to be confirmed(design a function matched with level)
     image(gameName,width/2,height/5,gameName.width,gameName.height);
     return;
   }

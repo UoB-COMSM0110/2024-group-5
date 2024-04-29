@@ -23,7 +23,7 @@ final class Client{
    
 }
 
-   //This is an event like onMouseClicked. If you chose to use it, it will be executed whenever the server sends a message 
+    
     public void webSocketEvent(String msg){
       synchronized(this){
         println("getMessage from server");

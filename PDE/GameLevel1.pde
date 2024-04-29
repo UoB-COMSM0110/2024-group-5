@@ -38,11 +38,11 @@ class GameLevel1 {
 
 public void drawInitialScene() {
     imageMode(CORNER);
-    for (Map map : newMaps) {  // Assuming newMaps is an array of Map objects.
+    for (Map map : newMaps) { 
         image(map.image, map.curX, map.curY, width, height);
     }
-    drawSpaceship();  // Correct function name for drawing the helicopter or spaceship
-    drawGamePanel();   // Draw game panel if needed
+    drawSpaceship(); 
+    drawGamePanel();  
 }
 
 

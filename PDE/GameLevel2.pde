@@ -1,5 +1,11 @@
 
 class GameLevel2 {
+public boolean gameStarted = false;
+public boolean showStartImage = true;
+
+HashSet<Integer> keysInUse = new HashSet<Integer>();
+
+
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/4,3,15);
     public Map[] newMaps = new Map[3];
@@ -29,6 +35,21 @@ class GameLevel2 {
     }
     
     public void startLevel2(){
+      
+          if (!gameStarted) {
+        imageMode(CORNER);
+        drawNewMaps(); 
+        drawSpaceship();
+
+        
+        if (showStartImage) {
+            imageMode(CENTER);
+            PImage startImg = loadImage("pressstart.png"); 
+            image(startImg, width / 2, height / 2);
+        }
+        return;
+    }
+    
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
