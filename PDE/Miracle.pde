@@ -38,6 +38,7 @@ GButton loginButton;
 LoginUnit loginUnit;
 boolean isLogin=false;
 
+PImage customCursor;
 
 GameConstant gameConstant;
 
@@ -98,6 +99,10 @@ void setup(){
   //init GameStatus
   gameStatus = new GameStatus();
   
+   customCursor = loadImage("cursor.png");
+   
+   cursor(customCursor, 0, 0);
+     
   //init stars
   stars = new Star[numStars];
   for (int i = 0; i < numStars; i++) {
