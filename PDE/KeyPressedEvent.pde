@@ -1,6 +1,6 @@
 void keyPressed(){
     // Prevent any key interaction until the main menu is reached
-    if (gameStatus.curLevel == Level.LEVEL_START) {
+    if (gameStatus.curLevel == Level.LEVEL_START || gameStatus.curLevel == Level.LEVEL_ROGUE) {
         return; // Do nothing if the game is still at the start screen
     }
 
