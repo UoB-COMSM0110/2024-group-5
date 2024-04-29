@@ -1,3 +1,4 @@
+
 class GameLevel2 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/4,3,15);
@@ -64,6 +65,9 @@ class GameLevel2 {
           }
         }else{
           gameStatus.curLevel = Level.LEVEL_END2;
+          playerLevelMap1.pause();
+                  if (!minim.loadFile("gameoversound.mp3").isPlaying()) {
+            minim.loadFile("gameoversound.mp3").play();}
         }
     }
     public void initByDifficulty(){

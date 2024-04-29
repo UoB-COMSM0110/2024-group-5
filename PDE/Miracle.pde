@@ -68,6 +68,7 @@ AudioPlayer playerLevelMap1;
 AudioPlayer playerBullet1;
 AudioPlayer playerStart;
 AudioPlayer playerClick;
+AudioPlayer gameOverSound;
 
 //GameStatus
 GameStatus gameStatus;
@@ -114,6 +115,9 @@ void setup(){
   
   //init spaceship
   spaceship = new Spaceship();
+  
+    minim = new Minim(this); // Ensure Minim is initialized
+  gameOverSound = minim.loadFile("gameoversound.mp3", 2048); // 2048 is the buffer size, 
 
 }
 

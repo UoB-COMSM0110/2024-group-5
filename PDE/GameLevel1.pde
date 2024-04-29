@@ -1,10 +1,9 @@
 import java.util.*;
 class GameLevel1 {
  
-  //////////////////////////////////////////////////////////
+
     public boolean gameStarted = false;
-   ////////////////////////////////////////////////////
-      public boolean showStartImage = true;
+    public boolean showStartImage = true;
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
     public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
@@ -36,7 +35,7 @@ class GameLevel1 {
     public boolean isSetSpeedPlus = false;
     
     
-    //////////////////////ADDED//////////////////////
+
 public void drawInitialScene() {
     imageMode(CORNER);
     for (Map map : newMaps) {  // Assuming newMaps is an array of Map objects.
@@ -45,7 +44,7 @@ public void drawInitialScene() {
     drawSpaceship();  // Correct function name for drawing the helicopter or spaceship
     drawGamePanel();   // Draw game panel if needed
 }
-/////////////////////////////////////////////////////////
+
 
     public HashSet<Integer> keysInUse = new HashSet<Integer>();
     
@@ -60,54 +59,61 @@ public void drawInitialScene() {
     
 
     
-    public void startLevel1(){
- if (!gameStarted) {
-        drawInitialScene(); // Draw the initial scene that might be static or an intro view.
+public void startLevel1() {
+    if (!gameStarted) {
+        drawInitialScene(); // Draw the initial scene 
 
         // Check if the start image should be shown
         if (showStartImage) {
             imageMode(CENTER);
-            PImage startImg = loadImage("pressstart.png"); // Ensure this image is stored in the sketch's "data" folder
+            PImage startImg = loadImage("pressstart.png"); 
             image(startImg, width / 2, height / 2);
         }
         return; // Stop further execution to wait for the game to start
     }
 
-
-        if(!isGameEnd()&&!isGameEnd){
-          imageMode(CORNER);
-          drawNewMaps();
-          drawCoins();       
-          
-           // Update score only when the game has actually started
+    if (!isGameEnd() && !isGameEnd) {
+        imageMode(CORNER);
+        drawNewMaps();
+        drawCoins();
+        
+        // Update score only when the game has actually started
         scorePanel.updateScore();  // This ensures score updates after game start
         
-          //change difficulty with time passing
-          if(millis()-gameTime>=30000){
+        // Change difficulty with time passing
+        if (millis() - gameTime >= 30000) {
             increaseDifficulty();
             gameTime = millis();
-          }
-                   
-          updateSpaceshipHitTime();
-          drawUfos();
-          drawLazor();
-          drawFastCards();
-          drawSpaceship();
-          drawAsteroidBelts();
-          drawGamePanel();
-          drawShield();
-          drawHealth();
-          helicopter.move(keysInUse.contains(32));
-        }else{
-          gameStatus.curLevel = Level.LEVEL_END;
-          score = scorePanel.score+scorePanel.goldCount*10;
-          println("You lose!Your Score is "+score);
-          writeScoreToTxt();
-          if (playerLevelMap1.isPlaying()) {
-            playerLevelMap1.pause();  // Use pause or stop method as per your audio library's functionality
         }
+        
+        updateSpaceshipHitTime();
+        drawUfos();
+        drawLazor();
+        drawFastCards();
+        drawSpaceship();
+        drawAsteroidBelts();
+        drawGamePanel();
+        drawShield();
+        drawHealth();
+        helicopter.move(keysInUse.contains(32));
+    } else {
+        gameStatus.curLevel = Level.LEVEL_END;
+        score = scorePanel.score + scorePanel.goldCount * 10;
+        println("You lose! Your Score is " + score);
+        writeScoreToTxt();
+        
+        // Check if the gameOverSound is not already playing before playing it
+        if (!gameOverSound.isPlaying()) {
+            gameOverSound.play();
+            gameOverSound.rewind(); // Rewind for the next play.
+        }
+        
+        if (playerLevelMap1.isPlaying()) {
+            playerLevelMap1.pause(); 
         }
     }
+}
+
     public void initByDifficulty(){
       switch(gameStatus.curDifficulty){
         case EASY:
