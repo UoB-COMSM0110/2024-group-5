@@ -1,6 +1,6 @@
 void keyPressed() {
-    // Prevent any key interaction until the main menu is reached
-    if (gameStatus.curLevel == Level.LEVEL_START) {
+    // Prevent any key interaction until the main menu is reached or the game is in the ROGUE level
+    if (gameStatus.curLevel == Level.LEVEL_START || gameStatus.curLevel == Level.LEVEL_ROGUE) {
         return; 
     }
 
@@ -30,7 +30,7 @@ void keyPressed() {
     }
 
     // Other controls
-    if (key == 'X' || key == 'x' && gameStatus.curLevel == Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0) {
+    if ((key == 'X' || key == 'x') && gameStatus.curLevel == Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0) {
         gameLevel1.scorePanel.goldCount--;
         gameLevel1.lazor.isVisiable = true;
     }
