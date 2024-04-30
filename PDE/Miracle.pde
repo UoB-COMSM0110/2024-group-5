@@ -5,6 +5,11 @@ import ddf.minim.*;
 Thread thread;
 boolean isAllDone = false;
 
+// Rectangle dimensions and position of the 'resume' button (pause functionality 
+int btnStartWidth = 200; 
+int btnStartHeight = 100; 
+int btnStartX, btnStartY;
+
 //startAnimation
 int numStars = 500; 
 Star[] stars; 
@@ -121,7 +126,7 @@ void setup(){
   //init spaceship
   spaceship = new Spaceship();
   
-    minim = new Minim(this); // Ensure Minim is initialized
+    minim = new Minim(this); 
   gameOverSound = minim.loadFile("gameoversound.mp3", 2048); // 2048 is the buffer size, 
 
 }
@@ -132,11 +137,7 @@ void setup(){
 void draw(){
   frameRate(180);
   isAllDone = !thread.isAlive();
-  // show background with level
-  // if all objects have been loaded
   if(isAllDone){
-    //init cursor
-     //cursor(buttonImage.cursor);
   }
   
   if(gameStatus.curLevel == Level.LEVEL_START){

@@ -34,7 +34,15 @@ class GameLevel1 {
     public int gameTime2 = millis();
     public boolean isSetSpeedPlus = false;
     
-    
+     boolean gamePaused = false;
+    boolean showPauseScreen = false;
+
+    public void drawPauseScreen() {
+        if (showPauseScreen) {
+            imageMode(CENTER);
+            image(buttonImage.BTN_START, width / 2, height / 2);
+        }
+    }
 
 public void drawInitialScene() {
     imageMode(CORNER);
@@ -50,16 +58,23 @@ public void drawInitialScene() {
     
     
     public GameLevel1(){
-       initCoins();
-       initBoxs();
-       initUfos();
-       initFastCards();
-       initNewMaps();
+    initCoins();
+    initBoxs();
+    initUfos();
+    initFastCards();
+    initNewMaps();
+    gamePaused = false;  
+    showPauseScreen = false; 
     }
     
 
     
 public void startLevel1() {
+      if (gamePaused) {
+        drawPauseScreen(); 
+        return; 
+    }
+    
     if (!gameStarted) {
         drawInitialScene(); // Draw the initial scene 
 
@@ -69,7 +84,7 @@ public void startLevel1() {
             PImage startImg = loadImage("pressstart.png"); 
             image(startImg, width / 2, height / 2);
         }
-        return; // Stop further execution to wait for the game to start
+        return; 
     }
 
     if (!isGameEnd() && !isGameEnd) {
@@ -78,7 +93,7 @@ public void startLevel1() {
         drawCoins();
         
         // Update score only when the game has actually started
-        scorePanel.updateScore();  // This ensures score updates after game start
+        scorePanel.updateScore();  
         
         // Change difficulty with time passing
         if (millis() - gameTime >= 30000) {

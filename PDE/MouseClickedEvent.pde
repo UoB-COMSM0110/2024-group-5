@@ -1,4 +1,5 @@
 void mousePressed(){
+  
   if (!gameStarted && textFullyExpanded()&&gameStatus.curLevel == Level.LEVEL_START) {
     gameStarted = true;
     textVisible = false;
