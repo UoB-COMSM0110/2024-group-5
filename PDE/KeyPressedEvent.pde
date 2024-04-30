@@ -1,4 +1,8 @@
 void keyPressed(){
+  if (gameStatus.curLevel == Level.LEVEL_START || gameStatus.curLevel == Level.LEVEL_ROGUE) {
+    return;
+  }
+  
   gameLevel1.keysInUse.add(keyCode);
   
 //lasor
