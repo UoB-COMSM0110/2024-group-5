@@ -7,6 +7,8 @@ class GameLevel2 {
     public final Ufo[] ufos = new Ufo[5];
     public final Asteriods asteriods = new Asteriods(1);
     public AsteroidBelts asteroidBelts = new AsteroidBelts(1, 50);
+    public boolean gameStarted = false;
+    public boolean showStartImage = true;
     
     private ScorePanel scorePanel = new ScorePanel();
     private ScorePanel scorePanel2 = new ScorePanel();
@@ -28,6 +30,16 @@ class GameLevel2 {
     }
     
     public void startLevel2(){
+      if (!gameStarted) {
+        drawInitialScene(); 
+        if (showStartImage) {
+            imageMode(CENTER);
+            PImage startImg = loadImage("pressstart.png"); 
+            image(startImg, width / 2, height / 2);
+        }
+        return; 
+      }
+      
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
@@ -66,6 +78,16 @@ class GameLevel2 {
           gameStatus.curLevel = Level.LEVEL_END2;
         }
     }
+    
+    public void drawInitialScene() {
+      imageMode(CORNER);
+      for (Map map : newMaps) {  
+          image(map.image, map.curX, map.curY, width, height);
+      }
+      drawSpaceship(); 
+      drawGamePanel();  
+    }
+    
     public void initByDifficulty(){
       switch(gameStatus.curDifficulty){
         case EASY:

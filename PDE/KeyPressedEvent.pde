@@ -5,6 +5,19 @@ void keyPressed(){
   
   gameLevel1.keysInUse.add(keyCode);
   
+      if (keyCode == 32) { 
+        if (gameStatus.curLevel==Level.LEVEL_MAP1) {
+          gameLevel1.gameStarted = true;
+          if (!playerLevelMap1.isPlaying()) {
+              playerLevelMap1.play();
+              playerLevelMap1.loop();
+            }
+          }
+        if (gameStatus.curLevel==Level.LEVEL_MAP2) {
+            gameLevel2.gameStarted = true;
+        }
+    }
+  
 //lasor
    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
        gameLevel1.scorePanel.goldCount--;

@@ -29,10 +29,9 @@ class GameLevel1 {
     public int gameTime = millis();
     public int gameTime2 = millis();
     public boolean isSetSpeedPlus = false;
-    
-    
+    public boolean gameStarted = false;
+    public boolean showStartImage = true;
     public HashSet<Integer> keysInUse = new HashSet<Integer>();
-    
     
     public GameLevel1(){
        initCoins();
@@ -43,10 +42,20 @@ class GameLevel1 {
     }
     
     public void startLevel1(){
+      if (!gameStarted) {
+        drawInitialScene(); 
+        if (showStartImage) {
+            imageMode(CENTER);
+            PImage startImg = loadImage("pressstart.png"); 
+            image(startImg, width / 2, height / 2);
+        }
+        return; 
+      }
         if(!isGameEnd()&&!isGameEnd){
           imageMode(CORNER);
           drawNewMaps();
-          drawCoins();       
+          drawCoins();     
+          scorePanel.updateScore();  
           //change difficulty with time passing
           if(millis()-gameTime>=30000){
             increaseDifficulty();
@@ -70,6 +79,16 @@ class GameLevel1 {
           writeScoreToTxt();
         }
     }
+    
+    public void drawInitialScene() {
+      imageMode(CORNER);
+      for (Map map : newMaps) {  
+          image(map.image, map.curX, map.curY, width, height);
+      }
+      drawSpaceship(); 
+      drawGamePanel();  
+    }
+    
     public void initByDifficulty(){
       switch(gameStatus.curDifficulty){
         case EASY:
@@ -188,6 +207,7 @@ class GameLevel1 {
     }
     
     public void drawGamePanel(){
+      if (gameStarted) {
        fill(255);
        textSize(30);
        textAlign(LEFT);
@@ -198,6 +218,7 @@ class GameLevel1 {
        text("Kill:",0,150);
        text(scorePanel.killCount,120,150);
        scorePanel.updateScore();
+      }
     }
     
     public void drawSpaceship(){
