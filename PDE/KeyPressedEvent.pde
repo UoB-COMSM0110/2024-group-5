@@ -1,42 +1,41 @@
 void keyPressed(){
-  if (gameStatus.curLevel == Level.LEVEL_START || gameStatus.curLevel == Level.LEVEL_ROGUE) {
-    return;
-  }
+  if (gameStatus.curLevel == Level.LEVEL_MAP1 || gameStatus.curLevel == Level.LEVEL_MAP2) {
   
-  gameLevel1.keysInUse.add(keyCode);
-  
-      if (keyCode == 32) { 
-        if (gameStatus.curLevel==Level.LEVEL_MAP1) {
-          gameLevel1.gameStarted = true;
-          if (!playerLevelMap1.isPlaying()) {
-              playerLevelMap1.play();
-              playerLevelMap1.loop();
+    gameLevel1.keysInUse.add(keyCode);
+    
+        if (keyCode == 32) { 
+          if (gameStatus.curLevel==Level.LEVEL_MAP1) {
+            gameLevel1.gameStarted = true;
+            if (!playerLevelMap1.isPlaying()) {
+                playerLevelMap1.play();
+                playerLevelMap1.loop();
+              }
             }
+          if (gameStatus.curLevel==Level.LEVEL_MAP2) {
+              gameLevel2.gameStarted = true;
           }
-        if (gameStatus.curLevel==Level.LEVEL_MAP2) {
-            gameLevel2.gameStarted = true;
-        }
+      }
+    
+  //lasor
+    if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+        gameLevel1.scorePanel.goldCount--;
+        gameLevel1.lazor.isVisiable = true;
     }
-  
-//lasor
-   if(key=='X'||key=='x'&&gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
-       gameLevel1.scorePanel.goldCount--;
-       gameLevel1.lazor.isVisiable = true;
-   }
-   
-   //quit and save game
-   if(key=='q'||key=='Q'){
-     gameStatus.curLevel = Level.LEVEL_BEGIN;
-   }
-   
-   //shield
-   if(keyCode == 90 && gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
-     gameLevel1.scorePanel.goldCount--;
-     gameLevel1.shield.showShield(); 
-     if (gameLevel1.scorePanel.goldCount == 0) {
-       gameLevel1.shield.closeShield();
-     }
-   }
+    
+    //quit and save game
+    if(key=='q'||key=='Q'){
+      gameStatus.curLevel = Level.LEVEL_BEGIN;
+    }
+    
+    //shield
+    if(keyCode == 90 && gameStatus.curLevel==Level.LEVEL_MAP1 && gameLevel1.scorePanel.goldCount > 0){
+      gameLevel1.scorePanel.goldCount--;
+      gameLevel1.shield.showShield(); 
+      if (gameLevel1.scorePanel.goldCount == 0) {
+        gameLevel1.shield.closeShield();
+      }
+    }
+  }
    
    //show start animation
    if(key=='r'||key=='R'){
