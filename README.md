@@ -39,7 +39,7 @@ Kisshan Sridhar | bg23463@bristol.ac.uk | kisshan-s
 <h4>Team Photo</h4>  
 
 
-![alt text](docs/IMG_1243.HEIC)  
+![alt text](docs/team-photo.png)  
 
 
 
