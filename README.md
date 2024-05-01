@@ -133,8 +133,7 @@ Overall, looking at the game through the lens of different types of users allowe
 
 >669 words
 
-*This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we could stay on track with our goals and ensure the final 
-product could meet the intended requirements.*
+*This section explores the design aspects of our game. Thinking about system architecture; creating class and behaviour diagrams; and drawing on requirements information; provided a roadmap for development. This ensured we could stay on track with our goals and ensure the final product could meet the intended requirements.*
 
 
 <h3 id="system-architecture">System Architecture</h3>
