@@ -1,6 +1,6 @@
 class GameLevel2 {
-    public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
-    public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/3,3,15);
+    public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,7);
+    public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/3,3,7);
     public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
@@ -51,7 +51,7 @@ class GameLevel2 {
      
           
           //change speed with time passing
-          if(millis()-gameTime>=30000){
+          if(millis()-gameTime>=20000){
             println("speed up!");
             for(Ufo ufo:ufos){
               ufo.speed += 5;
@@ -83,15 +83,6 @@ class GameLevel2 {
         }
     }
     
-    //public void drawInitialScene() {
-    //  imageMode(CORNER);
-    //  for (Map map : newMaps) {  
-    //      image(map.image, map.curX, map.curY, width, height);
-    //  }
-    //  drawSpaceship(); 
-    //  drawGamePanel();  
-    //}
-    
     public void initByDifficulty(){
       switch(gameStatus.curDifficulty){
         case EASY:
@@ -109,11 +100,11 @@ class GameLevel2 {
     
     private void setEasy(){
       helicopter.health = 3;
-      helicopter.speed = 15;
+      helicopter.speed = 7;
       helicopter2.health = 3;
-      helicopter2.speed = 15;
+      helicopter2.speed = 7;
       for(int i=0;i<ufos.length;i++){
-        ufos[i].speed = 15;
+        ufos[i].speed = 10;
       }
       helicopter.sizeX = 100;
       helicopter.sizeY = 100;
@@ -123,11 +114,11 @@ class GameLevel2 {
     
     private void setNormal(){
       helicopter.health = 2;
-      helicopter.speed = 18;
+      helicopter.speed = 12;
       helicopter2.health = 2;
-      helicopter2.speed = 18;
+      helicopter2.speed = 12;
       for(int i=0;i<ufos.length;i++){
-        ufos[i].speed = 17;
+        ufos[i].speed = 15;
       }
       helicopter.sizeX = 110;
       helicopter.sizeY = 110;
@@ -137,11 +128,11 @@ class GameLevel2 {
     
     private void setHard(){
       helicopter.health = 1;
-      helicopter.speed = 21;
+      helicopter.speed = 17;
       helicopter2.health = 1;
-      helicopter2.speed = 21;
+      helicopter2.speed = 17;
       for(int i=0;i<ufos.length;i++){
-        ufos[i].speed = 20;
+        ufos[i].speed = 23;
       }
       helicopter.sizeX = 120;
       helicopter.sizeY = 120;
