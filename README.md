@@ -72,15 +72,15 @@ We envisioned integrating elements that would encourage strategic thinking and i
 
 ![alt text](docs/use-case-diagram.png)
 
-The figure above shows our use-case diagram. We already had many ideas about what we could add to the game and what we would like to do, but we were unsure which ones to go ahead with. By pausing and thinking about the use cases in relation to the ideas we already had for the game, we were able to obtain a much clearer understanding of what features we had thought of would be most suitable for the game. Not only did this help us organise our ideas and have a much more focused approach to building our game, but it also helped us to prioritise our workload, as we could see from understanding the use cases which features would be most important to the users. For example, when writing the use case for a player navigating the spaceship around the map to avoid obstacles, we had questions about how to implement certain mechanics of the game: “How are we going to cause the spaceship to fall?”; “How are we going to procedurally generate the map?”. Looking at the game from the perspective of the player brought the most pressing matters into focus and allowed us to tailor the gameplay experience specifically for the player.
+The figure above shows our use-case diagram. We already had many ideas about what we could add to the game and what we would like to do, but we were unsure which ones to go ahead with. By pausing and thinking about the use cases in relation to the ideas we already had for the game, we were able to obtain a much clearer understanding of what features we had thought of would be most suitable for the game. Not only did this help us organise our ideas and have a more focused approach to building our game, but it also helped us to prioritise our workload, as we could see from understanding the use cases which features would be most important to the users. For example, when writing the use case for a player navigating the spaceship around the map to avoid obstacles, we had questions about how to implement certain mechanics of the game: “How are we going to cause the spaceship to fall?”; “How are we going to generate the map procedurally?”. Looking at the game from the player's perspective brought the most pressing matters into focus and allowed us to tailor the gameplay experience specifically for the player.
 
-From designing a use-case diagram, we were able to distinguish between two types of players, a regular player and an experienced player. Fortunately, the simple nature of our game means that there is little difference in the two players, bar the experienced player being able to see their previous high score from the high score menu. With this in mind, we were able to go forward with the design process and ensure the game catered to any type of player. 
+From designing a use-case diagram, we were able to distinguish between two types of players, a regular player and an experienced player. Fortunately, the simple nature of our game means that there is little difference between the two players, bar the experienced player being able to see their previous high score from the high score menu. With this in mind, we were able to go forward with the design process and ensure the game catered to any type of player. 
 
-For example, we originally had a tutorial level which would play every time the game was run. This was great for new players as it would teach them the controls in a consequence-free setting, but for experienced players it would be boring and possibly deter them from starting a new game if they had to go through the tutorial each time. Based on that, we implemented a simple panel which explained the controls that could be clicked on from the main menu, resulting in a non-intrusive way to display the controls.
+For example, we originally had a tutorial level which would play every time the game was run. This was great for new players as it would teach them the controls in a consequence-free setting, but for experienced players, it would be boring and possibly deter them from starting a new game if they had to go through the tutorial each time. Based on that, we implemented a simple panel which explained the controls that could be clicked on from the main menu, resulting in a non-intrusive way to display the controls.
 
 <h3 id="user-stories">User Stories</h3>
 
-The creation of user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
+Creating user stories in tandem with use-cases further bolstered our understanding of what features our game required, and in turn, which of our ideas were unnecessary for the final implementation. The user stories are as follows:
 
 <details open>
 <summary> As a Player: </summary>  
@@ -134,15 +134,15 @@ Overall, looking at the game through the lens of different types of users allowe
 
 >669 words
 
-*This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we could stay on track with our goals and ensure that the final 
-product was able to meet the intended requirements.*
+*This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we could stay on track with our goals and ensure the final 
+product could meet the intended requirements.*
 
 
 <h3 id="system-architecture">System Architecture</h3>
 
-Reflecting on our game system’s core design, it was clear that the utilisation of an Object-Oriented Architecture (OOA) was incredibly useful in shaping the collaborative development process. The inherent benefit of OOA is in its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems [^8]. On top of helping to streamline collaboration, OOA also allowed team members to focus on their own tasks without affecting the work of others. 
+Reflecting on our game system’s core design, it was clear that using an Object-Oriented Architecture (OOA) was useful in shaping the collaborative development process. The inherent benefit of OOA is its ability to provide clear and structured organisation of classes, which assuaged the time wasted in team discussions on clarification of systems [^8]. On top of helping to streamline collaboration, OOA also allowed team members to focus on their tasks without affecting the work of others. 
 
-Furthermore, its synergy with the Agile development style is of great benefit, as it allowed for modifiable end-goals. The modular nature of OOA allows for the iterative and adaptive style of development embodied by the agile process [^9], which allowed us to address challenges as and when they appeared.
+Furthermore, its synergy with the Agile development style is of additional benefit, as it allows for modifiable end goals. The modular nature of OOA facilitates the iterative and adaptive style of development embodied by the agile process [^9], which allowed us to address challenges as and when they appeared.
 
 <h3 id="class-diagram">Class Diagram</h3>
 
@@ -158,15 +158,15 @@ The figure above illustrates the high-level class diagram for the game system. T
   - `Map` creates moveable map objects.
   - `Panel` displays scores and statistics.
   - `Obstacle` checks for player collisions.
-+ `MoveObject` and `FixedObject` - these are two main base classes for all objects within the game and allow for the distinction to be made between moveable and static entities.
++ `MoveObject` and `FixedObject` - the two main base classes for all objects within the game and allow for the distinction between moveable and static entities.
 
 Importantly, the creation of the class diagram itself provided clarity on the architecture. Creating the diagram involved thinking about multiplicity in class relationships, as well as inheritance and polymorphism, which allowed us to streamline our ideas. In addition to this, the diagram served as an effective communication tool amongst our team and facilitated a shared understanding of the game’s overall design and structure [^14], so everyone knew how the system worked.
 
-Using the class diagram provided a clear and organised visual representation of the game’s architecture, making very complex relationships between classes more understandable. This proved invaluable when it came to development. Most notably, the diagram acted as a blueprint for the development process, guiding how we implemented our classes, their methods, and cross-class interactions.
+The class diagram provided a clear and organised visual representation of the game’s architecture, making complex inter-class relationships more understandable. This proved invaluable when it came to development. Most notably, the diagram acted as a blueprint for the development process, guiding how we implemented our classes, their methods, and cross-class interactions.
 
-The structure lent itself easily to modification, by identifying the core classes like `MovedObject` and `FixedObject` early, we were able establish base functionality and extend that into more specialised classes with specific responsibilities and designs. The addition and removal of elements such as  weapons became easy to do without a significant overhaul of the system due to the way each class was designed.
+The structure lent itself easily to modification, by identifying the core classes like `MovedObject` and `FixedObject` early, we established base functionality and extended that into specialised classes with specific responsibilities and designs. The addition and removal of elements such as  weapons became easy to do without a significant overhaul of the system due to how each class was designed.
 
-An example of the flexibility of the architecture lies in the `Enemy` system. When we first played the game, we found there was a lot of screen clutter because of the number of different enemies. The use of an `Enemy` subclass, where special enemy types can inherit from, allowed us to remove unnecessary classes without affecting the other enemy types.
+An example of the architecture's flexibility lies in the `Enemy` system. When we first played the game, we found there was a lot of screen clutter because of the number of different enemies. Using an `Enemy` subclass, from which special enemy types can inherit, allowed us to remove unnecessary classes without affecting the other enemy types.
 
 A big challenge design was to balance the need for a comprehensive design (capturing all the necessary details of the game’s classes) with simplicity. By designing our classes in a way where we specify a broad subclass (like `MoveObject`), and extend it further from there, we were able to create something interpretable by all members.
 
@@ -176,7 +176,7 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 >725 words
 
-Our game has many elements that move around the screen. We realised early on in the development process that it makes sense to have an object that stores all of the necessary data for moving an element around the game screen. This led to us creating `MoveObject` , it has attributes and methods for accessing co-ordinates, the value for speed, and the element’s image.
+Our game has many elements that move around the screen. Early on in the development process, we realised that it makes sense to have an object that stores all of the necessary data for moving an element around the game screen. This led to us creating `MoveObject`, which has attributes and methods for accessing coordinates, the value for speed, and the element’s image.
 
 #### Challenge 1: Appropriate level of difficulty
 
@@ -204,7 +204,7 @@ Processing does not have built-in support for when multiple keys are pressed sim
 
 This seemed like a straightforward feature to implement. We thought we could pass `keyPressed && key == ‘ ‘` into the move() method and this would be the completion of implementing this feature. Though this did move the spaceship, we discovered during testing that the `spaceship` would start falling whenever you pressed another key, e.g. to shoot a missile or use the shield, at the same time as moving the `spaceship`. However, Processing only registers one key press at a time, and the most recent key press has precedence [^16]. 
 
-There are a few complex solutions to this on Stack Overflow and the Processing forum [^15], but in the end we found a more simple one - using a Hashmap to track the current key presses. Every time a key is pressed, the ASCII code for the key is added to the Hashmap, and when the key is released the ASCII code is removed. This meant that to trigger a method based on a keypress we pass the boolean value of whether the HashMap contains the relevant ASCII code, e.g. to move the spaceship we do move(keysInUse.contains(32)).
+There are a few complex solutions to this on Stack Overflow and the Processing forum [^15], but in the end, we found a simpler one - using a Hashmap to track the current key presses. Every time a key is pressed, the ASCII code for the key is added to the Hashmap, and when the key is released the ASCII code is removed. This meant that to trigger a method based on a keypress we pass the boolean value of whether the HashMap contains the relevant ASCII code, e.g. to move the spaceship we do move(keysInUse.contains(32)).
 
 
 #### Challenge 3: The asteroid belts
@@ -222,7 +222,7 @@ The `AsteroidBelt` object inherits from `MoveObject`, and it procedurally genera
 
 Being able to change these values allows us to adjust the difficulty of the game.
 
-Changing the boundaries of the screen like this meant refactoring the code for the other moving elements in the game because they always need to be within the playable space of the screen, i.e., within the gap between the asteroid belts. Prior to this the paths for all of the moving elements were limited by the constant values of `height` and `width`. Changing the implementation for all of the moving objects so that their paths could be dynamically updated so to keep them between the asteroid belts required restructuring the code base to allow for the necessary values from `AsteroidBelts` object to be passed to the other moving objects.
+Changing the boundaries of the screen like this meant refactoring the code for the other moving elements in the game because they always need to be within the playable space of the screen, i.e., within the gap between the asteroid belts. Prior to this the paths for all moving elements were limited by the constant values of `height` and `width`. Changing the implementation for all of the moving objects so that their paths could be dynamically updated so to keep them between the asteroid belts required restructuring the code base to allow for the necessary values from the `AsteroidBelts` object to be passed to the other moving objects.
 
 <h2 id="eval">Evaluation</h2>
 
@@ -356,7 +356,7 @@ The Kanban board was fundamental to monitoring our progress as a team. As studie
 *Snapshot of Kanban board*
 
 
-Using Kanban on GitHub provided synergy with its other features; were able to assign Kanban issues to members and create branches for those issues to be solved:    
+Using Kanban on GitHub provided synergy with its other features; we were able to assign Kanban issues to members and create branches for those issues to be solved:    
 
 
 ![alt text](docs/kanban-two.png)  
@@ -383,9 +383,9 @@ Overall, utilising the Kanban board allowed us to establish a clear, visual repr
 
 ##### Planning Poker  
 
-Once we populated the Kanban with issues to be solved, we held 'planning poker' sessions at weekly meetings, as it is proven to be helpful in cementing team understanding and estimating effort for items to be implemented [^11] . We found planning poker sessions to be incredibly informative to our collective understanding of the difficulty of a task, as well as being able to solve any misunderstandings between members.
+Once we populated the Kanban with issues to be solved, we held 'planning poker' sessions at weekly meetings, as it has proven to be helpful in cementing team understanding and estimating effort for items to be implemented [^11]. We found planning poker sessions to be informative to our understanding of the difficulty of a task, as well as being able to solve any misunderstandings between members.
 
-One such example was when we decided on the difficulty of adding a story to the game. Half the team thought this would be very easy, as it involved writing a short backstory which required very little effort, whereas the other half considered this to be much more effortful, as it would require a new button on the main menu that players could click on to view the story, which would require a redesign of the main UI. If we were using just a Kanban board, this misunderstanding would have caused issues in team flow, but through planning poker, we were able to plan with awareness of how each subteam viewed the difficulty of a task and allocate the proper time for it.  
+One such example was when we decided on the difficulty of adding a story to the game. Half the team thought this would be very easy, as it involved writing a short backstory which required very little effort, whereas the other half considered this to be much more effortful, as it would require a new button on the main menu that players could click on to view the story, which would require a redesign of the main UI. If we were using just a Kanban board, this misunderstanding would have caused issues in team flow, but through planning poker, we were able to plan with awareness of how each subteam viewed the difficulty of a task and allocated the proper time for it.  
 
 ##### Pair Programming
 
@@ -406,7 +406,7 @@ Reflecting on this project as a team, we all felt that we learned a lot from it 
 
 Thinking about the process especially, we quickly learned that if the whole team isn't on the same page and working at the same level, everyone suffers for it. It was vital to us to ensure that we performed the Agile methods of planning poker, open communication, pair programming, and Kanban to ensure everyone had a strong foundation to build on. 
 
-A large challenge when desigining a game is how rapidly it changes - features that may seem promising at first turn out to be too difficult to implement and others may be received poorly by the users. Reflecting on design, we see that an OOA was vital to our project, as it was perfectly suited for the iterative and adaptive development that building a game required. 
+A large challenge when designing a game is how rapidly it changes - features that may seem promising at first turn out to be too difficult to implement and others may be received poorly by the users. Reflecting on design, we see that an OOA was vital to our project, as it was perfectly suited for the iterative and adaptive development that building a game required. 
 
 Of course, such changes could not be implemented without a strong evaluative process, which we managed well, using both qualitative and quantitative data. Cross-referencing the two enabled us to spot where issues in our code came from and begin work on tackling them, resulting in a game that was field-tested to be fun and engaging and underscoring the importance of routine user feedback in development.
 
