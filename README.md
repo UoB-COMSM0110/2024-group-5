@@ -36,11 +36,16 @@ Jan Phillips | ls23767@bristol.ac.uk | ZathrasXI
 Kisshan Sridhar | bg23463@bristol.ac.uk | kisshan-s
 
 
-<h4>Team Photo</h4>
+<h4>Team Photo</h4>  
 
-[!alt text](docs/IMG_1243.HEIC)
 
-<h4>Video</h4>
+[!alt text](docs/IMG_1243.HEIC)  
+
+
+
+<h4>Video</h4>  
+
+
 
 Video can be found <a href="https://youtu.be/DYD5ojkcdww">here</a>
 
