@@ -29,7 +29,6 @@
 
 | Name         | E-mail           | Github  |
 | ------------- |:-------------:| :----:|
-Hamza Boufous | ij23594@bristol.ac.uk | hamzamboufousm
 Ming Liu | yi23835@bristol.uk | VegetableBirdB
 Quillan Liu | zp23409@bristol.ac.uk | Quiilan-Liu
 Jan Phillips | ls23767@bristol.ac.uk | ZathrasXI
