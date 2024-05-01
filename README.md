@@ -61,9 +61,9 @@ We envisioned integrating elements that would encourage strategic thinking and i
 
 <h2 id="requirements">Requirements</h2>
 
-*This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
-
 >663 words
+
+*This section relates to the requirements of our game, where we explore the essential parts needed in our game to provide the best use case for the users. Through the creation of use-case diagrams and user stories, and the exploration of early-stage design and the ideation process, we finalised the acceptance criteria for a finished project.*
 
 <h3 id="use-case-diagram">Use Case Diagram</h3>
 
@@ -129,10 +129,11 @@ Overall, looking at the game through the lens of different types of users allowe
 
 <h2 id="design">Design</h2>
 
+>669 words
+
 *This section explores the design aspects of our game. Thinking about system architecture, creating class and behaviour diagrams, and drawing on the previous information we learned from thinking about requirements, provided a roadmap for development. This ensured we could stay on track with our goals and ensure that the final 
 product was able to meet the intended requirements.*
 
->669 words
 
 <h3 id="system-architecture">System Architecture</h3>
 
@@ -170,7 +171,7 @@ A big challenge design was to balance the need for a comprehensive design (captu
 
 <h2 id="imp">Implementation</h2>  
 
->725
+>725 words
 
 Our game has many elements that move around the screen. We realised early on in the development process that it makes sense to have an object that stores all of the necessary data for moving an element around the game screen. This led to us creating `MoveObject` , it has attributes and methods for accessing co-ordinates, the value for speed, and the element’s image.
 
@@ -222,9 +223,10 @@ Changing the boundaries of the screen like this meant refactoring the code for t
 
 <h2 id="eval">Evaluation</h2>
 
+>725 words
+
 *This is the evaluations section, where we go through quantitative and qualitative evaluations, which we have used to improve our game. We also describe the methods of testing we employed.*
 
->725
 
 <h3 id="NASA">Quantitative Evaluation: NASA TLX Scores</h3>
 
@@ -311,9 +313,9 @@ As an example of our white-box testing,  we created a table to check asset dimen
 
 <h2 id="pro">Process</h2>
 
-*This is the process section, where we discuss how we organised ourselves and coordinated with the team to produce the best result we can*
-
 >829 words
+
+*This is the process section, where we discuss how we organised ourselves and coordinated with the team to produce the best result we can*
 
 Our goal for our process was to work according to the Agile methodology. We held weekly meetings on Mondays after each workshop, which provided a valuable opportunity for face-to-face discussions and to build up rapport within the team. Additionally, we frequently held 'Chorei' style meetings [^7], where each member informed the team of their current task and expected completion time. These sessions were held over the phone, to allow ease of participation. Due to their brevity and regularity, missing one meeting was not detrimental, as another meeting would soon follow. Being aware of other members' activities assisted collaboration, often resulting in overlapping efforts and smoother project execution.
 
@@ -411,11 +413,12 @@ Had we the time and resources to develop the game further, the next immediate fe
 - A game map where players can explore different planets and systems to hunt rarer materials
 - Enhanced enemy AI 
 
-All with the aim of making the game more exciting and enhancing replayability.
+All to make the game more exciting and enhance replayability.
 
 In sum, this project was as much about learning effective team collaboration and agile project management as it was about game development. Tools like GitHub and Kanban boards proved essential in maintaining a dynamic and responsive development environment. These experiences have equipped us with valuable skills and insights, preparing us for future projects with an enhanced approach to tackling software development challenges.
 
-
+-------
+<h2>Bibliography</h2>
 
 [^1]: Nielsen, J. (1994a). Enhancing the explanatory power of usability heuristics. Proc. ACM CHI'94 Conf. (Boston, MA, April 24-28), 152-158.
 [^2]: Obtained from Nielsen Norman Group. Available at: https://media.nngroup.com/media/articles/attachments/Heuristic_Evaluation_Workbook_1_Fillable.pdf
