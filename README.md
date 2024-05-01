@@ -1,12 +1,7 @@
 # Group 5 - MIRACLE
-<style>
-    img{
-    margin-left:auto; 
-    margin-right:auto;
-    }
-</style>
-<img src="docs/banner.png" alt="banner image">
-
+<p align="centre">
+<img src="docs/banner.png" alt="banner image" />
+</p>
 >Total word count: 4101
 
 # Contents
