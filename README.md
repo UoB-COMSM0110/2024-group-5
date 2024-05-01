@@ -197,7 +197,7 @@ We implemented 2 solutions to address this:
 
 We found that if we adjusted all of these aspects every 30 seconds then the game became too challenging too quickly, so we used the method `GameLevel1.increaseDifficulty()`, which at random increases 1 attribute and randomly adjusts the gap between the asteroid belts.
 
-#### Challenge 2:
+#### Challenge 2: KeyPressed events
 
 Processing does not have built-in support for when multiple keys are pressed simultaneously. However, we needed this functionality to address user feedback - that it would be better if players could move the spaceship using the keyboard instead of the mouse. 
 
@@ -286,7 +286,7 @@ As well as increasing testing and fixing user-reported bugs.
 
 <h4>Regression Testing</h4>
 
-We tested our game frequently during its development lifecycle. Our Git workflow made it easy for us to test each new feature - we had a branch per feature, and before merging the branch into the main branch we would manually test it against a current set of [test cases](docs/test-cases.md), which would grow as the game developed.
+We tested our game frequently during its development lifecycle. Our Git workflow made it easy for us to test each new feature - we had a branch per feature, and before merging the branch into the main branch we would manually test it against a current set of [test cases](docs/test-cases.md), which grew as the game developed.
 
 
 This set of test cases provided a good base case for regression testing. As all new features were repeatedly tested against these cases, we could be sure that improvements weren't made at the cost of an earlier one. By utilising black box testing, we could immediately identify improvements or problems in the newer code as one version of the game would be noticeably superior.
