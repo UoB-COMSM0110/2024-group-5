@@ -153,7 +153,7 @@ The figure above illustrates the high-level class diagram for the game system. T
 
 + `Spaceship`: represents the player's spaceship, which will be equipped with health points and weapons. It has a central role in gameplay, as evidenced by the 1..1 relationship with the `Player`. It is also part of a composition relationship with an array of weapon objects.
 + `Enemy`: Abstracts various enemy types in the game, which can be extended into specialist enemy types.alt text
-+ `Map`, *Panel*, and *Obstacle*: Concerned with the game’s environment, UI, and difficulty, respectively.
++ `Map`, `Panel`, and `Obstacle`: Concerned with the game’s environment, UI, and difficulty, respectively.
   - `Map` creates moveable map objects.
   - `Panel` displays scores and statistics.
   - `Obstacle` checks for player collisions.
