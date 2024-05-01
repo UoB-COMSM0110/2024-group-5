@@ -1,6 +1,6 @@
 class GameLevel2 {
     public final Helicopter helicopter = new Helicopter("helicopter.png",0,width/4,3,15);
-    public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/4,3,15);
+    public final Helicopter helicopter2 = new Helicopter("helicopter2.png",0,width/3,3,15);
     public Map[] newMaps = new Map[3];
     public int randomMap = (int)random(5);
     public final GoldCoin[] coins = new GoldCoin[10];
@@ -21,22 +21,26 @@ class GameLevel2 {
     
     public int gameTime = millis();
     public boolean isSetSpeedPlus = false;
+    Gif startImg;
+
     
     public GameLevel2(){
        initCoins();
        initUfos();
        initFastCards();
        initNewMaps();
+       startImg = new Gif(sketch, "spacebarBegin.gif");
+       startImg.play();
     }
     
     public void startLevel2(){
       if (!gameStarted) {
-        drawInitialScene(); 
-        if (showStartImage) {
-            imageMode(CENTER);
-            PImage startImg = loadImage("pressstart.png"); 
-            image(startImg, width / 2, height / 2);
-        }
+        drawNewMaps();
+        drawAsteroidBelts();
+        drawSpaceship(); 
+        drawGamePanel();
+        imageMode(CENTER);
+        image(startImg, width / 2, height / 2);
         return; 
       }
       
@@ -79,14 +83,14 @@ class GameLevel2 {
         }
     }
     
-    public void drawInitialScene() {
-      imageMode(CORNER);
-      for (Map map : newMaps) {  
-          image(map.image, map.curX, map.curY, width, height);
-      }
-      drawSpaceship(); 
-      drawGamePanel();  
-    }
+    //public void drawInitialScene() {
+    //  imageMode(CORNER);
+    //  for (Map map : newMaps) {  
+    //      image(map.image, map.curX, map.curY, width, height);
+    //  }
+    //  drawSpaceship(); 
+    //  drawGamePanel();  
+    //}
     
     public void initByDifficulty(){
       switch(gameStatus.curDifficulty){
