@@ -36,6 +36,16 @@ Jan Phillips | ls23767@bristol.ac.uk | ZathrasXI
 Kisshan Sridhar | bg23463@bristol.ac.uk | kisshan-s
 
 
+<h4>Team Photo</h4>
+
+<img src = "https://github.com/UoB-COMSM0110/2024-group-5/blob/a71d601dd80b49649719686444c107a0d0366127/docs/IMG_1243.HEIC">
+
+<h4>Video</h4>
+
+Video can be found <a href="https://youtu.be/DYD5ojkcdww">here</a>
+
+
+
 
 <h2 id="intro">Introduction</h2>
 
