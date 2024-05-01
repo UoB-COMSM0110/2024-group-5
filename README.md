@@ -43,13 +43,12 @@ Kisshan Sridhar | bg23463@bristol.ac.uk | kisshan-s
 
 <h4>Team Photo</h4>
 
-
 ![alt text](docs/team-photo.JPG)  
 
 
 <h4>Video</h4>
 
-<a href="https://youtu.be/DYD5ojkcdww">
+<a href="https://youtu.be/ggSGXcJjAfQ">
     <img src="docs/vid-thumbnail.png">
 </a>
 
