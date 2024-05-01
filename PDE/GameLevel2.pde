@@ -207,6 +207,7 @@ class GameLevel2 {
     }
     
     public void drawGamePanel(){
+      if (gameStarted) {
        fill(255);
        textSize(30);
        textAlign(LEFT);
@@ -225,6 +226,7 @@ class GameLevel2 {
        if(helicopter2.health>0){
          scorePanel2.updateScore();
        }
+      }
     }
     
     public void drawSpaceship(){
