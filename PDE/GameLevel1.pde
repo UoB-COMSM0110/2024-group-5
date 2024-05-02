@@ -442,18 +442,22 @@ class GameLevel1 {
     }
     
     public void increaseDifficulty() {
-      int randomSelect = (int)random(4);
+      int randomSelect = (int)random(3);
       switch (randomSelect) {
         //speed of asteroid belts
-         case 1:
+         case 0:
            asteroidBelts.setSpeed(asteroidBelts.getSpeed() + 5);
            break;
         //speed of aliens
-         case 2:
+         case 1:
            for (Ufo ufo: ufos){
-             ufo.setSpeed(ufo.getSpeed() + 5);
+             ufo.setSpeed(ufo.getSpeed() + 3);
            }
-           break; 
+           break;
+         // speed of spaceship
+         case 2:
+           if (helicopter.speed < 21) helicopter.speed += 2;
+             break;
       }
      //always change the distance between asteroid belts
      int minRange = asteroidBelts.getMinRange();
